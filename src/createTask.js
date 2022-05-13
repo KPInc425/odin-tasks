@@ -1,6 +1,9 @@
+import GenerateUniqueID from './generateUniqueID';
+
 function createTask(title, description, dueDate, priority) {
     const dateNow = new Date()
     const createDate = new Date(dateNow.getTime());
+    const ID = GenerateUniqueID();
     // console.log(dateNow);
     dateNow.setDate(dateNow.getDate()+1);
     // console.log(dateNow);
@@ -16,10 +19,14 @@ function createTask(title, description, dueDate, priority) {
     
     
     const info = () => {
-        return console.log({title, description, dueDate, createDate, priority});
+        console.log({title, description, dueDate, createDate, priority, ID});
     }
 
     return {
+        title,
+        description,
+        dueDate,
+        priority,
         info
     }
 }
