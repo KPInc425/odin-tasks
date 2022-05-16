@@ -1,25 +1,31 @@
 import _ from 'lodash';
-import myName from './myName';
-import printMe from './print';
+import greeting from './greeting';
 import createTask from './createTask';
+import displayCreateSimpleTask from './displayCreateSimpleTask';
+import createProject from './createProject';
+import './reset.css';
+import './style.css';
+
 
 // const app = (() => {
 
-    let taskArray = [];
+    let projectArray = [];
+
+    
 
     function component() {
         const element = document.createElement('div');
         const btn = document.createElement('button');
     
         // Lodash, now imported by this script
-        element.textContent = myName('KP');
+        element.textContent = greeting('KP');
     
         btn.innerText = 'Click me and check the console!';
         btn.addEventListener('click', () => {
             let newTask = createTask();
-            taskArray.push(newTask);
-            console.log(taskArray);
-            console.log(taskArray[0].info());
+            let newProject = createProject();
+            newProject.addTaskToProject(newTask);
+            console.log(newProject);
         })
         // btn.onclick = printMe;
     
@@ -28,6 +34,21 @@ import createTask from './createTask';
         return element;
     }
     document.body.appendChild(component());
+    document.body.appendChild(displayCreateSimpleTask());
+
+    function newTaskEventListener() {
+        const btnNewTask = document.querySelector('.btnNewTask');
+        btnNewTask.addEventListener('click', () => {
+            let newTask = createTask(); 
+            let newProject = createProject();
+            newProject.addTaskToProject(newTask);
+            // console.log(newProject);
+            projectArray.push(newProject);
+            console.log(projectArray)
+        })
+    }
+
+    newTaskEventListener();
 
     // let newTask = createTask();
 // })();

@@ -1,33 +1,35 @@
 import GenerateUniqueID from './generateUniqueID';
 
-function createTask(title, description, dueDate, priority) {
+function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject) {
     const dateNow = new Date()
-    const createDate = new Date(dateNow.getTime());
+    const createDate = new Date(); //new Date(dateNow.getTime());
     const ID = GenerateUniqueID();
     // console.log(dateNow);
     dateNow.setDate(dateNow.getDate()+1);
     // console.log(dateNow);
-    title = title || "New Task";
-    description = description || "New Description";
-    if (dueDate == undefined) {
-        dueDate = dateNow;
+    taskTitle = taskTitle || "New Task";
+    taskDescription = taskDescription || "New Description";
+    if (taskDueDate == undefined) {
+        taskDueDate = dateNow;
     } else {
-        dueDate = dueDate
+        taskDueDate = taskDueDate
     }
     // dueDate = dueDate | dateNow;
-    priority = priority || "Low";
+    taskPriority = taskPriority || "Low";
+    taskProject = taskProject || "Sample Project"
     
     
-    const info = () => {
-        console.log({title, description, dueDate, createDate, priority, ID});
+    const taskInfo = () => {
+        console.log({taskTitle, taskDescription, taskDueDate, createDate, taskPriority, ID, taskProject});
     }
 
     return {
-        title,
-        description,
-        dueDate,
-        priority,
-        info
+        taskTitle,
+        taskDescription,
+        taskDueDate,
+        taskPriority,
+        taskProject,
+        taskInfo
     }
 }
 
