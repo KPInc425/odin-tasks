@@ -1,4 +1,58 @@
+html {
+    background-color: beige;
+}
 body {
     max-width: 80%;
     margin: auto;
+}
+
+header {
+    background-color: black;
+    /* height: 10vh; */
+}
+
+/* Testing */
+header > div:nth-child(2){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin: 5px;
+    padding: 5px;
+}
+
+header > div:nth-child(2) > button,
+header > div:nth-child(2) > p {
+    margin: 5px;
+}
+/* Testing */
+
+main {
+    background-color: bisque;
+    height: 85vh;
+}
+
+footer {
+    background-color: brown;
+    height: 5vh;
+}
+
+#simpleNewTaskContainer {
+    display: flex;
+    padding-top: 7px;
+    justify-content: center;
+}
+
+.projectCard {
+    border: 1px solid blue;
+    background-color: rgb(255, 252, 220);
+    text-align: center;
+    margin: auto;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 3px 3px 3px grey;
+}
+
+.projectCard > * {
+    padding: 5px;
 }

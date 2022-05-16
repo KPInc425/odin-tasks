@@ -12,7 +12,7 @@ function createProject(projectTitle, projectDescription, projectPriority) {
 
     const addTaskToProject = (newTask) => {
         projectTaskArray.push(newTask);
-        console.log(projectTaskArray);
+        // console.log(projectTaskArray);
     }
 
     // const removeTaskFromProject = (taskName) => {
@@ -21,7 +21,7 @@ function createProject(projectTitle, projectDescription, projectPriority) {
 
     return {
         projectTitle,
-        projectTitle,
+        projectDescription,
         projectPriority,
         addTaskToProject,
     };

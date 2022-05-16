@@ -5,7 +5,7 @@ const displayCreateSimpleTask = () => {
     // Create Wrapper container
     const newTaskContainer = document.createElement('div');
     newTaskContainer.id = 'simpleNewTaskContainer';
-    newTaskContainer.classList.add('flex');
+    // newTaskContainer.classList.add('flex');
 
     // Create Input for new task
     const inputNewTask = document.createElement('input');
