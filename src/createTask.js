@@ -1,9 +1,21 @@
 import GenerateUniqueID from './generateUniqueID';
 
 function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject) {
+    
+    // Make into helper module
+    // function displayFriendlyDate(date) {
+    //     date = date;
+    //     y = date.getFullYear();
+    //     m = date.getMonth();
+    //     d = date.getDate();
+
+    //     return {y,m,d};
+    // }
+    
+
     const dateNow = new Date()
-    const createDate = new Date(); //new Date(dateNow.getTime());
-    const ID = GenerateUniqueID();
+    const taskCreateDate = new Date(); //new Date(dateNow.getTime());
+    const taskID = GenerateUniqueID();
     // console.log(dateNow);
     dateNow.setDate(dateNow.getDate()+1);
     // console.log(dateNow);
@@ -20,13 +32,15 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskP
     
     
     const taskInfo = () => {
-        console.log({taskTitle, taskDescription, taskDueDate, createDate, taskPriority, ID, taskProject});
+        console.log({taskTitle, taskDescription, taskDueDate, taskCreateDate, taskPriority, taskID, taskProject});
     }
 
     return {
         taskTitle,
         taskDescription,
         taskDueDate,
+        taskCreateDate,
+        taskID,
         taskPriority,
         taskProject,
         taskInfo

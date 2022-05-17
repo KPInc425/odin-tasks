@@ -24,6 +24,7 @@ function createProject(projectTitle, projectDescription, projectPriority) {
         projectDescription,
         projectPriority,
         addTaskToProject,
+        projectTaskArray,
     };
 };
 

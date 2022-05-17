@@ -2,7 +2,7 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
     
     function createProjectCard(title, description, priority) {
         const projectCard = document.createElement('div');
-        projectCard.classList.add('projectCard');
+        projectCard.classList.add('card');
         const projectTitle = document.createElement('h2');
         projectTitle.textContent = `Project Name: ${title}`;
         const projectDescription = document.createElement('p');
