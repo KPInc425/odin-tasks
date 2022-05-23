@@ -12,8 +12,8 @@ function displayTaskMainMenu(displayContainer) {
 
     const menuItem1 = document.createElement('a');
     menuItem1.setAttribute('href', "#")
-    menuItem1.id = "menuItem1";
-    menuItem1.innerText = "MenuItem1";
+    menuItem1.id = "allProjects";
+    menuItem1.innerText = "All Projects";
 
     const menuItem2 = document.createElement('a');
     menuItem2.setAttribute('href', "#")

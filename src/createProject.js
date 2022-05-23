@@ -9,6 +9,7 @@ function createProject(projectTitle, projectDescription, projectPriority) {
     };
 
     let projectTaskArray = [];
+    let completedTaskArray = [];
 
     const addTaskToProject = (newTask) => {
         projectTaskArray.push(newTask);
@@ -25,6 +26,7 @@ function createProject(projectTitle, projectDescription, projectPriority) {
         projectPriority,
         addTaskToProject,
         projectTaskArray,
+        completedTaskArray,
     };
 };
 

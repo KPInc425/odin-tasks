@@ -29,8 +29,11 @@ header > div:nth-child(2) > p {
 
 main {
     background-color: bisque;
-    height: 85vh;
+    min-height: 85vh;
+    height: fit-content;
     padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 footer {
@@ -107,4 +110,11 @@ footer {
 
 .hidden {
     visibility: collapse;
+}
+
+#projectTitleLabel {
+    text-align: center;
+    padding: 10px 0;
+    background-color: grey;
+    /* margin: 0 350px; */
 }

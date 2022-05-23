@@ -1,7 +1,12 @@
 function displayProjectTasks(project) {
+
+    // Create and Display task card elements
     function displayTaskCard(title, description, dueDate, createDate, priority, ID, project) {
+        // Get main content container ref
         const displayContainer = document.querySelector('main');
         // displayContainer.innerHTML = "";
+
+        // Create Card Div
         const taskCard = document.createElement('div');
         taskCard.classList.add('card');
         const taskTitle = document.createElement('h2');
@@ -49,6 +54,7 @@ function displayProjectTasks(project) {
         displayContainer.appendChild(taskCard);
     };
     
+    // Iterate through each task and display card
     project.forEach(task => {
         console.log(task);
         displayTaskCard(task.taskTitle, task.taskDescription, task.taskDueDate, task.taskCreateDate, task.taskPriority, task.taskID, task.taskProject);

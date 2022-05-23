@@ -5,103 +5,59 @@ import createTask from './createTask';
 import displayCreateSimpleTask from './displayCreateSimpleTask';
 import createProject from './createProject';
 import displayProjectLibrary from './displayProjectLibrary';
+import displayProjectTitle from './displayProjectTitle';
 import displayProjectTasks from './displayProjectTasks';
+import mainMenuEventListener from './mainMenuEventListener';
+import simpleNewTaskEventListener from './newTaskEventListener';
+import allProjectsEventListener from './allProjectsEventListener';
+
 import './reset.css';
 import './style.css';
 
 
 // const app = (() => {
 
+    // Initialize Project Arrays
     let projectArray = [];
+    let completedProjectArray = [];
+    
+    // Create and Add default task to default project, If statement
+    // goes here to check for saved data
+    // if no data
     projectArray.push(createProject('Default Project'));
+    projectArray[0].addTaskToProject(createTask());
+    // else 
+    // load data
+
 
     // Testing
     projectArray.push(createProject('Simple Project'));
     projectArray.push(createProject('Test Project'));
     // Testing
-    console.log(projectArray);
+    // console.log(projectArray);
 
     // get main container Ref's
     const headerContainer = document.querySelector('header');
     const mainContainer = document.querySelector('main');
     const footerContainer = document.querySelector('footer');
 
+    // Display simple task creator elements
     headerContainer.appendChild(displayCreateSimpleTask());
-
-
+    
+    // Display Main Menu
     displayTaskMainMenu(headerContainer);
 
     // displayProjectLibrary(projectArray, mainContainer);
-    displayProjectTasks(projectArray[0].projectTaskArray, 'main');
 
+    // Display Default Tasks for default project
+    displayProjectTitle(projectArray[0].projectTitle);
+    displayProjectTasks(projectArray[0].projectTaskArray, 'main'); //projectArray[0].projectTaskArray,
+    console.log(projectArray[0].projectTaskArray);
 
-
-    // Testing
-    // function component() {
-    //     const element = document.createElement('div');
-    //     const p = document.createElement('p');
-    //     const btn = document.createElement('button');
-    
-    //     // Lodash, now imported by this script
-    //     p.textContent = greeting('KP');
-    
-    //     btn.innerText = 'Click me!';
-    //     btn.addEventListener('click', () => {
-    //         console.log('You Clicked it!');
-    //     })
-    //     // btn.onclick = printMe;
-    
-    //     element.appendChild(p);
-    //     element.appendChild(btn);
-    
-    //     return element;
-    // }
-    // headerContainer.appendChild(component());
-    // Testing
-
-    function mainMenuEventListener() {
-        const menuButton = document.querySelector('.dropDownButton');
-        const dropDownMenuContainer = document.querySelector('.dropDownContent');
-
-        menuButton.addEventListener('click', () => {
-            dropDownMenuContainer.classList.toggle('show');
-        });
-        // Toggles Show class when clicking anywhere ELSE on window
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropDownButton')) {
-                const dropdowns = document.getElementsByClassName("dropDownContent");
-                let i;
-                for (i = 0; i < dropdowns.length; i++) {
-                    let openDropDown = dropdowns[i];
-                    if (openDropDown.classList.contains('show')) {
-                        openDropDown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    };
-
-    function newTaskEventListener() {
-        // Get Refs to input textbox and btn
-        const btnNewTask = document.querySelector('.btnNewTask');
-        const inputNewTask = document.getElementById('simpleNewTaskInput');
-        // console.log(inputNewTask)
-        btnNewTask.addEventListener('click', () => {
-            let newTask = createTask(inputNewTask.value); 
-            // let newProject = createProject();
-            // newProject.addTaskToProject(newTask);
-            // console.log(newProject);
-
-            // Add Task to default project
-            projectArray[0].addTaskToProject(newTask);
-            // console.log(projectArray)
-            mainContainer.innerHTML = "";
-            displayProjectTasks(projectArray[0].projectTaskArray);
-        });
-    };
-
+    // Add Event listeners
     mainMenuEventListener();
-    newTaskEventListener();
+    simpleNewTaskEventListener(projectArray[0]);
+    allProjectsEventListener(projectArray);
 
     // let newTask = createTask();
 // })();
