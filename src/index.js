@@ -10,6 +10,7 @@ import displayProjectTasks from './displayProjectTasks';
 import mainMenuEventListener from './mainMenuEventListener';
 import simpleNewTaskEventListener from './newTaskEventListener';
 import allProjectsEventListener from './allProjectsEventListener';
+import projectTasksEventListener from './projectTasksEventListener';
 
 import './reset.css';
 import './style.css';
@@ -58,6 +59,8 @@ import './style.css';
     mainMenuEventListener();
     simpleNewTaskEventListener(projectArray[0]);
     allProjectsEventListener(projectArray);
+
+    projectTasksEventListener();
 
     // let newTask = createTask();
 // })();

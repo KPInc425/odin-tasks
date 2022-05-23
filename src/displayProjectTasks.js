@@ -9,10 +9,20 @@ function displayProjectTasks(project) {
         // Create Card Div
         const taskCard = document.createElement('div');
         taskCard.classList.add('card');
+
+        const taskTitleLabel = document.createElement('h2')
+        taskTitleLabel.textContent = 'Task Title:'
         const taskTitle = document.createElement('h2');
-        taskTitle.textContent = `Project Name: ${title}`;
+        taskTitle.id = 'taskTitle';
+        taskTitle.textContent = `${title}`;
+
+
+        const taskDescriptionLabel = document.createElement('p');
+        taskDescriptionLabel.textContent = 'Description:'
+        taskDescriptionLabel.classList.add('description');
         const taskDescription = document.createElement('p');
-        taskDescription.textContent = `Description: ${description}`;
+        taskDescription.classList.add('description');
+        taskDescription.textContent = `${description}`;
 
         // Make into helper module
         // function displayFriendlyDate(date) {
@@ -43,13 +53,16 @@ function displayProjectTasks(project) {
         const taskProject = document.createElement('p');
         taskProject.innerText = `Project: ${project}`;
 
+        taskCard.appendChild(taskTitleLabel);
         taskCard.appendChild(taskTitle);
+        taskCard.appendChild(taskDescriptionLabel);
         taskCard.appendChild(taskDescription);
         taskCard.appendChild(taskDueDate);
         taskCard.appendChild(taskCreateDate);
         taskCard.appendChild(taskPriority);
-        taskCard.appendChild(taskID);
         taskCard.appendChild(taskProject);
+        taskCard.appendChild(taskID);
+
 
         displayContainer.appendChild(taskCard);
     };

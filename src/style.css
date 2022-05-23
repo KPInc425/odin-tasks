@@ -50,12 +50,20 @@ footer {
 .card {
     border: 1px solid blue;
     background-color: rgb(255, 252, 220);
-    text-align: center;
+    /* text-align: center; */
     margin: auto;
     margin-top: 10px;
     width: 250px;
     padding: 20px;
     box-shadow: 3px 3px 3px grey;
+    display: grid;
+    grid-template-columns: 100px auto;
+}
+
+.description {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    text-align: center;
 }
 
 .card > * {
@@ -117,4 +125,15 @@ footer {
     padding: 10px 0;
     background-color: grey;
     /* margin: 0 350px; */
+}
+
+.editTaskCard {
+    z-index: 1;
+    position: absolute;
+    background-color: red;
+    width: 500px;
+    height: 500px;
+    left: 50%;
+    transform: translate(-50%);
+    text-align: center;
 }

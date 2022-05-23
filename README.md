@@ -7,6 +7,8 @@ Build to do app.
 
 #Todo
 
+-Finish refactoring displayprojecttasks with labels and grid styling
+
 -add dropdown feature to the tasks when they are displayed.
 --Only show the name and maybe duedate
 --When clicked show full task
@@ -17,3 +19,5 @@ Build to do app.
 -Add new task button
 --Brings up more full featured UI to add task
 --set all attributes
+
+-Split card data into value and labels
