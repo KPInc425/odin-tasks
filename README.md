@@ -7,7 +7,9 @@ Build to do app.
 
 #Todo
 
--Finish refactoring displayprojecttasks with labels and grid styling
+-Fix Mainmenu from not closing when clicked
+-make new task element sticky on top
+-make editable inputs connected to shown edit buttons
 
 -add dropdown feature to the tasks when they are displayed.
 --Only show the name and maybe duedate

@@ -48,6 +48,7 @@ import './style.css';
     // Display Main Menu
     displayTaskMainMenu(headerContainer);
 
+    // Display All Projects
     // displayProjectLibrary(projectArray, mainContainer);
 
     // Display Default Tasks for default project

@@ -1,18 +1,37 @@
-import editTask from "./editTask";
+import displayEditTaskButtons from "./displayEditTaskButtons";
 
 function projectTasksEventListener () {
     const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".card");
     const cardArray = Array.from(cardNodeArray);
-    // let childNodes = cardNodeArray.childNodes;
     console.log(cardArray);
 
     cardArray.forEach((card) => {
-        card.addEventListener('click', () => {
+        card.addEventListener('click', (e) => {
             console.log(card);
-            const editedTask = editTask(card);
-            mainContainer.appendChild(editedTask);
-        })
+            e.stopPropagation();
+
+            // Display Edit Buttons
+            displayEditTaskButtons(card);
+
+            // Toggles Show class when clicking anywhere ELSE on window
+            window.onclick = function(event) {
+                // console.log(event.target);
+                if (!event.target.matches('.card')) {
+                    console.log("NOT CARD!");
+                    let buttons = card.querySelectorAll(".taskGridButtons");
+                    console.log(buttons);
+                    let i;
+                    for (i = 0; i < buttons.length; i++) {
+                        let shownButton = buttons[i];
+                        console.log(shownButton);
+                        shownButton.remove()
+                    }
+                    card.classList.remove('taskGrid');
+                    projectTasksEventListener();
+                }
+            }
+        }, {once: true});
     })
 }
 

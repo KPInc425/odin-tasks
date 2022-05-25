@@ -56,14 +56,42 @@ footer {
     width: 250px;
     padding: 20px;
     box-shadow: 3px 3px 3px grey;
-    display: grid;
-    grid-template-columns: 100px auto;
 }
 
-.description {
+.taskGrid {
+    display: grid;
+    grid-template-columns: auto 50px;
+}
+
+.taskGridData {
     grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.taskGridButtons {
+    grid-column-start: 2;
     grid-column-end: 3;
     text-align: center;
+}
+
+/* task edit buttons positioning */
+.taskGridButtons:first-of-type {
+    grid-row-start: 1;
+}
+.taskGridButtons:nth-of-type(2) {
+    grid-row-start: 2;
+}
+.taskGridButtons:nth-of-type(3) {
+    grid-row-start: 4;
+}
+.taskGridButtons:nth-of-type(4) {
+    grid-row-start: 6;
+}
+.taskGridButtons:nth-of-type(5) {
+    grid-row-start: 7;
+}
+.taskGridButtons:nth-of-type(6) {
+    grid-row-start: 8;
 }
 
 .card > * {
@@ -120,6 +148,10 @@ footer {
     visibility: collapse;
 }
 
+.hide {
+    display: none;
+}
+
 #projectTitleLabel {
     text-align: center;
     padding: 10px 0;
@@ -136,4 +168,31 @@ footer {
     left: 50%;
     transform: translate(-50%);
     text-align: center;
+}
+
+#taskTitle {
+    grid-column-start: 1;
+}
+
+/* Edit Task Styling */
+.taskTitleContainer {
+    position: relative;
+}
+
+.taskTitleEditor {
+    position: absolute;
+    z-index: 1;
+}
+
+/* Priority styling */
+.lowPriorty {
+    background-color: rgba(58, 207, 233, 0.637);
+}
+
+.mediumPriorty {
+    background-color: rgba(180, 182, 50, 0.719);
+}
+
+.highPriorty {
+    background-color: rgba(216, 17, 17, 0.548);
 }
