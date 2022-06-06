@@ -1,5 +1,6 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 
+
 function projectTasksEventListener () {
     const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".card");
@@ -15,12 +16,12 @@ function projectTasksEventListener () {
             displayEditTaskButtons(card);
 
             // Toggles Show class when clicking anywhere ELSE on window
-            window.onclick = function(event) {
+            window.addEventListener('click', (event) => {
                 // console.log(event.target);
                 if (!event.target.matches('.card')) {
                     console.log("NOT CARD!");
                     let buttons = card.querySelectorAll(".taskGridButtons");
-                    console.log(buttons);
+                    // console.log(buttons);
                     let i;
                     for (i = 0; i < buttons.length; i++) {
                         let shownButton = buttons[i];
@@ -30,7 +31,7 @@ function projectTasksEventListener () {
                     card.classList.remove('taskGrid');
                     projectTasksEventListener();
                 }
-            }
+            })
         }, {once: true});
     })
 }

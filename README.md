@@ -7,8 +7,8 @@ Build to do app.
 
 #Todo
 
--Fix Mainmenu from not closing when clicked
--make new task element sticky on top
+
+-make new task element sticky on Bottom 
 -make editable inputs connected to shown edit buttons
 
 -add dropdown feature to the tasks when they are displayed.
@@ -23,3 +23,5 @@ Build to do app.
 --set all attributes
 
 -Split card data into value and labels
+
+-Change displayEditTaskButtons to displayEditButtons and have it check items on displayed card>make buttons for each item using thier name>display buttons

@@ -13,31 +13,37 @@ function displayEditTaskButtons(taskCard) {
         btnEditTaskTitle.innerText = "+";
         btnEditTaskTitle.classList.add('taskGridButtons');
         btnEditTaskTitle.classList.add('editTaskTitle');
+        btnEditTaskTitle.setAttribute('title', 'Edit Task Title');
     
         const btnEditTaskDescription = document.createElement('button');
         btnEditTaskDescription.innerText = "+";
         btnEditTaskDescription.classList.add('taskGridButtons');
         btnEditTaskDescription.classList.add('editTaskDescription');
+        btnEditTaskDescription.setAttribute('title', 'Edit Task Description');
     
         const btnEditTaskStartDate = document.createElement('button');
         btnEditTaskStartDate.innerText = "+";
         btnEditTaskStartDate.classList.add('taskGridButtons');
         btnEditTaskStartDate.classList.add('editTaskStartDate');
+        btnEditTaskStartDate.setAttribute('title', 'Edit Task Start Date');
     
         const btnEditTaskDueDate = document.createElement('button');
         btnEditTaskDueDate.innerText = "+";
         btnEditTaskDueDate.classList.add('taskGridButtons');
-        btnEditTaskDueDate.classList.add('editTaskStartDate');
+        btnEditTaskDueDate.classList.add('editTaskDueDate');
+        btnEditTaskDueDate.setAttribute('title', 'Edit Task Due Date');
     
         const btnEditTaskPriority = document.createElement('button');
         btnEditTaskPriority.innerText = "+";
         btnEditTaskPriority.classList.add('taskGridButtons');
-        btnEditTaskPriority.classList.add('editTaskStartDate');
+        btnEditTaskPriority.classList.add('editTaskPriority');
+        btnEditTaskPriority.setAttribute('title', 'Edit Task Priority');
     
         const btnEditTaskProject = document.createElement('button');
         btnEditTaskProject.innerText = "+";
         btnEditTaskProject.classList.add('taskGridButtons');
-        btnEditTaskProject.classList.add('editTaskStartDate');
+        btnEditTaskProject.classList.add('editTaskProject');
+        btnEditTaskProject.setAttribute('title', 'Edit Task Project');
     
         taskCard.appendChild(btnEditTaskTitle);
         taskCard.appendChild(btnEditTaskDescription);

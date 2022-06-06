@@ -57,10 +57,10 @@ import './style.css';
     console.log(projectArray[0].projectTaskArray);
 
     // Add Event listeners
-    mainMenuEventListener();
+    // mainMenuEventListener();
     simpleNewTaskEventListener(projectArray[0]);
     allProjectsEventListener(projectArray);
-
+    mainMenuEventListener();
     projectTasksEventListener();
 
     // let newTask = createTask();

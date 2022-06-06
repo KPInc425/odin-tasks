@@ -1,3 +1,4 @@
+
 function mainMenuEventListener() {
     const menuButton = document.querySelector('.dropDownButton');
     const dropDownMenuContainer = document.querySelector('.dropDownContent');
@@ -5,19 +6,20 @@ function mainMenuEventListener() {
     menuButton.addEventListener('click', () => {
         dropDownMenuContainer.classList.toggle('show');
     });
+
     // Toggles Show class when clicking anywhere ELSE on window
-    window.onclick = function(event) {
+    window.addEventListener('click', (event) => {
         if (!event.target.matches('.dropDownButton')) {
-            const dropdowns = document.getElementsByClassName("dropDownContent");
+            const dropDownsNodeList = document.getElementsByClassName("dropDownContent");
             let i;
-            for (i = 0; i < dropdowns.length; i++) {
-                let openDropDown = dropdowns[i];
+            for (i = 0; i < dropDownsNodeList.length; i++) {
+                let openDropDown = dropDownsNodeList[i];
                 if (openDropDown.classList.contains('show')) {
                     openDropDown.classList.remove('show');
                 }
             }
-        }
-    }
-};
+        };
+    });
+}
 
 export default mainMenuEventListener;
