@@ -60,7 +60,9 @@ import './style.css';
     // mainMenuEventListener();
     simpleNewTaskEventListener(projectArray[0]);
     allProjectsEventListener(projectArray);
+    //Dropdown Menu event listener
     mainMenuEventListener();
+    // Add EventListeners to show edit buttons when clicked
     projectTasksEventListener();
 
     // let newTask = createTask();

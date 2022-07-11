@@ -57,6 +57,16 @@ footer {
     padding: 20px;
     box-shadow: 3px 3px 3px grey;
 }
+.projectCard {
+    border: 1px solid blue;
+    background-color: rgb(255, 252, 220);
+    /* text-align: center; */
+    margin: auto;
+    margin-top: 10px;
+    width: 250px;
+    padding: 20px;
+    box-shadow: 3px 3px 3px grey;
+}
 
 .taskGrid {
     display: grid;

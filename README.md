@@ -7,7 +7,7 @@ Build to do app.
 
 #Todo
 
-
+-Make Edit buttons for Project Cards
 -make new task element sticky on Bottom 
 -make editable inputs connected to shown edit buttons
 

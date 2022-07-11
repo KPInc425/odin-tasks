@@ -1,4 +1,4 @@
-
+// DropDown Menu functionality                                                                                                                                                                                                                                                                                                                                     
 function mainMenuEventListener() {
     const menuButton = document.querySelector('.dropDownButton');
     const dropDownMenuContainer = document.querySelector('.dropDownContent');

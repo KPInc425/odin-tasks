@@ -4,7 +4,7 @@ function displayTaskMainMenu(displayContainer) {
 
     const dropDownButton = document.createElement('button');
     dropDownButton.classList.add('dropDownButton');
-    dropDownButton.innerText = "Task Menu";
+    dropDownButton.innerText = "Tasks Menu";
 
     const dropItemsContainer = document.createElement('div');
     dropItemsContainer.id = "dropDownItemsContainer";
