@@ -1,7 +1,7 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 
 
-function projectTasksEventListener () {
+function showTasksEditButtonEventListeners () {
     const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".card");
     const cardArray = Array.from(cardNodeArray);
@@ -29,11 +29,11 @@ function projectTasksEventListener () {
                         shownButton.remove()
                     }
                     card.classList.remove('taskGrid');
-                    projectTasksEventListener();
+                    showTasksEditButtonEventListeners();
                 }
             })
         }, {once: true});
     })
 }
 
-export default projectTasksEventListener;
+export default showTasksEditButtonEventListeners;

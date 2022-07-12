@@ -1,10 +1,11 @@
+// Manipulateds DOM to add Main menu
 function displayTaskMainMenu(displayContainer) {
     const dropDownContainer = document.createElement('div');
     dropDownContainer.classList.add('dropDown');
 
     const dropDownButton = document.createElement('button');
     dropDownButton.classList.add('dropDownButton');
-    dropDownButton.innerText = "Tasks Menu";
+    dropDownButton.innerText = "Menu";
 
     const dropItemsContainer = document.createElement('div');
     dropItemsContainer.id = "dropDownItemsContainer";

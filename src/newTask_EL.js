@@ -1,6 +1,6 @@
 import createTask from './createTask';
 import displayProjectTasks from './displayProjectTasks';
-import projectTasksEventListener from './projectTasksEventListener';
+import projectTasksEventListener from './showTasksEditButtons_EL';
 
 function simpleNewTaskEventListener(defaultProject) {
     // Get Refs to main container

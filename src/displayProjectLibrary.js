@@ -15,6 +15,7 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
         projectCard.appendChild(projectPriority);
 
         displayContainer.appendChild(projectCard);
+        
     };
     
     projectLibrary.forEach(project => {
@@ -22,6 +23,8 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
         createProjectCard(project.projectTitle, project.projectDescription, project.projectPriority);
 
     });
+
+
 };
 
 export default displayProjectLibrary;

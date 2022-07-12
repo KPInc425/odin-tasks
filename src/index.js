@@ -7,10 +7,10 @@ import createProject from './createProject';
 import displayProjectLibrary from './displayProjectLibrary';
 import displayProjectTitle from './displayProjectTitle';
 import displayProjectTasks from './displayProjectTasks';
-import mainMenuEventListener from './mainMenuEventListener';
-import simpleNewTaskEventListener from './newTaskEventListener';
-import allProjectsEventListener from './allProjectsEventListener';
-import projectTasksEventListener from './projectTasksEventListener';
+import mainMenuEventListener from './mainMenu_EL';
+import simpleNewTaskEventListener from './newTask_EL';
+import allProjectsEventListener from './allProjects_EL';
+import projectTasksEventListener from './showTasksEditButtons_EL';
 
 import './reset.css';
 import './style.css';
