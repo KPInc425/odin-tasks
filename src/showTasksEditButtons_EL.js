@@ -7,6 +7,23 @@ function showTasksEditButtonEventListeners () {
     const cardArray = Array.from(cardNodeArray);
     console.log(cardArray);
 
+    const removeEditButtonsListener = function() {
+        if (!event.target.matches('.card')) {
+            console.log("NOT CARD!");
+            let buttons = card.querySelectorAll(".taskGridButtons");
+            // console.log(buttons);
+            let i;
+            for (i = 0; i < buttons.length; i++) {
+                let shownButton = buttons[i];
+                console.log(shownButton);
+                shownButton.remove()
+            }
+            card.classList.remove('taskGrid');
+            // window.removeEventListener('click', (event));
+            // showTasksEditButtonEventListeners();
+        };
+    }
+
     cardArray.forEach((card) => {
         card.addEventListener('click', (e) => {
             console.log(card);
@@ -29,10 +46,11 @@ function showTasksEditButtonEventListeners () {
                         shownButton.remove()
                     }
                     card.classList.remove('taskGrid');
-                    showTasksEditButtonEventListeners();
-                }
-            })
-        }, {once: true});
+                    window.removeEventListener('click', (event));
+                    // showTasksEditButtonEventListeners();
+                };                
+            }, {once: true})
+        }, {once: false});
     })
 }
 

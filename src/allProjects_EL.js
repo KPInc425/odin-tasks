@@ -1,4 +1,5 @@
 import displayProjectLibrary from "./displayProjectLibrary";
+import showProjectsEditButtonEventListeners from "./showProjectsEditButtons_EL";
 
 function allProjectsEventListener(projectArray) {
     const mainContainer = document.querySelector('main');
@@ -11,6 +12,7 @@ function allProjectsEventListener(projectArray) {
         // headerContainer.innerHTML = "";
         displayProjectLibrary(projectArray, mainContainer);
         mainMenuButton.textContent = "Projects Menu";
+        showProjectsEditButtonEventListeners();
     })
 };
 
