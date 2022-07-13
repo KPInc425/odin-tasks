@@ -7,7 +7,7 @@ function displayEditTaskButtons(taskCard) {
     // console.log(btnCheckArray);
     // Check if buttons already exist
     if (!btnCheckArray.length > 0) {
-        taskCard.classList.add('taskGrid');
+        taskCard.classList.add('cardGrid');
 
         const btnEditTaskTitle = document.createElement('button');
         btnEditTaskTitle.innerText = "+";

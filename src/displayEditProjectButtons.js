@@ -2,46 +2,46 @@ function displayEditProjectButtons(projectCard) {
     console.log("Initiate Edit Project...");
     console.log(projectCard);
 
-    const btnCheckArray = projectCard.querySelectorAll('.ProjectGridButtons');
+    const btnCheckArray = projectCard.querySelectorAll('.projectGridButtons');
 
     // console.log(btnCheckArray);
     // Check if buttons already exist
     if (!btnCheckArray.length > 0) {
-        projectCard.classList.add('ProjectGrid');
+        projectCard.classList.add('cardGrid');
 
         const btnEditProjectTitle = document.createElement('button');
         btnEditProjectTitle.innerText = "+";
-        btnEditProjectTitle.classList.add('ProjectGridButtons');
+        btnEditProjectTitle.classList.add('projectGridButtons');
         btnEditProjectTitle.classList.add('editProjectTitle');
         btnEditProjectTitle.setAttribute('title', 'Edit Project Title');
     
         const btnEditProjectDescription = document.createElement('button');
         btnEditProjectDescription.innerText = "+";
-        btnEditProjectDescription.classList.add('ProjectGridButtons');
+        btnEditProjectDescription.classList.add('projectGridButtons');
         btnEditProjectDescription.classList.add('editProjectDescription');
         btnEditProjectDescription.setAttribute('title', 'Edit Project Description');
     
         // const btnEditProjectStartDate = document.createElement('button');
         // btnEditProjectStartDate.innerText = "+";
-        // btnEditProjectStartDate.classList.add('ProjectGridButtons');
+        // btnEditProjectStartDate.classList.add('projectGridButtons');
         // btnEditProjectStartDate.classList.add('editProjectStartDate');
         // btnEditProjectStartDate.setAttribute('title', 'Edit Project Start Date');
     
         // const btnEditProjectDueDate = document.createElement('button');
         // btnEditProjectDueDate.innerText = "+";
-        // btnEditProjectDueDate.classList.add('ProjectGridButtons');
+        // btnEditProjectDueDate.classList.add('projectGridButtons');
         // btnEditProjectDueDate.classList.add('editProjectDueDate');
         // btnEditProjectDueDate.setAttribute('title', 'Edit Project Due Date');
     
         const btnEditProjectPriority = document.createElement('button');
         btnEditProjectPriority.innerText = "+";
-        btnEditProjectPriority.classList.add('ProjectGridButtons');
+        btnEditProjectPriority.classList.add('projectGridButtons');
         btnEditProjectPriority.classList.add('editProjectPriority');
         btnEditProjectPriority.setAttribute('title', 'Edit Project Priority');
     
         // const btnEditProjectProject = document.createElement('button');
         // btnEditProjectProject.innerText = "+";
-        // btnEditProjectProject.classList.add('ProjectGridButtons');
+        // btnEditProjectProject.classList.add('projectGridButtons');
         // btnEditProjectProject.classList.add('editProjectProject');
         // btnEditProjectProject.setAttribute('title', 'Edit Project Project');
     

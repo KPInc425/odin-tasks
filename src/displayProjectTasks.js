@@ -4,7 +4,7 @@ function displayProjectTasks(project) {
     function displayTaskCard(title, description, dueDate, createDate, priority, ID, project) {
         // Get main content container ref
         const displayContainer = document.querySelector('main');
-        // displayContainer.innerHTML = "";
+        
 
         // Create Card Div
         const taskCard = document.createElement('div');

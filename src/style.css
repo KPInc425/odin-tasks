@@ -68,7 +68,7 @@ footer {
     box-shadow: 3px 3px 3px grey;
 }
 
-.taskGrid {
+.cardGrid {
     display: grid;
     grid-template-columns: auto 50px;
 }
@@ -102,6 +102,26 @@ footer {
 }
 .taskGridButtons:nth-of-type(6) {
     grid-row-start: 8;
+}
+
+.projectGridData {
+    grid-column-start: 1;
+    grid-column-end: 2;
+}
+
+.projectGridButtons {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    text-align: center;
+}
+.projectGridButtons:first-of-type {
+    grid-row-start: 1;
+}
+.projectGridButtons:nth-of-type(2) {
+    grid-row-start: 2;
+}
+.projectGridButtons:nth-of-type(3) {
+    grid-row-start: 3;
 }
 
 .card > * {
@@ -198,8 +218,7 @@ footer {
 .lowPriorty {
     background-color: rgba(58, 207, 233, 0.637);
 }
-
-.mediumPriorty {
+.medPriority{
     background-color: rgba(180, 182, 50, 0.719);
 }
 

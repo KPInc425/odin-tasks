@@ -1,9 +1,9 @@
 import displayEditProjectButtons from "./displayEditProjectButtons";
 
 
-function showProjectsEditButtonEventListeners () {
+function showTasksEditButtonEventListeners () {
     const mainContainer = document.querySelector('main');
-    const cardNodeArray = document.querySelectorAll(".card");
+    const cardNodeArray = document.querySelectorAll(".projectCard");
     const cardArray = Array.from(cardNodeArray);
     console.log(cardArray);
 
@@ -18,9 +18,9 @@ function showProjectsEditButtonEventListeners () {
             // Toggles Show class when clicking anywhere ELSE on window
             window.addEventListener('click', (event) => {
                 // console.log(event.target);
-                if (!event.target.matches('.card')) {
+                if (!event.target.matches('.projectCard')) {
                     console.log("NOT CARD!");
-                    let buttons = card.querySelectorAll(".ProjectGridButtons");
+                    let buttons = card.querySelectorAll(".projectGridButtons");
                     // console.log(buttons);
                     let i;
                     for (i = 0; i < buttons.length; i++) {
@@ -28,12 +28,11 @@ function showProjectsEditButtonEventListeners () {
                         console.log(shownButton);
                         shownButton.remove()
                     }
-                    card.classList.remove('ProjectGrid');
-                    showProjectsEditButtonEventListeners();
-                }
-            })
-        }, {once: true});
+                    card.classList.remove('cardGrid');
+                };                
+            }, {once: true})
+        }, {once: false});
     })
 }
 
-export default showProjectsEditButtonEventListeners;
+export default showTasksEditButtonEventListeners;
