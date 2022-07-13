@@ -15,7 +15,9 @@ function displayProjectTasks(project) {
         taskTitleContainer.classList.add('taskTitleContainer');
         taskTitleContainer.classList.add('taskGridData');
         const taskTitle = document.createElement('h2');
-        taskTitle.id = 'taskTitle';
+        taskTitle.classList.add('editableItem');
+        taskTitle.classList.add('taskTitle');
+        // taskTitle.id = 'taskTitle';
         taskTitle.textContent = `${title}`;
 
         taskTitleContainer.appendChild(taskTitle);
@@ -25,8 +27,10 @@ function displayProjectTasks(project) {
         const taskDescriptionContainer = document.createElement('div');
         taskDescriptionContainer.classList.add('taskDescriptionContainer');
         taskDescriptionContainer.classList.add('taskGridData');
+
         const taskDescription = document.createElement('p');
-        taskDescription.classList.add('description');
+        taskDescription.classList.add('taskDescription');
+        taskDescription.classList.add('editableItem');
         taskDescription.textContent = `${description}`;
 
         taskDescriptionContainer.appendChild(taskDescription);
@@ -53,22 +57,27 @@ function displayProjectTasks(project) {
         const taskDueDate = document.createElement('div');
         taskDueDate.classList.add('dueDate');
         taskDueDate.classList.add('taskGridData');
+        taskDueDate.classList.add('editableItem');
         taskDueDate.innerText = `${dueDate}`;                            //`${simpleDueDate.m}/${simpleDueDate.d}/${simpleDueDate.y}`;
 
         // Display Start Date
         const taskCreateDateLabel = document.createElement('h2');
         taskCreateDateLabel.classList.add('taskGridData');
         taskCreateDateLabel.innerText = 'Start Date';
+
         const taskCreateDate = document.createElement('p');
         taskCreateDate.classList.add('startDate');
         taskCreateDate.classList.add('taskGridData');
+        taskCreateDate.classList.add('editableItem');
         taskCreateDate.innerText = `${createDate}`;                      // simpleCreateDate;
 
         // Display Priority
         const taskPriortyContainer = document.createElement('div');
         taskPriortyContainer.classList.add('taskPriorityContainer');
         taskPriortyContainer.classList.add('taskGridData');
+        
         const taskPriority = document.createElement('p');           //Maybe replace this is color coded img
+        taskPriority.classList.add('editableItem');
         taskPriority.innerText = `${priority} Priority`;
 
         taskPriortyContainer.appendChild(taskPriority);
@@ -87,6 +96,7 @@ function displayProjectTasks(project) {
         taskProjectContainer.classList.add('taskProjectContainer')
         taskProjectContainer.classList.add('taskGridData');
         const taskProject = document.createElement('p');
+        taskProject.classList.add('editableItem');
         taskProject.innerText = `This is part of the ${project} project.`;
 
         taskProjectContainer.appendChild(taskProject);
