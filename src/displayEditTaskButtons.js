@@ -1,6 +1,6 @@
 function displayEditTaskButtons(taskCard) {
-    console.log("Initiate Edit Task...");
-    console.log(taskCard);
+    // console.log("Initiate Edit Task...");
+    // console.log(taskCard);
 
     const btnCheckArray = taskCard.querySelectorAll('.taskGridButtons');
 
@@ -56,12 +56,12 @@ function displayEditTaskButtons(taskCard) {
     
         // Get Card Unique ID
         const cardID = taskCard.querySelector('[data-id]').getAttribute('data-id');
-        console.log(cardID);
+        // console.log(cardID);
     
         let cardTitleContainer = taskCard.querySelector('div.taskTitleContainer');
         // split title from label, this won't be needed when labels are isolated on cards
         // cardTitle = cardTitle.split(':');
-        console.log(cardTitleContainer);
+        // console.log(cardTitleContainer);
     
         // const cardDescription = taskCard.querySelector
     
