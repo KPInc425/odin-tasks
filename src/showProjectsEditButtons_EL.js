@@ -1,8 +1,8 @@
 import displayEditProjectButtons from "./displayEditProjectButtons";
 
 
-function showTasksEditButtonEventListeners () {
-    const mainContainer = document.querySelector('main');
+function showProjectsEditButtonEventListeners () {
+    // const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".projectCard");
     const cardArray = Array.from(cardNodeArray);
     console.log(cardArray);
@@ -35,4 +35,4 @@ function showTasksEditButtonEventListeners () {
     })
 }
 
-export default showTasksEditButtonEventListeners;
+export default showProjectsEditButtonEventListeners;

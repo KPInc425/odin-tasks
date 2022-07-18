@@ -5,16 +5,17 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
         projectCard.classList.add('projectCard');
         projectCard.classList.add('projectGridData');
         const projectTitle = document.createElement('h2');
-        projectTitle.textContent = `Project Name: ${title}`;
+        projectTitle.classList.add('projectTitle');
+        projectTitle.textContent = `${title}`;
 
         const projectDescription = document.createElement('p');
         projectDescription.classList.add('projectGridData');
-        projectDescription.textContent = `Description: ${description}`;
+        projectDescription.textContent = `${description}`;
         
 
         const projectPriority = document.createElement('p'); //Maybe replace this is color coded img
         projectPriority.classList.add('projectGridData');
-        projectPriority.innerText = `Priority: ${priority}`;
+        projectPriority.innerText = `${priority}`;
 
         // Create Element for Hidden Project ID
         const projectID = document.createElement('div');
@@ -30,7 +31,7 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
     };
     
     projectLibrary.forEach(project => {
-        console.log(project);
+        // console.log(project);
         createProjectCard(project.projectTitle, project.projectDescription, project.projectPriority, project.projectID);
 
     });

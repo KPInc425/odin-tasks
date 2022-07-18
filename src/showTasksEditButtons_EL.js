@@ -25,10 +25,10 @@ function showTasksEditButtonEventListeners () {
                     let i;
                     for (i = 0; i < buttons.length; i++) {
                         let shownButton = buttons[i];
-                        console.log(shownButton);
+                        // console.log(shownButton);
                         shownButton.remove()
                     }
-                    card.classList.remove('taskGrid');
+                    card.classList.remove('cardGrid');
                 };                
             }, {once: true})
         }, {once: false});

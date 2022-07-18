@@ -53,7 +53,7 @@ import './style.css';
 
     // Display Default Tasks for default project
     displayProjectTitle(projectArray[0].projectTitle);
-    displayProjectTasks(projectArray[0].projectTaskArray, 'main'); //projectArray[0].projectTaskArray,
+    displayProjectTasks(projectArray[0].projectTaskArray); //projectArray[0].projectTaskArray,
     console.log(projectArray[0].projectTaskArray);
 
     // Add Event listeners

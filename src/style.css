@@ -66,11 +66,12 @@ footer {
     width: 250px;
     padding: 20px;
     box-shadow: 3px 3px 3px grey;
+    text-align: center;
 }
 
 .cardGrid {
     display: grid;
-    grid-template-columns: auto 50px;
+    grid-template-columns: auto 25px;
 }
 
 .taskGridData {
