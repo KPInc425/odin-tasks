@@ -1,6 +1,6 @@
 import createTask from './createTask';
 import displayProjectTasks from './displayProjectTasks';
-import projectTasksEventListener from './showTasksEditButtons_EL';
+import showTasksEditButtonEL from './showTasksEditButtons_EL';
 
 function simpleNewTaskEventListener(defaultProject) {
     // Get Refs to main container
@@ -16,7 +16,7 @@ function simpleNewTaskEventListener(defaultProject) {
         // console.log(projectArray)
         displayContainer.innerHTML = "";
         displayProjectTasks(defaultProject.projectTaskArray);
-        projectTasksEventListener();
+        showTasksEditButtonEL();
     });
 };
 

@@ -1,5 +1,6 @@
 import displayProjectTasks from "./displayProjectTasks";
 import displayProjectTitle from "./displayProjectTitle";
+import showTasksEditButtonEL from "./showTasksEditButtons_EL";
 
 function showSelectedProjectTasksEL (projectArray) {
 
@@ -33,6 +34,7 @@ function showSelectedProjectTasksEL (projectArray) {
             displayProjectTitle(projectArray[index].projectTitle)
             console.log(projectArray[index].projectTaskArray);
             displayProjectTasks(projectArray[index].projectTaskArray);
+            showTasksEditButtonEL();
 
 
         })

@@ -10,7 +10,7 @@ import displayProjectTasks from './displayProjectTasks';
 import mainMenuEventListener from './mainMenu_EL';
 import simpleNewTaskEventListener from './newTask_EL';
 import allProjectsEventListener from './allProjects_EL';
-import projectTasksEventListener from './showTasksEditButtons_EL';
+import showTasksEditButtonEL from './showTasksEditButtons_EL';
 
 import './reset.css';
 import './style.css';
@@ -63,7 +63,7 @@ import './style.css';
     //Dropdown Menu event listener
     mainMenuEventListener();
     // Add EventListeners to show edit buttons when clicked
-    projectTasksEventListener();
+    showTasksEditButtonEL();
 
     // let newTask = createTask();
 // })();

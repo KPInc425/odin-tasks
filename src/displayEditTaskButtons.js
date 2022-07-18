@@ -82,6 +82,8 @@ function displayEditTaskButtons(taskCard) {
         // return editTaskForm;
     
         // console.log(editTaskTitleInput);
+    } else {
+        console.log("Edits buttons exist for this card");
     }
 
 
