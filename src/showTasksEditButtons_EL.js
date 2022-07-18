@@ -1,7 +1,7 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 
 
-function showTasksEditButtonEventListeners () {
+function showTasksEditButtonEL () {
     const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".card");
     const cardArray = Array.from(cardNodeArray);
@@ -9,30 +9,35 @@ function showTasksEditButtonEventListeners () {
 
     cardArray.forEach((card) => {
         card.addEventListener('click', (e) => {
-            console.log(card);
+            // console.log(card);
+            // Allow for click on any area of card to activate
             e.stopPropagation();
 
-            // Display Edit Buttons
-            displayEditTaskButtons(card);
+            // If edit buttons aren't displayed > Display Edit Buttons
+            let buttons = card.querySelectorAll('.taskGridButtons');
+            // console.log(buttons);
+            if (buttons.length < 1) {
+                displayEditTaskButtons(card);
+            } 
+        }, {once: false});
 
-            // Toggles Show class when clicking anywhere ELSE on window
-            window.addEventListener('click', (event) => {
-                // console.log(event.target);
-                if (!event.target.matches('.card')) {
-                    console.log("NOT CARD!");
-                    let buttons = card.querySelectorAll(".taskGridButtons");
-                    // console.log(buttons);
-                    let i;
-                    for (i = 0; i < buttons.length; i++) {
-                        let shownButton = buttons[i];
-                        // console.log(shownButton);
-                        shownButton.remove()
-                    }
-                    card.classList.remove('cardGrid');
-                };                
-            }, {once: true})
+        // Toggles Show class when clicking anywhere ELSE on window
+        window.addEventListener('click', (event) => {
+            // console.log(event.target);
+            if (!event.target.matches('.card')) {
+                console.log("NOT CARD!");
+                let buttons = card.querySelectorAll(".taskGridButtons");
+                // console.log(buttons);
+                let i;
+                for (i = 0; i < buttons.length; i++) {
+                    let shownButton = buttons[i];
+                    // console.log(shownButton);
+                    shownButton.remove()
+                }
+                card.classList.remove('cardGrid');
+            };                
         }, {once: false});
     })
 }
 
-export default showTasksEditButtonEventListeners;
+export default showTasksEditButtonEL;
