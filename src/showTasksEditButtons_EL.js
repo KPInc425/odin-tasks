@@ -1,14 +1,15 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 
 function addEditButtonSelectedEL(buttons) {
-    console.log(buttons.length);
+    
     buttons.forEach((button) => {
         button.addEventListener('click', (e) => {
             e.stopImmediatePropagation()
             console.log(button);
 
-        })
+        }, {once: false})
     })
+    // console.log(buttons.length);
 };
 
 function showTasksEditButtonEL() {
@@ -21,14 +22,17 @@ function showTasksEditButtonEL() {
         card.addEventListener('click', (e) => {
             // console.log(card);
             // Allow for click on any area of card to activate
-            e.stopPropagation();
+            e.stopImmediatePropagation();
 
             // If edit buttons aren't displayed > Display Edit Buttons
             const buttons = card.querySelectorAll('.taskGridButtons');
+            console.log(e.target);
             // console.log(buttons);
             if (buttons.length < 1) {
+                // e.stopPropagation();
                 displayEditTaskButtons(card);
             } else {
+                // console.log(buttons);
                 addEditButtonSelectedEL(buttons);
             }
         }, {once: false});
@@ -39,7 +43,7 @@ function showTasksEditButtonEL() {
 
         // Toggles Show class when clicking anywhere ELSE on window
         window.addEventListener('click', (event) => {
-            // console.log(event.target);
+            console.log(event.target);
             if (!event.target.matches('.card')) {
                 console.log("NOT CARD!");
                 let buttons = card.querySelectorAll(".taskGridButtons");
