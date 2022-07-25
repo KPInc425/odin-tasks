@@ -1,3 +1,5 @@
+import addEditButtonSelectedEL from "./addEditButtonsSelected_EL";
+
 function displayEditTaskButtons(taskCard) {
     // console.log("Initiate Edit Task...");
     // console.log(taskCard);
@@ -51,11 +53,15 @@ function displayEditTaskButtons(taskCard) {
         taskCard.appendChild(btnEditTaskDueDate);
         taskCard.appendChild(btnEditTaskPriority);
         taskCard.appendChild(btnEditTaskProject);
-    
-        
+
+        // Get Button Array 
+        let btnEditArray = taskCard.querySelectorAll('.taskGridButtons');
     
         // Get Card Unique ID
         const cardID = taskCard.querySelector('[data-id]').getAttribute('data-id');
+
+        // Add Button Event Listeners
+        addEditButtonSelectedEL(btnEditArray, cardID);
         // console.log(cardID);
     
         let cardTitleContainer = taskCard.querySelector('div.taskTitleContainer');
@@ -82,6 +88,7 @@ function displayEditTaskButtons(taskCard) {
         // return editTaskForm;
     
         // console.log(editTaskTitleInput);
+        
     } else {
         console.log("Edits buttons exist for this card");
     }
