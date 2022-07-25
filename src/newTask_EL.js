@@ -15,6 +15,7 @@ function simpleNewTaskEventListener(defaultProject) {
         defaultProject.addTaskToProject(newTask);
         // console.log(projectArray)
         displayContainer.innerHTML = "";
+        inputNewTask.value = "";
         displayProjectTasks(defaultProject.projectTaskArray);
         showTasksEditButtonEL();
     });
