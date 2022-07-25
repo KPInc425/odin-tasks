@@ -10,8 +10,12 @@ function addEditButtonSelectedEL(taskCard) {
         button.addEventListener('click', (e) => {
             e.stopImmediatePropagation()
             let classArray = button.className.split("edit");
-            console.log(classArray[1]);
+            let classToEdit = classArray[1].toLowerCase();
+            console.log(classToEdit);
             console.log(cardID);
+            
+
+
 
         }, {once: false})
     })
