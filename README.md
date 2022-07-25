@@ -7,6 +7,7 @@ Build to do app.
 
 #Todo
 
+-reset newTask inputbox value after submission
 -make new task element sticky on Bottom 
 -make editable inputs connected to shown edit buttons
 
