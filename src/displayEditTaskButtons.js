@@ -54,14 +54,8 @@ function displayEditTaskButtons(taskCard) {
         taskCard.appendChild(btnEditTaskPriority);
         taskCard.appendChild(btnEditTaskProject);
 
-        // Get Button Array 
-        let btnEditArray = taskCard.querySelectorAll('.taskGridButtons');
-    
-        // Get Card Unique ID
-        const cardID = taskCard.querySelector('[data-id]').getAttribute('data-id');
-
         // Add Button Event Listeners
-        addEditButtonSelectedEL(btnEditArray, cardID);
+        addEditButtonSelectedEL(taskCard);
         // console.log(cardID);
     
         let cardTitleContainer = taskCard.querySelector('div.taskTitleContainer');

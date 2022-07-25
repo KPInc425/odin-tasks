@@ -1,9 +1,16 @@
-function addEditButtonSelectedEL(buttons, cardID) {
+function addEditButtonSelectedEL(taskCard) {
+
+    // Get Button Array 
+    let btnEditArray = taskCard.querySelectorAll('.taskGridButtons');
     
-    buttons.forEach((button) => {
+    // Get Card Unique ID
+    const cardID = taskCard.querySelector('[data-id]').getAttribute('data-id');
+    
+    btnEditArray.forEach((button) => {
         button.addEventListener('click', (e) => {
             e.stopImmediatePropagation()
-            console.log(button);
+            let classArray = button.className.split("edit");
+            console.log(classArray[1]);
             console.log(cardID);
 
         }, {once: false})
