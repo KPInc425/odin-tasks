@@ -18,7 +18,7 @@ function displayProjectTasks(project) {
         taskTitleContainer.classList.add('taskTitleContainer');
         taskTitleContainer.classList.add('taskGridData');
         const taskTitle = document.createElement('h2');
-        taskTitle.id = 'taskTitle';
+        taskTitle.classList.add('taskTitle');
         taskTitle.textContent = `${title}`;
 
         taskTitleContainer.appendChild(taskTitle);
@@ -29,7 +29,7 @@ function displayProjectTasks(project) {
         taskDescriptionContainer.classList.add('taskDescriptionContainer');
         taskDescriptionContainer.classList.add('taskGridData');
         const taskDescription = document.createElement('p');
-        taskDescription.classList.add('description');
+        taskDescription.classList.add('taskDescription');
         taskDescription.textContent = `${description}`;
 
         taskDescriptionContainer.appendChild(taskDescription);
@@ -47,31 +47,42 @@ function displayProjectTasks(project) {
                 // simpleDueDate = displayFriendlyDate(dueDate);
                 // simpleCreateDate = displayFriendlyDate(createDate);
 
-        // Display Due Date
+        // Display Due Date Label
         const taskDueDateLabel = document.createElement('h2');
         taskDueDateLabel.classList.add('taskGridData');
         taskDueDateLabel.innerText = 'Due Date';
 
-
-        const taskDueDate = document.createElement('div');
-        taskDueDate.classList.add('dueDate');
-        taskDueDate.classList.add('taskGridData');
+        // Display Due Date
+        const taskDueDateContainer = document.createElement('div');
+        taskDueDateContainer.classList.add('taskGridData');
+        taskDueDateContainer.classList.add('taskDueDateContainer');
+        const taskDueDate = document.createElement('p');
+        taskDueDate.classList.add('taskDueDate');
         taskDueDate.innerText = `${dueDate}`;                            //`${simpleDueDate.m}/${simpleDueDate.d}/${simpleDueDate.y}`;
+        taskDueDateContainer.appendChild(taskDueDate);
 
-        // Display Start Date
+        // Display Start Date Label
         const taskCreateDateLabel = document.createElement('h2');
         taskCreateDateLabel.classList.add('taskGridData');
         taskCreateDateLabel.innerText = 'Start Date';
+
+        // Display Start Date
+        const taskCreateDateContainer = document.createElement('div');
+        taskCreateDateContainer.classList.add('taskGridData');
+        taskCreateDateContainer.classList.add('taskStartDateContainer');
+
         const taskCreateDate = document.createElement('p');
-        taskCreateDate.classList.add('startDate');
+        taskCreateDate.classList.add('taskStartDate');
         taskCreateDate.classList.add('taskGridData');
         taskCreateDate.innerText = `${createDate}`;                      // simpleCreateDate;
+        taskCreateDateContainer.appendChild(taskCreateDate);
 
         // Display Priority
         const taskPriortyContainer = document.createElement('div');
         taskPriortyContainer.classList.add('taskPriorityContainer');
         taskPriortyContainer.classList.add('taskGridData');
         const taskPriority = document.createElement('p');           //Maybe replace this is color coded img
+        taskPriority.classList.add('taskPriority');
         taskPriority.innerText = `${priority} Priority`;
 
         taskPriortyContainer.appendChild(taskPriority);
@@ -90,6 +101,7 @@ function displayProjectTasks(project) {
         taskProjectContainer.classList.add('taskProjectContainer')
         taskProjectContainer.classList.add('taskGridData');
         const taskProject = document.createElement('p');
+        taskProject.classList.add('taskProject');
         taskProject.innerText = `This is part of the ${project} project.`;
 
         taskProjectContainer.appendChild(taskProject);
@@ -105,9 +117,9 @@ function displayProjectTasks(project) {
         // taskCard.appendChild(taskDescriptionLabel);
         taskCard.appendChild(taskDescriptionContainer);
         taskCard.appendChild(taskCreateDateLabel);
-        taskCard.appendChild(taskCreateDate);
+        taskCard.appendChild(taskCreateDateContainer);
         taskCard.appendChild(taskDueDateLabel);
-        taskCard.appendChild(taskDueDate);
+        taskCard.appendChild(taskDueDateContainer);
         taskCard.appendChild(taskPriortyContainer);
         taskCard.appendChild(taskProjectContainer);
         taskCard.appendChild(taskID);

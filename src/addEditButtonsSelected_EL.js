@@ -10,10 +10,15 @@ function addEditButtonSelectedEL(taskCard) {
         button.addEventListener('click', (e) => {
             e.stopImmediatePropagation()
             let classArray = button.className.split("edit");
-            let classToEdit = classArray[1].toLowerCase();
+            // Make string into proper format
+            let classToEdit = classArray[1][0].toLowerCase() + classArray[1].slice(1); 
             console.log(classToEdit);
             console.log(cardID);
-            
+
+            // console.log(taskCard);
+            let elementToEdit = taskCard.querySelector(`.${classToEdit}`);
+            console.log(elementToEdit);
+            console.log(elementToEdit.parentElement);
 
 
 
