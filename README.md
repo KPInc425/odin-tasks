@@ -7,7 +7,7 @@ Build to do app.
 
 #Todo
 
--reset newTask inputbox value after submission
+-work on replacing data element with old data when clicked away from input window or when click on another element.
 -make new task element sticky on Bottom 
 -make editable inputs connected to shown edit buttons
 
