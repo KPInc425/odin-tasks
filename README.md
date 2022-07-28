@@ -8,6 +8,8 @@ Build to do app.
 #Todo
 
 -work on replacing data element with old data when clicked away from input window or when click on another element.
+-Make inputbox focus when selected
+-stop input box when hiding when trying to highlight text
 -make new task element sticky on Bottom 
 -make editable inputs connected to shown edit buttons
 

@@ -130,7 +130,7 @@ function displayProjectTasks(project) {
     
     // Iterate through each task and display card
     project.forEach(task => {
-        console.log(task);
+        // console.log(task);
         displayTaskCard(task.taskTitle, task.taskDescription, task.taskDueDate, task.taskCreateDate, task.taskPriority, task.taskID, task.taskProject);
     });
 };

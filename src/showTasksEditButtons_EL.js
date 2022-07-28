@@ -17,7 +17,7 @@ function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".card");
     const cardArray = Array.from(cardNodeArray);
-    console.log(cardArray);
+    // console.log(cardArray);
 
     cardArray.forEach((card) => {
         card.addEventListener('click', (e) => {
@@ -30,7 +30,7 @@ function showTasksEditButtonEL() {
 
             // If edit buttons aren't displayed > Display Edit Buttons
             const buttons = card.querySelectorAll('.taskGridButtons');
-            console.log(e.target);
+            // console.log(e.target);
             // console.log(buttons);
             if (buttons.length < 1) {
                 // e.stopPropagation();
@@ -47,9 +47,9 @@ function showTasksEditButtonEL() {
 
         // Toggles Show class when clicking anywhere ELSE on window
         window.addEventListener('click', (event) => {
-            console.log(event.target);
+            // console.log(event.target);
             if (!event.target.matches('.card')) {
-                console.log("NOT CARD!");
+                // console.log("NOT CARD!");
                 let buttons = card.querySelectorAll(".taskGridButtons");
                 // console.log(buttons);
                 let i;

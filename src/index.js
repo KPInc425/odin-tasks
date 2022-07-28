@@ -54,7 +54,7 @@ import './style.css';
     // Display Default Tasks for default project
     displayProjectTitle(projectArray[0].projectTitle);
     displayProjectTasks(projectArray[0].projectTaskArray); //projectArray[0].projectTaskArray,
-    console.log(projectArray[0].projectTaskArray);
+    // console.log(projectArray[0].projectTaskArray);
 
     // Add Event listeners
     // mainMenuEventListener();
@@ -65,5 +65,8 @@ import './style.css';
     // Add EventListeners to show edit buttons when clicked
     showTasksEditButtonEL();
 
+    // window.addEventListener('click', (e) => {
+    //     console.log(e.target);
+    // })
     // let newTask = createTask();
 // })();
