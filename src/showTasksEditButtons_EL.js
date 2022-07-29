@@ -48,6 +48,7 @@ function showTasksEditButtonEL() {
         // Toggles Show class when clicking anywhere ELSE on window
         window.addEventListener('click', (event) => {
             // console.log(event.target);
+            event.preventDefault();
             if (!event.target.matches('.card')) {
                 // console.log("NOT CARD!");
                 let buttons = card.querySelectorAll(".taskGridButtons");
