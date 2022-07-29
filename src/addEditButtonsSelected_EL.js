@@ -20,7 +20,13 @@ function addEditButtonSelectedEL(taskCard) {
         console.log(userInputBox);
         if (!(userInputBox == undefined)) {
             for (let i = 0; i < openInputTextBoxArray.length; i++) {
-                elementToEditArray[i].innerText = openInputTextBoxArray[i].value;
+                
+                // Check if input has value, if not put back previous data from placeholder
+                if (openInputTextBoxArray[i].value == "") {
+                    elementToEditArray[i].innerText = openInputTextBoxArray[i].placeholder;
+                } else {
+                    elementToEditArray[i].innerText = openInputTextBoxArray[i].value;
+                }
                 elementToEditsParentArray[i].innerHTML = "";
                 elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
                 //Save to Local
@@ -61,10 +67,12 @@ function addEditButtonSelectedEL(taskCard) {
                     // Create Input box in place of data element
                     userInputBox = document.createElement('input');
                     userInputBox.classList.add('userEditInput');
-                    userInputBox.value = elementToEdit.innerText;
+                    userInputBox.placeholder = elementToEdit.innerText;
+                    
                     // Clear parents html to add new input element
                     elementToEditsParent.innerHTML = "";
                     elementToEditsParent.appendChild(userInputBox);
+                    userInputBox.focus();
                     // console.log(elementToEdit);
                     userInputBox.addEventListener('keyup', (event) => {
                         event.preventDefault();
