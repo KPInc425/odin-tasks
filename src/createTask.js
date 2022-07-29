@@ -14,15 +14,18 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskP
     
 
     const dateNow = new Date()
-    const taskCreateDate = new Date(); //new Date(dateNow.getTime());
+    let taskCreateDate = new Date(); //new Date(dateNow.getTime());
+    taskCreateDate = taskCreateDate.toISOString();
     const taskID = GenerateUniqueID();
     // console.log(dateNow);
+    // Add 1 day to dateNow for a default dueDate
     dateNow.setDate(dateNow.getDate()+1);
     // console.log(dateNow);
     taskTitle = taskTitle || "New Task";
     taskDescription = taskDescription || "New Description";
     if (taskDueDate == undefined) {
-        taskDueDate = dateNow;
+        taskDueDate = dateNow.toISOString();
+        console.log(taskDueDate);
     } else {
         taskDueDate = taskDueDate
     }

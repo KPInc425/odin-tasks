@@ -58,7 +58,8 @@ function displayProjectTasks(project) {
         taskDueDateContainer.classList.add('taskDueDateContainer');
         const taskDueDate = document.createElement('p');
         taskDueDate.classList.add('taskDueDate');
-        taskDueDate.innerText = `${dueDate}`;                            //`${simpleDueDate.m}/${simpleDueDate.d}/${simpleDueDate.y}`;
+        taskDueDate.innerText = `${new Date(dueDate)}`;  
+        taskDueDate.style.fontSize = "90%"
         taskDueDateContainer.appendChild(taskDueDate);
 
         // Display Start Date Label
@@ -74,7 +75,8 @@ function displayProjectTasks(project) {
         const taskCreateDate = document.createElement('p');
         taskCreateDate.classList.add('taskStartDate');
         taskCreateDate.classList.add('taskGridData');
-        taskCreateDate.innerText = `${createDate}`;                      // simpleCreateDate;
+        taskCreateDate.innerText = `${new Date(createDate)}`;                      // simpleCreateDate;
+        taskCreateDate.style.fontSize = "90%"
         taskCreateDateContainer.appendChild(taskCreateDate);
 
         // Display Priority
