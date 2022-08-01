@@ -12,38 +12,49 @@ function addEditButtonSelectedEL(taskCard) {
     let userInputBox;
     let userDateInput;
     // Hold all the currently editable elements
-    let openInputTextBoxArray = [];
-    let openDateInputArray = [];
+    let openInputElementArray = [];
+    // let openDateInputArray = [];
     let elementToEditArray = [];
     let elementToEditsParentArray = [];
 
     // Will clear parent element > set element being edited's new value to userInputBox value > append to parent element
     const appendEditedElement = (event) => {
-        console.log("This is getting repeated for some reason");
-        if (!(userInputBox == undefined)) {
-            for (let i = 0; i < openInputTextBoxArray.length; i++) {
+        if (openInputElementArray.length > 0) {
+            // if (!(userDateInput == undefined)) {
+            //     console.log("Date Input Used");
+            // }
+            console.log(userDateInput);
+            console.log(userInputBox);
+            console.log(openInputElementArray);
+            for (let i = 0; i < openInputElementArray.length; i++) {
                 
-                // Check if input has value, if not put back previous data from placeholder
-                if (openInputTextBoxArray[i].value.length < 3) {
-                    elementToEditArray[i].innerText = openInputTextBoxArray[i].placeholder;
+                if (openInputElementArray[i].className == 'userDateInput') {
+
+                    elementToEditArray[i].innerText = new Date(openInputElementArray[i].value).toLocaleString();
+
+                } else if (openInputElementArray[i].value.length < 3) {
+                    elementToEditArray[i].innerText = openInputElementArray[i].placeholder;
                 } else {
-                    elementToEditArray[i].innerText = openInputTextBoxArray[i].value;
+                    elementToEditArray[i].innerText = openInputElementArray[i].value;
                 }
+                
+                    
                 elementToEditsParentArray[i].innerHTML = "";
                 elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
                 //Save to Local
-
             }
+            openInputElementArray = [];
+            console.log(openInputElementArray);
         }
         
-        if (!(userDateInput == undefined)) {
-            for (let i = 0; i < openDateInputArray.length; i++) {
-                elementToEditArray[i].innerText = new Date(openDateInputArray[i].value);
-                elementToEditsParentArray[i].innerHTML = "";
-                elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
-                //Save to Local
-            }
-        }
+        // if (!(userDateInput == undefined)) {
+        //     for (let i = 0; i < openDateInputArray.length; i++) {
+        //         elementToEditArray[i].innerText = new Date(openDateInputArray[i].value);
+        //         elementToEditsParentArray[i].innerHTML = "";
+        //         elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
+        //         //Save to Local
+        //     }
+        // }
     } 
 
     
@@ -64,10 +75,11 @@ function addEditButtonSelectedEL(taskCard) {
             elementToEdit = taskCard.querySelector(`.${classToEdit}`);
             elementToEditArray.push(elementToEdit);
             console.log(elementToEdit);
+            // Check if element variable has been given a value
             if (!(elementToEdit == null)) {
                 elementToEditsParent = elementToEdit.parentElement;
                 elementToEditsParentArray.push(elementToEditsParent);
-
+                // Task edit due/start date logic
                 if ((classToEdit === 'taskDueDate') || (classToEdit === 'taskStartDate')) {
                     console.log('Display Date Widget')
                     userDateInput = document.createElement('input');
@@ -80,7 +92,7 @@ function addEditButtonSelectedEL(taskCard) {
                     // console.log('2017-06-01T08:30');
                     userDateInput.value = isoDate;
                     userDateInput.placeholder = elementToEdit.innerHTML;
-                    userDateInput.classList.add('userEditInput');
+                    userDateInput.classList.add('userDateInput');
                     // console.log(elementToEdit.innerHTML);
 
                     // Clear parents html to add new input element
@@ -88,16 +100,19 @@ function addEditButtonSelectedEL(taskCard) {
                     elementToEditsParent.appendChild(userDateInput);
                     userDateInput.focus();
 
-                    userDateInput.addEventListener('keyup', (event) => {
-                        event.preventDefault();
-                        // console.log(event.key);
-                        if (event.key === "Enter") {
-                            appendEditedElement(event);
-                        }
-                        
-                    })
-
-                    openDateInputArray.push(userDateInput);
+                    // userDateInput.addEventListener('keyup', (event) => {
+                    //     event.preventDefault();
+                    //     // console.log(event.key);
+                    //     if (event.key === "Enter") {
+                    //         appendEditedElement(event);
+                    //     }  
+                    // })
+                    
+                    openInputElementArray.push(userDateInput);
+                    // openInputElementArray.push(new Date(userDateInput.value).toString());
+                    // console.log(new Date(userDateInput.value).toString());
+                    // console.log(openInputElementArray);
+                    // openDateInputArray.push(userDateInput);
                 } else if ((classToEdit === 'taskPriority')) {
                     console.log('Display Radio Buttons');
                 } else if ((classToEdit === 'taskProject') ) { 
@@ -105,7 +120,7 @@ function addEditButtonSelectedEL(taskCard) {
                 } else {
                     // Create Input box in place of data element
                     userInputBox = document.createElement('input');
-                    userInputBox.classList.add('userEditInput');
+                    userInputBox.classList.add('userTextInput');
                     userInputBox.placeholder = elementToEdit.innerText;
                     
                     // Clear parents html to add new input element
@@ -122,8 +137,8 @@ function addEditButtonSelectedEL(taskCard) {
                         
                     })
                     //Add to array of open inputs
-                    openInputTextBoxArray.push(userInputBox);
-                    console.log(openInputTextBoxArray);
+                    openInputElementArray.push(userInputBox);
+                    console.log(openInputElementArray);
                 } 
             }
 

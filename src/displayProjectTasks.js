@@ -58,7 +58,7 @@ function displayProjectTasks(project) {
         taskDueDateContainer.classList.add('taskDueDateContainer');
         const taskDueDate = document.createElement('p');
         taskDueDate.classList.add('taskDueDate');
-        taskDueDate.innerText = `${new Date(dueDate)}`;  
+        taskDueDate.innerText = `${new Date(dueDate).toLocaleString()}`;  
         taskDueDate.style.fontSize = "90%"
         taskDueDateContainer.appendChild(taskDueDate);
 
@@ -75,7 +75,7 @@ function displayProjectTasks(project) {
         const taskCreateDate = document.createElement('p');
         taskCreateDate.classList.add('taskStartDate');
         taskCreateDate.classList.add('taskGridData');
-        taskCreateDate.innerText = `${new Date(createDate)}`;                      // simpleCreateDate;
+        taskCreateDate.innerText = `${new Date(createDate).toLocaleString()}`;                      // simpleCreateDate;
         taskCreateDate.style.fontSize = "90%"
         taskCreateDateContainer.appendChild(taskCreateDate);
 

@@ -7,13 +7,14 @@ Build to do app.
 
 #Todo
 
+-Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
 -Slice up start/duedate displayed string to be more readable and local
 -Make removeEditButtons into a function from the window addeventlisteners that removes buttons for more modularity.
 -work on replacing data element with old data when clicked away from input window or when click on another element.
 -stop input box from hiding when trying to highlight text
 -make new task element sticky on Bottom 
-
+-prevent startDate being later than dueDate
 
 -add dropdown feature to the tasks when they are displayed.
 --Only show the name and maybe duedate
