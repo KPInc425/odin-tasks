@@ -12,7 +12,7 @@ function displayProjectTasks(project) {
         // Create Card Div
         const taskCard = document.createElement('div');
         taskCard.classList.add('card');
-
+        taskCard.setAttribute('data-id', ID);
         // Display Title
         const taskTitleContainer = document.createElement('div');
         taskTitleContainer.classList.add('taskTitleContainer');
@@ -96,8 +96,8 @@ function displayProjectTasks(project) {
         taskProjectContainer.appendChild(taskProject);
 
         // Create Element for Hidden task ID
-        const taskID = document.createElement('div');
-        taskID.setAttribute('data-id', ID);
+        // const taskID = document.createElement('div');
+        // taskID.setAttribute('data-id', ID);
 
 
 
@@ -111,7 +111,7 @@ function displayProjectTasks(project) {
         taskCard.appendChild(taskDueDateContainer);
         taskCard.appendChild(taskPriortyContainer);
         taskCard.appendChild(taskProjectContainer);
-        taskCard.appendChild(taskID);
+        // taskCard.appendChild(taskID);
 
 
         displayContainer.appendChild(taskCard);

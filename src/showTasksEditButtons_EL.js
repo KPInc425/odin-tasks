@@ -1,5 +1,4 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
-// import getProjectDataFromCards from "./getProjectDataFromCards.js";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
@@ -18,38 +17,53 @@ function showTasksEditButtonEL() {
 
             // If edit buttons aren't displayed > Display Edit Buttons
             const buttons = card.querySelectorAll('.taskGridButtons');
-
+            // Show the Edit Buttons if none are showing
             if (buttons.length < 1) {
-
                 displayEditTaskButtons(card);
-            } 
+            }
         }, {once: false});
 
         
 
+        // const removeEditButtons = (event) => {
+
+        //     event.preventDefault();
+
+        //     let buttons = card.querySelectorAll(".taskGridButtons");
+
+        //     let i;
+        //     for (i = 0; i < buttons.length; i++) {
+        //         let shownButton = buttons[i];
+
+        //         shownButton.remove()
+        //     }
+        //     card.classList.remove('cardGrid');    
+        //     // window.removeEventListener('click', removeEditButtons);         
+        // }
 
 
+
+        // // Toggles Show class when clicking anywhere ELSE on window
+        // window.addEventListener('click', removeEditButtons);
+    })
         // Toggles Show class when clicking anywhere ELSE on window
         window.addEventListener('click', (event) => {
-            // console.log(event.target);
+
             event.preventDefault();
-            if (!event.target.matches('.card')) {
-                // console.log("NOT CARD!");
-                let buttons = card.querySelectorAll(".taskGridButtons");
-                // console.log(buttons);
-                let i;
-                for (i = 0; i < buttons.length; i++) {
-                    let shownButton = buttons[i];
-                    // console.log(shownButton);
-                    shownButton.remove()
-                }
-                card.classList.remove('cardGrid');
-                // Get Project Data from displayed project Tasks
-                // getProjectDataFromCards();
-                // replace master project array with possible edits
-            };                
-        }, {once: false});
-    })
+            let cards = document.querySelectorAll('.card');
+            let buttons = document.querySelectorAll(".taskGridButtons");
+
+            let i;
+            for (i = 0; i < buttons.length; i++) {
+                let shownButton = buttons[i];
+
+                shownButton.remove()
+            }
+            cards.forEach((card) => {
+                card.classList.remove('cardGrid')
+            });    
+            // window.removeEventListener('click', removeEditButtons);         
+        });
 }
 
 export default showTasksEditButtonEL;

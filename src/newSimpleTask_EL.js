@@ -28,6 +28,7 @@ function simpleNewTaskEventListener() {
         inputNewTask.value = "";
         // displayProjectTasks(defaultProject.projectTaskArray);
         displayProjectTasks(allProjectData.getDefaultProjectTasks());
+
         showTasksEditButtonEL();
 
         
