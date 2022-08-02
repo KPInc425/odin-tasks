@@ -56,32 +56,6 @@ function displayEditTaskButtons(taskCard) {
 
         // Add Button Event Listeners
         addEditButtonSelectedEL(taskCard);
-        // console.log(cardID);
-    
-        let cardTitleContainer = taskCard.querySelector('div.taskTitleContainer');
-        // split title from label, this won't be needed when labels are isolated on cards
-        // cardTitle = cardTitle.split(':');
-        // console.log(cardTitleContainer);
-    
-        // const cardDescription = taskCard.querySelector
-    
-        // Create Edit task form
-        // const editTaskForm = document.createElement('form');
-        // editTaskForm.setAttribute('name', 'editTaskForm');
-        // editTaskForm.setAttribute('action', 'get');
-        // editTaskForm.classList.add('editTaskCard');
-    
-        // const editTaskTitleInput = document.createElement('input');
-        // editTaskTitleInput.setAttribute('placeholder', cardTitle);
-    
-        // const editTaskDescription = document.createElement('input');
-        // editTaskDescription.setAttribute('placeholder', )
-    
-        // editTaskForm.appendChild(editTaskTitleInput);
-    
-        // return editTaskForm;
-    
-        // console.log(editTaskTitleInput);
         
     } else {
         console.log("Edits buttons exist for this card");

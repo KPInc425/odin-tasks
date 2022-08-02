@@ -43,7 +43,6 @@ const getProjectFromTitle = (projectTitle) => {
     // search through projectArray for selected title
     let index = 0;
     for (const project of allProjectsArray) {
-        // console.log(project.projectTitle);
         if (projectTitle === project.projectTitle) {
             return project;
         }

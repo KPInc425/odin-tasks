@@ -1,4 +1,5 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
+import getProjectDataFromCards from "./getProjectDataFromCards.js";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
@@ -47,6 +48,7 @@ function showTasksEditButtonEL() {
                     shownButton.remove()
                 }
                 card.classList.remove('cardGrid');
+                getProjectDataFromCards();
             };                
         }, {once: false});
     })

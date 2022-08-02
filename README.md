@@ -7,6 +7,8 @@ Build to do app.
 
 #Todo
 
+-Display Priority editing element when button is depressed
+-display project selection dropdown when edit button for project is depressed
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
 -Slice up start/duedate displayed string to be more readable and local
