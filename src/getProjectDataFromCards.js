@@ -1,3 +1,5 @@
+import createTask from "./createTask.js";
+
 const getProjectDataFromCards = () => {
     let tempProjectTaskArray = [];
     const cardNodeArray = document.querySelectorAll('.card');
@@ -5,6 +7,7 @@ const getProjectDataFromCards = () => {
     let j = 0;
     cardNodeArray.forEach((node) => {
 
+        let taskID = node.getAttribute('data-id');
         let taskTitle = node.querySelector('.taskTitle').textContent;
         // if (taskTitle == "") {
         //     taskTitle = node.querySelector('.taskTitle').getAttribute('placeholder');
@@ -20,8 +23,10 @@ const getProjectDataFromCards = () => {
         let taskProject = node.querySelector('.taskProject').textContent.substring(20).replace(" project.", "");
         console.log(`Iterations: ${j}`);
         j++
-
         console.log(`TaskTitle: ${taskTitle} TaskDescr: ${taskDescription} TaskStart: ${taskStartDate} TaskDue: ${taskDueDate}`);
+        console.log(taskID);
+        tempProjectTaskArray.push(createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject, taskStartDate, taskID));
+        console.log(tempProjectTaskArray);
     } )
 }
 

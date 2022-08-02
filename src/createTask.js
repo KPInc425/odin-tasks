@@ -1,10 +1,15 @@
 import GenerateUniqueID from './generateUniqueID';
 
-function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject) {
+function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject, newStartDate, oldTaskID) {
     const dateNow = new Date()
+    let taskID;
     let taskCreateDate = new Date(); //new Date(dateNow.getTime());
-    taskCreateDate = taskCreateDate.toISOString();
-    const taskID = GenerateUniqueID();
+    taskCreateDate = taskCreateDate.toISOString() || newStartDate;
+    if (oldTaskID) {
+        taskID = oldTaskID; 
+    } else {
+        taskID = GenerateUniqueID()
+    } 
     // console.log(dateNow);
     // Add 1 day to dateNow for a default dueDate
     dateNow.setDate(dateNow.getDate()+1);
@@ -13,7 +18,7 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskP
     taskDescription = taskDescription || "New Description";
     if (taskDueDate == undefined) {
         taskDueDate = dateNow.toISOString();
-        // console.log(taskDueDate);
+        console.log(taskDueDate);
     } else {
         taskDueDate = taskDueDate
     }
