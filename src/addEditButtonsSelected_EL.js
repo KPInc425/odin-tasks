@@ -20,12 +20,7 @@ function addEditButtonSelectedEL(taskCard) {
     // Will clear parent element > set element being edited's new value to userInputBox value > append to parent element
     const appendEditedElement = (event) => {
         if (openInputElementArray.length > 0) {
-            // if (!(userDateInput == undefined)) {
-            //     console.log("Date Input Used");
-            // }
-            console.log(userDateInput);
-            console.log(userInputBox);
-            console.log(openInputElementArray);
+
             for (let i = 0; i < openInputElementArray.length; i++) {
                 
                 if (openInputElementArray[i].className == 'userDateInput') {
@@ -37,24 +32,12 @@ function addEditButtonSelectedEL(taskCard) {
                 } else {
                     elementToEditArray[i].innerText = openInputElementArray[i].value;
                 }
-                
-                    
+                  
                 elementToEditsParentArray[i].innerHTML = "";
                 elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
                 //Save to Local
             }
-            openInputElementArray = [];
-            console.log(openInputElementArray);
         }
-        
-        // if (!(userDateInput == undefined)) {
-        //     for (let i = 0; i < openDateInputArray.length; i++) {
-        //         elementToEditArray[i].innerText = new Date(openDateInputArray[i].value);
-        //         elementToEditsParentArray[i].innerHTML = "";
-        //         elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
-        //         //Save to Local
-        //     }
-        // }
     } 
 
     

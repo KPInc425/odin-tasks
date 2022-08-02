@@ -1,18 +1,5 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 
-// function addEditButtonSelectedEL(buttons, cardID) {
-    
-//     buttons.forEach((button) => {
-//         button.addEventListener('click', (e) => {
-//             e.stopImmediatePropagation()
-//             console.log(button);
-//             console.log(cardID);
-
-//         }, {once: false})
-//     })
-//     // console.log(buttons.length);
-// };
-
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".card");

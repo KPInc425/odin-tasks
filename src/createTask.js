@@ -1,18 +1,6 @@
 import GenerateUniqueID from './generateUniqueID';
 
 function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject) {
-    
-    // Make into helper module
-    // function displayFriendlyDate(date) {
-    //     date = date;
-    //     y = date.getFullYear();
-    //     m = date.getMonth();
-    //     d = date.getDate();
-
-    //     return {y,m,d};
-    // }
-    
-
     const dateNow = new Date()
     let taskCreateDate = new Date(); //new Date(dateNow.getTime());
     taskCreateDate = taskCreateDate.toISOString();

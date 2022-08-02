@@ -1,23 +1,27 @@
-import displayProjectLibrary from "./displayProjectLibrary";
-import displayProjectTitle from "./displayProjectTitle";
-import showProjectsEditButtonEventListeners from "./showProjectsEditButtons_EL";
+import displayProjectLibrary from "./displayProjectLibrary.js";
+import displayProjectTitle from "./displayProjectTitle.js";
+import showProjectsEditButtonEventListeners from "./showProjectsEditButtons_EL.js";
 import showSelectedProjectTasksEL from "./showSelectedProject_EL";
+import { projectArray } from "./projectArray.js";
 
-function allProjectsEventListener(projectArray) {
+
+function allProjectsEventListener() {
     const mainContainer = document.querySelector('main');
     // const headerContainer = document.querySelector('header');
     // const mainMenuButton = document.querySelector('.dropDownButton');
     const allProjectsButton = document.getElementById('allProjects');
 
+    console.log(projectArray());
+
     allProjectsButton.addEventListener('click', () => {
         mainContainer.innerHTML = "";
         // headerContainer.innerHTML = "";
         displayProjectTitle("All Projects");
-        displayProjectLibrary(projectArray, mainContainer);
+        displayProjectLibrary(projectArray(), mainContainer);
         // console.log(projectArray);
         // mainMenuButton.textContent = "Projects Menu";
         // showProjectsEditButtonEventListeners();
-        showSelectedProjectTasksEL(projectArray);
+        showSelectedProjectTasksEL(projectArray());
     })
 };
 

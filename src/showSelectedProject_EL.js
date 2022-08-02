@@ -1,6 +1,7 @@
-import displayProjectTasks from "./displayProjectTasks";
-import displayProjectTitle from "./displayProjectTitle";
-import showTasksEditButtonEL from "./showTasksEditButtons_EL";
+import displayProjectTasks from "./displayProjectTasks.js";
+import displayProjectTitle from "./displayProjectTitle.js";
+import showTasksEditButtonEL from "./showTasksEditButtons_EL.js";
+import { getProjectFromTitle, getProjectFromIndex } from "./projectArray.js";
 
 function showSelectedProjectTasksEL (projectArray) {
 
@@ -19,21 +20,24 @@ function showSelectedProjectTasksEL (projectArray) {
             // Get project title from selected card
             let projectTitle = card.querySelector('.projectTitle').innerHTML;
             console.log(projectTitle);
+            let selectedProject = getProjectFromTitle(projectTitle);
 
+
+            
             // search through projectArray for selected title
-            let index = 0;
-            for (const project of projectArray) {
-                // console.log(project.projectTitle);
-                if (projectTitle === project.projectTitle) {
-                    break;
-                }
-                index++;
-            }
+            // let index = 0;
+            // for (const project of projectArray) {
+            //     // console.log(project.projectTitle);
+            //     if (projectTitle === project.projectTitle) {
+            //         break;
+            //     }
+            //     index++;
+            // }
 
             // console.log(projectArray[index]);
-            displayProjectTitle(projectArray[index].projectTitle)
-            console.log(projectArray[index].projectTaskArray);
-            displayProjectTasks(projectArray[index].projectTaskArray);
+            displayProjectTitle(selectedProject.projectTitle)
+            console.log(selectedProject.projectTaskArray);
+            displayProjectTasks(selectedProject.projectTaskArray);
             showTasksEditButtonEL();
 
 

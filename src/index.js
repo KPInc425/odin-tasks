@@ -1,16 +1,14 @@
 import _ from 'lodash';
-import greeting from './greeting';
-import displayTaskMainMenu from './displayTaskMainMenu';
-import createTask from './createTask';
-import displayCreateSimpleTask from './displayCreateSimpleTask';
-import createProject from './createProject';
-import displayProjectLibrary from './displayProjectLibrary';
-import displayProjectTitle from './displayProjectTitle';
-import displayProjectTasks from './displayProjectTasks';
-import mainMenuEventListener from './mainMenu_EL';
-import simpleNewTaskEventListener from './newTask_EL';
-import allProjectsEventListener from './allProjects_EL';
-import showTasksEditButtonEL from './showTasksEditButtons_EL';
+import greeting from './greeting.js';
+import displayTaskMainMenu from './displayTaskMainMenu.js';
+import displayCreateSimpleTask from './displayCreateSimpleTask.js';
+import displayProjectTitle from './displayProjectTitle.js';
+import displayProjectTasks from './displayProjectTasks.js';
+import mainMenuEventListener from './mainMenu_EL.js';
+import simpleNewTaskEventListener from './newSimpleTask_EL.js';
+import allProjectsEventListener from './allProjects_EL.js';
+import showTasksEditButtonEL from './showTasksEditButtons_EL.js';
+import * as allProjectData from './projectArray.js';
 
 import './reset.css';
 import './style.css';
@@ -19,22 +17,28 @@ import './style.css';
 // const app = (() => {
 
     // Initialize Project Arrays
-    let projectArray = [];
+    allProjectData.loadProjectData();
+    // Testing
+    allProjectData.addNewProjectToArray('Another New Project');
+    allProjectData.addNewProjectToArray('Test Project');
+    
+    // localProjectArray.push(createProject('Simple Project'));
+    // localProjectArray.push(createProject('Test Project'));
+    // Testing
+    let localProjectArray = allProjectData.projectArray();
     let completedProjectArray = [];
+    
     
     // Create and Add default task to default project, If statement
     // goes here to check for saved data
     // if no data
-    projectArray.push(createProject('Default Project'));
-    projectArray[0].addTaskToProject(createTask());
+    // projectArray.push(createProject('Default Project'));
+    // projectArray[0].addTaskToProject(createTask());
     // else 
     // load data
 
 
-    // Testing
-    projectArray.push(createProject('Simple Project'));
-    projectArray.push(createProject('Test Project'));
-    // Testing
+
     // console.log(projectArray);
 
     // get main container Ref's
@@ -52,14 +56,13 @@ import './style.css';
     // displayProjectLibrary(projectArray, mainContainer);
 
     // Display Default Tasks for default project
-    displayProjectTitle(projectArray[0].projectTitle);
-    displayProjectTasks(projectArray[0].projectTaskArray); //projectArray[0].projectTaskArray,
-    // console.log(projectArray[0].projectTaskArray);
+    displayProjectTitle(localProjectArray[0].projectTitle);
+    displayProjectTasks(localProjectArray[0].projectTaskArray); 
 
-    // Add Event listeners
-    // mainMenuEventListener();
-    simpleNewTaskEventListener(projectArray[0]);
-    allProjectsEventListener(projectArray);
+    // Listen for button push and add to default project
+    simpleNewTaskEventListener();
+    // simpleNewTaskEventListener(localProjectArray[0]);
+    allProjectsEventListener(localProjectArray);
     //Dropdown Menu event listener
     mainMenuEventListener();
     // Add EventListeners to show edit buttons when clicked
