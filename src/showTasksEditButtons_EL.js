@@ -1,5 +1,5 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
-import getProjectDataFromCards from "./getProjectDataFromCards.js";
+// import getProjectDataFromCards from "./getProjectDataFromCards.js";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
@@ -9,24 +9,20 @@ function showTasksEditButtonEL() {
 
     cardArray.forEach((card) => {
         card.addEventListener('click', (e) => {
-            // console.log(card);
+
             // Allow for click on any area of card to activate
             e.stopImmediatePropagation();
             let divCardID = card.querySelector('div:last-of-type');
-            // console.log(divCardID);
+
             let cardID = divCardID.getAttribute('data-id');
 
             // If edit buttons aren't displayed > Display Edit Buttons
             const buttons = card.querySelectorAll('.taskGridButtons');
-            // console.log(e.target);
-            // console.log(buttons);
+
             if (buttons.length < 1) {
-                // e.stopPropagation();
+
                 displayEditTaskButtons(card);
-            } else {
-                // console.log(buttons);
-                // addEditButtonSelectedEL(buttons, cardID);
-            }
+            } 
         }, {once: false});
 
         
@@ -48,7 +44,9 @@ function showTasksEditButtonEL() {
                     shownButton.remove()
                 }
                 card.classList.remove('cardGrid');
-                getProjectDataFromCards();
+                // Get Project Data from displayed project Tasks
+                // getProjectDataFromCards();
+                // replace master project array with possible edits
             };                
         }, {once: false});
     })

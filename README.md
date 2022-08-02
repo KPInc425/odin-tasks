@@ -7,6 +7,7 @@ Build to do app.
 
 #Todo
 
+-create new task array from currently displayed project (getProjectDataFromCards.js)
 -Display Priority editing element when button is depressed
 -display project selection dropdown when edit button for project is depressed
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function

@@ -19,7 +19,7 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskP
     }
     // dueDate = dueDate | dateNow;
     taskPriority = taskPriority || "Low";
-    taskProject = taskProject || "Sample Project"
+    taskProject = taskProject || "Default"
     
     
     const taskInfo = () => {

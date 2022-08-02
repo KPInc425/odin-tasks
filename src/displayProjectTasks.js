@@ -34,23 +34,10 @@ function displayProjectTasks(project) {
 
         taskDescriptionContainer.appendChild(taskDescription);
 
-            // Make into helper module
-                // function displayFriendlyDate(date) {
-                //     date = date;
-                //     y = date.getFullYear();
-                //     m = date.getMonth();
-                //     d = date.getDate();
-
-                //     return {y,m,d};
-                // }
-
-                // simpleDueDate = displayFriendlyDate(dueDate);
-                // simpleCreateDate = displayFriendlyDate(createDate);
-
         // Display Due Date Label
         const taskDueDateLabel = document.createElement('h2');
         taskDueDateLabel.classList.add('taskGridData');
-        taskDueDateLabel.innerText = 'Due Date';
+        taskDueDateLabel.textContent = 'Due Date';
 
         // Display Due Date
         const taskDueDateContainer = document.createElement('div');
@@ -58,14 +45,14 @@ function displayProjectTasks(project) {
         taskDueDateContainer.classList.add('taskDueDateContainer');
         const taskDueDate = document.createElement('p');
         taskDueDate.classList.add('taskDueDate');
-        taskDueDate.innerText = `${new Date(dueDate).toLocaleString()}`;  
+        taskDueDate.textContent = `${new Date(dueDate).toLocaleString()}`;  
         taskDueDate.style.fontSize = "90%"
         taskDueDateContainer.appendChild(taskDueDate);
 
         // Display Start Date Label
         const taskCreateDateLabel = document.createElement('h2');
         taskCreateDateLabel.classList.add('taskGridData');
-        taskCreateDateLabel.innerText = 'Start Date';
+        taskCreateDateLabel.textContent = 'Start Date';
 
         // Display Start Date
         const taskCreateDateContainer = document.createElement('div');
@@ -75,7 +62,7 @@ function displayProjectTasks(project) {
         const taskCreateDate = document.createElement('p');
         taskCreateDate.classList.add('taskStartDate');
         taskCreateDate.classList.add('taskGridData');
-        taskCreateDate.innerText = `${new Date(createDate).toLocaleString()}`;                      // simpleCreateDate;
+        taskCreateDate.textContent = `${new Date(createDate).toLocaleString()}`;                      // simpleCreateDate;
         taskCreateDate.style.fontSize = "90%"
         taskCreateDateContainer.appendChild(taskCreateDate);
 
@@ -85,7 +72,7 @@ function displayProjectTasks(project) {
         taskPriortyContainer.classList.add('taskGridData');
         const taskPriority = document.createElement('p');           //Maybe replace this is color coded img
         taskPriority.classList.add('taskPriority');
-        taskPriority.innerText = `${priority} Priority`;
+        taskPriority.textContent = `${priority} Priority`;
 
         taskPriortyContainer.appendChild(taskPriority);
         
@@ -104,7 +91,7 @@ function displayProjectTasks(project) {
         taskProjectContainer.classList.add('taskGridData');
         const taskProject = document.createElement('p');
         taskProject.classList.add('taskProject');
-        taskProject.innerText = `This is part of the ${project} project.`;
+        taskProject.textContent = `This is part of the ${project} project.`;
 
         taskProjectContainer.appendChild(taskProject);
 

@@ -1,3 +1,4 @@
+import getProjectDataFromCards from "./getProjectDataFromCards.js";
 function addEditButtonSelectedEL(taskCard) {
 
     // Get Button Array 
@@ -37,6 +38,9 @@ function addEditButtonSelectedEL(taskCard) {
                 elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
                 //Save to Local
             }
+            // create new task array from currently displayed project 
+            getProjectDataFromCards();
+            // replace taskArray in current Project with new taskArray
         }
     } 
 
@@ -44,6 +48,7 @@ function addEditButtonSelectedEL(taskCard) {
     btnEditArray.forEach((button) => {
 
         button.addEventListener('click', (e) => {
+            console.log(e.target);
 
             e.stopImmediatePropagation()
             // Get element to edit (splits after "edit" which will give the element title)
@@ -139,6 +144,7 @@ function addEditButtonSelectedEL(taskCard) {
 
     // Toggles Show class when clicking anywhere ELSE on window
     // These might be getting added over and over again.
+    
     window.addEventListener('click', appendEditedElement);
     taskCard.addEventListener('click', appendEditedElement);
     // console.log(buttons.length);
