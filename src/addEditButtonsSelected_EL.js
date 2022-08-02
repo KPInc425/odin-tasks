@@ -37,12 +37,8 @@ function addEditButtonSelectedEL(taskCard) {
                   
                 elementToEditsParentArray[i].innerHTML = "";
                 elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
-                //Save to Local
             }
-            if (i == openInputElementArray.length) {
-                console.log('TESTING!~!!')
-                getProjectDataFromCards();
-            }
+            getProjectDataFromCards();
         }
     } 
 
@@ -50,7 +46,7 @@ function addEditButtonSelectedEL(taskCard) {
     btnEditArray.forEach((button) => {
 
         button.addEventListener('click', (e) => {
-            console.log(e.target);
+            // console.log(e.target);
 
             e.stopImmediatePropagation()
             // Get element to edit (splits after "edit" which will give the element title)
@@ -58,12 +54,12 @@ function addEditButtonSelectedEL(taskCard) {
             // Make string into proper format
             classToEdit = classArray[1][0].toLowerCase() + classArray[1].slice(1); 
 
-            console.log(`classToEdit: ${classToEdit}`);
+            // console.log(`classToEdit: ${classToEdit}`);
 
             // query element to edit from task card based on class given from button press
             elementToEdit = taskCard.querySelector(`.${classToEdit}`);
             elementToEditArray.push(elementToEdit);
-            console.log(elementToEdit);
+            // console.log(elementToEdit);
             // Check if element variable has been given a value
             if (!(elementToEdit == null)) {
                 elementToEditsParent = elementToEdit.parentElement;

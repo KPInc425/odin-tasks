@@ -13,7 +13,7 @@ function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskP
     taskDescription = taskDescription || "New Description";
     if (taskDueDate == undefined) {
         taskDueDate = dateNow.toISOString();
-        console.log(taskDueDate);
+        // console.log(taskDueDate);
     } else {
         taskDueDate = taskDueDate
     }
