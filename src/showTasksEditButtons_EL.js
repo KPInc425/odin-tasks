@@ -1,4 +1,5 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
+import { appendEditedElement } from "./addEditButtonsSelected_EL.js";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
@@ -33,20 +34,8 @@ function showTasksEditButtonEL() {
              let cardID = card.getAttribute('data-id');
              
              if (!(cardID == previousID)) {
-                console.log(cardID);
-                let cards = document.querySelectorAll('.card');
-                let buttons = document.querySelectorAll(".taskGridButtons");
-                // Removed Edit Buttons
-                let i;
-                for (i = 0; i < buttons.length; i++) {
-                    let shownButton = buttons[i];
-                    shownButton.remove()
-                }
-                // Remove Grid Styling
-                cards.forEach((card) => {
-                    card.classList.remove('cardGrid')
-                }); 
-                previousID = null;          
+                removeEditButtons(e);
+                appendEditedElement(e);
              }
 
 

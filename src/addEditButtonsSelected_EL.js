@@ -1,11 +1,4 @@
 import getProjectDataFromCards from "./getProjectDataFromCards.js";
-function addEditButtonSelectedEL(taskCard) {
-
-    // Get Button Array 
-    let btnEditArray = taskCard.querySelectorAll('.taskGridButtons');
-    
-    // Get Card Unique ID
-    const cardID = taskCard.getAttribute('data-id');
 
     let classToEdit;
     let elementToEdit;
@@ -18,30 +11,38 @@ function addEditButtonSelectedEL(taskCard) {
     let elementToEditArray = [];
     let elementToEditsParentArray = [];
 
-    // Will clear parent element > set element being edited's new value to userInputBox value > append to parent element
-    const appendEditedElement = (e) => {
-        console.log(e.target);
-        if (openInputElementArray.length > 0) {
-            let i;
-            for (i = 0; i < openInputElementArray.length; i++) {
-                
-                if (openInputElementArray[i].className == 'userDateInput') {
 
-                    elementToEditArray[i].textContent = new Date(openInputElementArray[i].value).toLocaleString();
+// Will clear parent element > set element being edited's new value to userInputBox value > append to parent element
+function appendEditedElement(e) {
+    console.log(e.target);
+    if (openInputElementArray.length > 0) {
+        let i;
+        for (i = 0; i < openInputElementArray.length; i++) {
+            
+            if (openInputElementArray[i].className == 'userDateInput') {
 
-                } else if (openInputElementArray[i].value.length < 3) {
-                    elementToEditArray[i].textContent = openInputElementArray[i].placeholder;
-                } else {
-                    elementToEditArray[i].textContent = openInputElementArray[i].value;
-                }
-                  
-                elementToEditsParentArray[i].innerHTML = "";
-                elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
+                elementToEditArray[i].textContent = new Date(openInputElementArray[i].value).toLocaleString();
+
+            } else if (openInputElementArray[i].value.length < 3) {
+                elementToEditArray[i].textContent = openInputElementArray[i].placeholder;
+            } else {
+                elementToEditArray[i].textContent = openInputElementArray[i].value;
             }
-            getProjectDataFromCards();
+                
+            elementToEditsParentArray[i].innerHTML = "";
+            elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
         }
-    } 
+        getProjectDataFromCards();
+    }
+} 
 
+function addEditButtonSelectedEL(taskCard) {
+
+    // Get Card Unique ID
+    const cardID = taskCard.getAttribute('data-id');
+
+    // Get Button Array 
+    let btnEditArray = taskCard.querySelectorAll('.taskGridButtons');
     
     btnEditArray.forEach((button) => {
 
@@ -121,4 +122,7 @@ function addEditButtonSelectedEL(taskCard) {
     window.addEventListener('click', appendEditedElement, {once: true});
 };
 
-export default addEditButtonSelectedEL;
+export {
+    addEditButtonSelectedEL,
+    appendEditedElement,
+}

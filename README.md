@@ -8,7 +8,7 @@ Build to do app.
 #Todo
 
 -Refactor Getting Changed data, as its a bit blunt force atm
---getProjectDataFromCards maybe changed to just the single card no that we are closing editing options for non-selected cards.
+--getProjectDataFromCards maybe changed to just the single card now that we are closing editing options for non-selected cards.
 -create new task array from currently displayed project (getProjectDataFromCards.js)
 -Display Priority editing element when button is depressed
 -display project selection dropdown when edit button for project is depressed
