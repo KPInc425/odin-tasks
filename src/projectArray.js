@@ -55,15 +55,15 @@ const getProjectFromTitle = (projectTitle) => {
 }
 
 const editTask = (editedTask) => {
-    console.log(editedTask);
+    // console.log(editedTask);
     let projectData = getProjectFromTitle(editedTask.taskProject);
     let project = projectData.project;
     let projectIndex = projectData.projectIndex
-    console.log(project);
+    // console.log(project);
     let i = 0;
     project.projectTaskArray.forEach((task) => {
         if (task.taskID === editedTask.taskID) {
-            console.log(task);
+            // console.log(task);
             allProjectsArray[projectIndex].projectTaskArray[i] = editedTask;
             console.log(allProjectsArray[projectIndex].projectTaskArray);
         }

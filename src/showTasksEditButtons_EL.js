@@ -9,6 +9,7 @@ function showTasksEditButtonEL() {
     const cardArray = Array.from(cardNodeArray);
     let previousID;
     let previousCard;
+    // let currentCard;
     // console.log(cardArray);
 
     const removeEditButtons = (event) => {
@@ -36,8 +37,8 @@ function showTasksEditButtonEL() {
             e.stopImmediatePropagation();
              let cardID = card.getAttribute('data-id');
             //  console.log(e.target);
-             console.log(cardID);
-             console.log(previousID);
+            //  console.log(cardID);
+            //  console.log(previousID);
              if (!(previousID == undefined)) {
                 if (!(cardID == previousID)) {           
                     removeEditButtons(e);
@@ -47,9 +48,6 @@ function showTasksEditButtonEL() {
                     // console.log(editedTask);
                     previousCard = undefined;
                     editTask(editedTask);
-                } else if (!e.target.classList.contains('card')) {
-                    console.log(e.target.classList.contains('card'));
-                    appendEditedElement(e);
                 }
              }
       
@@ -64,6 +62,9 @@ function showTasksEditButtonEL() {
                 displayEditTaskButtons(card);
                 previousID = cardID;
                 previousCard = card;
+                // console.log(`PreviousCard`);
+                // console.log(previousCard);
+                // console.log(`PreviousCard`);
             }
 
         }, {once: false});
@@ -72,11 +73,14 @@ function showTasksEditButtonEL() {
     // Toggles Show class when clicking anywhere ELSE on window
     window.addEventListener('click', (e) => {
         removeEditButtons(e);
-        if (!(previousCard === undefined)) {
-
+        appendEditedElement(e);
+        // Check to prevent error
+        if (!(previousCard == undefined)) {
             let editedTask = createTaskFromTaskCardData(previousCard);
             // console.log(editedTask);
+            // Reset to prevent reallocation
             previousCard = undefined;
+            // Edit masterArray with edited task
             editTask(editedTask);
         }
     })

@@ -10,6 +10,7 @@ import getProjectDataFromCards from "./createTaskFromTaskCardData.js";
     // let openDateInputArray = [];
     let elementToEditArray = [];
     let elementToEditsParentArray = [];
+    let chosenPriority;
 
 
 // Will clear parent element > set element being edited's new value to userInputBox value > append to parent element
@@ -18,11 +19,13 @@ function appendEditedElement(e) {
     if (openInputElementArray.length > 0) {
         let i;
         for (i = 0; i < openInputElementArray.length; i++) {
-            
+            console.log(openInputElementArray[i]);
             if (openInputElementArray[i].className == 'userDateInput') {
 
                 elementToEditArray[i].textContent = new Date(openInputElementArray[i].value).toLocaleString();
 
+            } else if (openInputElementArray[i].className == 'inputPriorityForm') {
+                elementToEditArray[i].textContent = chosenPriority + " Priority";
             } else if (openInputElementArray[i].value.length < 3) {
                 elementToEditArray[i].textContent = openInputElementArray[i].placeholder;
             } else {
@@ -32,13 +35,12 @@ function appendEditedElement(e) {
             elementToEditsParentArray[i].innerHTML = "";
             elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
         }
-
-        // getProjectDataFromCards();
     }
-
+    // Clean up 
     openInputElementArray = [];
     elementToEditArray = [];
-} 
+    elementToEditsParentArray = [];
+};
 
 function addEditButtonSelectedEL(taskCard) {
 
@@ -93,6 +95,46 @@ function addEditButtonSelectedEL(taskCard) {
 
                 } else if ((classToEdit === 'taskPriority')) {
                     console.log('Display Radio Buttons');
+                    // create Radio Buttons container
+                    const radioInputForm = document.createElement('form');
+                    radioInputForm.classList.add('inputPriorityForm');
+                    // create Radio Buttons for Priority Choices
+                    const radioLowPriority = document.createElement('input');
+                    radioLowPriority.type = "radio";
+                    radioLowPriority.value = "Low";
+                    radioLowPriority.name = "priority";
+                    const radioMediumPriority = document.createElement('input');
+                    radioMediumPriority.type = "radio";
+                    radioMediumPriority.value = "Medium";
+                    radioMediumPriority.name = "priority";
+                    const radioHighPriority = document.createElement('input');
+                    radioHighPriority.type = "radio";
+                    radioHighPriority.value = "High";
+                    radioHighPriority.name = "priority";
+
+                    radioInputForm.appendChild(radioLowPriority);
+                    radioInputForm.appendChild(radioMediumPriority);
+                    radioInputForm.appendChild(radioHighPriority);
+
+                    let radioArray = [radioLowPriority,radioMediumPriority,radioHighPriority];
+
+                    radioArray.forEach((radioBtn) => {
+                        radioBtn.addEventListener('click', () => {
+                            console.log("clicked radio");
+                            console.log(radioBtn.value);
+                            chosenPriority = radioBtn.value;
+                            console.log(chosenPriority);
+
+                        })
+                    })
+
+                    // Clear parents html to add new input element
+                    elementToEditsParent.innerHTML = "";
+                    elementToEditsParent.appendChild(radioInputForm);
+
+                    openInputElementArray.push(radioInputForm);
+
+
                 } else if ((classToEdit === 'taskProject') ) { 
                     console.log('Project Selection');
                 } else {
@@ -116,7 +158,7 @@ function addEditButtonSelectedEL(taskCard) {
                     })
                     //Add to array of open inputs
                     openInputElementArray.push(userInputBox);
-                    console.log(openInputElementArray);
+                    // console.log(openInputElementArray);
                 } 
             }                    
         }, {once: false})

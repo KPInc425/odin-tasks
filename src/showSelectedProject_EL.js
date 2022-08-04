@@ -25,7 +25,7 @@ function showSelectedProjectTasksEL (projectArray) {
 
             // Display project cards from selected project
             displayProjectTitle(selectedProject.projectTitle)
-            console.log(selectedProject.projectTaskArray);
+            // console.log(selectedProject.projectTaskArray);
             displayProjectTasks(selectedProject.projectTaskArray);
 
             // Event listeners for edit buttons
