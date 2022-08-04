@@ -1,4 +1,4 @@
-import getProjectDataFromCards from "./getProjectDataFromCards.js";
+import getProjectDataFromCards from "./createTaskFromTaskCardData.js";
 
     let classToEdit;
     let elementToEdit;

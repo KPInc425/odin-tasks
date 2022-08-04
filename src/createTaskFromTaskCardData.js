@@ -2,7 +2,7 @@ import createTask from "./createTask.js";
 // import { editTask, getTaskWithID } from "./projectArray.js";
 
 const createTaskFromTaskCardData = (taskCard) => {
-    console.log(taskCard);
+    // console.log(taskCard);
     if (!(taskCard === undefined)) {
         let taskID = taskCard.getAttribute('data-id');
         let taskTitle = taskCard.querySelector('.taskTitle').textContent;

@@ -42,24 +42,32 @@ const getDefaultProject = () => {
 const getProjectFromTitle = (projectTitle) => {
     // search through projectArray for selected title
     // console.log(projectTitle);
+    let projectIndex = 0;
     for (const project of allProjectsArray) {
         // console.log(project);
         // console.log(project.projectTitle);
         if (projectTitle == project.projectTitle) {
             console.log("Found Project!");
-            return project;
+            return { project, projectIndex };
         }
+        projectIndex++;
     }
 }
 
 const editTask = (editedTask) => {
     console.log(editedTask);
-    let project = getProjectFromTitle(editedTask.taskProject);
+    let projectData = getProjectFromTitle(editedTask.taskProject);
+    let project = projectData.project;
+    let projectIndex = projectData.projectIndex
     console.log(project);
+    let i = 0;
     project.projectTaskArray.forEach((task) => {
         if (task.taskID === editedTask.taskID) {
             console.log(task);
+            allProjectsArray[projectIndex].projectTaskArray[i] = editedTask;
+            console.log(allProjectsArray[projectIndex].projectTaskArray);
         }
+        i++;
     })
 }
 

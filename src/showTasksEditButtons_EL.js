@@ -1,6 +1,6 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 import { appendEditedElement } from "./addEditButtonsSelected_EL.js";
-import createTaskFromTaskCardData from "./getProjectDataFromCards";
+import createTaskFromTaskCardData from "./createTaskFromTaskCardData";
 import { editTask } from "./projectArray";
 
 function showTasksEditButtonEL() {
@@ -36,15 +36,15 @@ function showTasksEditButtonEL() {
             e.stopImmediatePropagation();
              let cardID = card.getAttribute('data-id');
              
-             console.log(cardID);
-             console.log(previousID);
+            //  console.log(cardID);
+            //  console.log(previousID);
              if (!(previousID == undefined)) {
                 if (!(cardID == previousID)) {           
                     removeEditButtons(e);
                     appendEditedElement(e);
 
                     let editedTask = createTaskFromTaskCardData(previousCard);
-                    console.log(editedTask);
+                    // console.log(editedTask);
                     previousCard = undefined;
                     editTask(editedTask.taskProject);
                  }
@@ -72,7 +72,7 @@ function showTasksEditButtonEL() {
         if (!(previousCard === undefined)) {
 
             let editedTask = createTaskFromTaskCardData(previousCard);
-            console.log(editedTask);
+            // console.log(editedTask);
             previousCard = undefined;
             editTask(editedTask);
         }
