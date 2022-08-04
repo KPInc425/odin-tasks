@@ -32,8 +32,12 @@ function appendEditedElement(e) {
             elementToEditsParentArray[i].innerHTML = "";
             elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
         }
+
         // getProjectDataFromCards();
     }
+
+    openInputElementArray = [];
+    elementToEditArray = [];
 } 
 
 function addEditButtonSelectedEL(taskCard) {

@@ -35,9 +35,9 @@ function showTasksEditButtonEL() {
             // Allow for click on any area of card to activate
             e.stopImmediatePropagation();
              let cardID = card.getAttribute('data-id');
-             
-            //  console.log(cardID);
-            //  console.log(previousID);
+            //  console.log(e.target);
+             console.log(cardID);
+             console.log(previousID);
              if (!(previousID == undefined)) {
                 if (!(cardID == previousID)) {           
                     removeEditButtons(e);
@@ -46,8 +46,11 @@ function showTasksEditButtonEL() {
                     let editedTask = createTaskFromTaskCardData(previousCard);
                     // console.log(editedTask);
                     previousCard = undefined;
-                    editTask(editedTask.taskProject);
-                 }
+                    editTask(editedTask);
+                } else if (!e.target.classList.contains('card')) {
+                    console.log(e.target.classList.contains('card'));
+                    appendEditedElement(e);
+                }
              }
       
 
