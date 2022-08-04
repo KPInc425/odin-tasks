@@ -1,11 +1,13 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 import { appendEditedElement } from "./addEditButtonsSelected_EL.js";
+import getProjectDataFromCards from "./getProjectDataFromCards";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".card");
     const cardArray = Array.from(cardNodeArray);
     let previousID;
+    let previousCard;
     // console.log(cardArray);
 
     const removeEditButtons = (event) => {
@@ -33,10 +35,16 @@ function showTasksEditButtonEL() {
             e.stopImmediatePropagation();
              let cardID = card.getAttribute('data-id');
              
-             if (!(cardID == previousID)) {
-                removeEditButtons(e);
-                appendEditedElement(e);
+             console.log(cardID);
+             console.log(previousID);
+             if (!(previousID == undefined)) {
+                if (!(cardID == previousID)) {           
+                    removeEditButtons(e);
+                    appendEditedElement(e);
+                    getProjectDataFromCards(previousCard);
+                 }
              }
+      
 
 
             // let cardID = divCardID.getAttribute('data-id');
@@ -47,13 +55,18 @@ function showTasksEditButtonEL() {
             if (buttons.length < 1) {
                 displayEditTaskButtons(card);
                 previousID = cardID;
+                previousCard = card;
             }
 
         }, {once: false});
     })
 
     // Toggles Show class when clicking anywhere ELSE on window
-    window.addEventListener('click', removeEditButtons);
+    window.addEventListener('click', (e) => {
+        removeEditButtons(e);
+        getProjectDataFromCards(previousCard);
+    })
+
 }
 
 export default showTasksEditButtonEL;

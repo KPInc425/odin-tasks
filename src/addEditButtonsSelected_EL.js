@@ -14,7 +14,7 @@ import getProjectDataFromCards from "./getProjectDataFromCards.js";
 
 // Will clear parent element > set element being edited's new value to userInputBox value > append to parent element
 function appendEditedElement(e) {
-    console.log(e.target);
+    // console.log(e.target);
     if (openInputElementArray.length > 0) {
         let i;
         for (i = 0; i < openInputElementArray.length; i++) {
@@ -32,7 +32,7 @@ function appendEditedElement(e) {
             elementToEditsParentArray[i].innerHTML = "";
             elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
         }
-        getProjectDataFromCards();
+        // getProjectDataFromCards();
     }
 } 
 
