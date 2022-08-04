@@ -1,6 +1,7 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 import { appendEditedElement } from "./addEditButtonsSelected_EL.js";
-import getProjectDataFromCards from "./getProjectDataFromCards";
+import createTaskFromTaskCardData from "./getProjectDataFromCards";
+import { editTask } from "./projectArray";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
@@ -25,7 +26,7 @@ function showTasksEditButtonEL() {
         cards.forEach((card) => {
             card.classList.remove('cardGrid')
         }); 
-        previousID = null;          
+        previousID = undefined;          
     }
 
     cardArray.forEach((card) => {
@@ -41,7 +42,11 @@ function showTasksEditButtonEL() {
                 if (!(cardID == previousID)) {           
                     removeEditButtons(e);
                     appendEditedElement(e);
-                    getProjectDataFromCards(previousCard);
+
+                    let editedTask = createTaskFromTaskCardData(previousCard);
+                    console.log(editedTask);
+                    previousCard = undefined;
+                    editTask(editedTask.taskProject);
                  }
              }
       
@@ -64,7 +69,13 @@ function showTasksEditButtonEL() {
     // Toggles Show class when clicking anywhere ELSE on window
     window.addEventListener('click', (e) => {
         removeEditButtons(e);
-        getProjectDataFromCards(previousCard);
+        if (!(previousCard === undefined)) {
+
+            let editedTask = createTaskFromTaskCardData(previousCard);
+            console.log(editedTask);
+            previousCard = undefined;
+            editTask(editedTask);
+        }
     })
 
 }

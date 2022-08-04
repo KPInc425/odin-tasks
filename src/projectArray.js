@@ -41,14 +41,29 @@ const getDefaultProject = () => {
 
 const getProjectFromTitle = (projectTitle) => {
     // search through projectArray for selected title
-    let index = 0;
+    // console.log(projectTitle);
     for (const project of allProjectsArray) {
-        if (projectTitle === project.projectTitle) {
+        // console.log(project);
+        // console.log(project.projectTitle);
+        if (projectTitle == project.projectTitle) {
+            console.log("Found Project!");
             return project;
         }
-        index++;
     }
 }
+
+const editTask = (editedTask) => {
+    console.log(editedTask);
+    let project = getProjectFromTitle(editedTask.taskProject);
+    console.log(project);
+    project.projectTaskArray.forEach((task) => {
+        if (task.taskID === editedTask.taskID) {
+            console.log(task);
+        }
+    })
+}
+
+
 
 export {
     loadProjectData,
@@ -59,5 +74,6 @@ export {
     getDefaultProjectTasks,
     getDefaultProject,
     getProjectFromTitle,
+    editTask,
 }; 
   

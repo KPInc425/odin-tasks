@@ -91,7 +91,7 @@ function displayProjectTasks(project) {
         taskProjectContainer.classList.add('taskGridData');
         const taskProject = document.createElement('p');
         taskProject.classList.add('taskProject');
-        taskProject.textContent = `This is part of the ${project} project.`;
+        taskProject.textContent = `Task is part of ${project}`;
 
         taskProjectContainer.appendChild(taskProject);
 
