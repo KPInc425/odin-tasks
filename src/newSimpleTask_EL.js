@@ -1,13 +1,14 @@
 import createTask from './createTask';
 import displayProjectTasks from './displayProjectTasks';
 import showTasksEditButtonEL from './showTasksEditButtons_EL';
-import * as allProjectData from './projectArray.js';
+import { replaceProjectData, getDefaultProjectTasks, getDefaultProject } from './projectArray.js'; 
+import displayProjectTitle from './displayProjectTitle';
 
 function simpleNewTaskEventListener() {
 
-    let localProjectArray = allProjectData.projectArray();
+    // let localProjectArray = projectArray();
 
-    let defaultProject = localProjectArray[0];
+    let defaultProject = getDefaultProject();
 
     // Get Refs to main container
     const displayContainer = document.querySelector('main');
@@ -21,13 +22,14 @@ function simpleNewTaskEventListener() {
         // Add Task to default project
         defaultProject.addTaskToProject(newTask);
         // Replace project data on master array (Check if this is actually doing anything)
-        allProjectData.replaceProjectData(defaultProject, 0);
+        replaceProjectData(defaultProject, 0);
 
         // console.log(projectArray)
         displayContainer.innerHTML = "";
         inputNewTask.value = "";
         // displayProjectTasks(defaultProject.projectTaskArray);
-        displayProjectTasks(allProjectData.getDefaultProjectTasks());
+        displayProjectTitle(defaultProject.projectTitle);
+        displayProjectTasks(getDefaultProjectTasks());
 
         showTasksEditButtonEL();
 
