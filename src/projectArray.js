@@ -71,7 +71,13 @@ const editTask = (editedTask) => {
     })
 }
 
-
+const getProjectList = () => {
+    let projectList = [];
+    allProjectsArray.forEach((project) => {
+        projectList.push(project.projectTitle);
+    })
+    return projectList;
+}
 
 export {
     loadProjectData,
@@ -83,5 +89,6 @@ export {
     getDefaultProject,
     getProjectFromTitle,
     editTask,
+    getProjectList,
 }; 
   

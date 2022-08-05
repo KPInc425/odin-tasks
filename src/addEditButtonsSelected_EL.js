@@ -1,4 +1,5 @@
 import getProjectDataFromCards from "./createTaskFromTaskCardData.js";
+import { getProjectList } from "./projectArray.js";
 
     let classToEdit;
     let elementToEdit;
@@ -16,6 +17,7 @@ import getProjectDataFromCards from "./createTaskFromTaskCardData.js";
 // Will clear parent element > set element being edited's new value to userInputBox value > append to parent element
 function appendEditedElement(e) {
     // console.log(e.target);
+    console.log(openInputElementArray.length)
     if (openInputElementArray.length > 0) {
         let i;
         for (i = 0; i < openInputElementArray.length; i++) {
@@ -23,13 +25,18 @@ function appendEditedElement(e) {
             if (openInputElementArray[i].className == 'userDateInput') {
 
                 elementToEditArray[i].textContent = new Date(openInputElementArray[i].value).toLocaleString();
-
             } else if (openInputElementArray[i].className == 'inputPriorityForm') {
                 elementToEditArray[i].textContent = chosenPriority + " Priority";
             } else if (openInputElementArray[i].value.length < 3) {
                 elementToEditArray[i].textContent = openInputElementArray[i].placeholder;
+                if (openInputElementArray[i].className == 'userProjectInput') {
+                    elementToEditArray[i].textContent = "This is part of " + openInputElementArray[i].placeholder;
+                }
             } else {
                 elementToEditArray[i].textContent = openInputElementArray[i].value;
+                if (openInputElementArray[i].className == 'userProjectInput') {
+                    elementToEditArray[i].textContent = "This is part of " + openInputElementArray[i].value;
+                }
             }
                 
             elementToEditsParentArray[i].innerHTML = "";
@@ -124,7 +131,6 @@ function addEditButtonSelectedEL(taskCard) {
                             console.log(radioBtn.value);
                             chosenPriority = radioBtn.value;
                             console.log(chosenPriority);
-
                         })
                     })
 
@@ -134,15 +140,40 @@ function addEditButtonSelectedEL(taskCard) {
 
                     openInputElementArray.push(radioInputForm);
 
-
                 } else if ((classToEdit === 'taskProject') ) { 
                     console.log('Project Selection');
+                    //CLEAN UP THIS DUPLICATE CODE!!!!!!!!!!!!!!
+                    let userInputProjectSelection = document.createElement('select');
+                    userInputProjectSelection.classList.add('userProjectInput');
+                    userInputProjectSelection.placeholder = elementToEdit.textContent.substr(16);
+
+                    let currentProjectList = getProjectList();
+                    let temp;
+
+
+                    for (let i = 0; i < currentProjectList.length; i++) {
+                        temp = document.createElement('option');
+                        temp.value = currentProjectList[i];
+                        temp.className = "projectChoice";
+                        temp.innerText = currentProjectList[i];
+
+                        userInputProjectSelection.appendChild(temp);
+                    }
+                
+                    // Clear parents html to add new input element
+                    elementToEditsParent.innerHTML = "";
+                    elementToEditsParent.appendChild(userInputProjectSelection);
+                    // console.log(elementToEdit);
+
+                    openInputElementArray.push(userInputProjectSelection);
+
                 } else {
                     // Create Input box in place of data element
                     userInputBox = document.createElement('input');
                     userInputBox.classList.add('userTextInput');
                     userInputBox.placeholder = elementToEdit.textContent;
                     
+                    //CLEAN UP THIS DUPLICATE CODE!!!!!!!!!!!!!!
                     // Clear parents html to add new input element
                     elementToEditsParent.innerHTML = "";
                     elementToEditsParent.appendChild(userInputBox);

@@ -76,6 +76,7 @@ function showTasksEditButtonEL() {
         appendEditedElement(e);
         // Check to prevent error
         if (!(previousCard == undefined)) {
+            console.log(previousCard);
             let editedTask = createTaskFromTaskCardData(previousCard);
             // console.log(editedTask);
             // Reset to prevent reallocation
