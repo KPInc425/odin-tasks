@@ -216,13 +216,13 @@ footer {
 }
 
 /* Priority styling */
-.lowPriorty {
+.lowPriority {
     background-color: rgba(58, 207, 233, 0.637);
 }
-.medPriority{
+.mediumPriority{
     background-color: rgba(180, 182, 50, 0.719);
 }
 
-.highPriorty {
+.highPriority {
     background-color: rgba(216, 17, 17, 0.548);
 }

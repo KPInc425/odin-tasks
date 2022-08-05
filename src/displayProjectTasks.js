@@ -13,6 +13,7 @@ function displayProjectTasks(project) {
         const taskCard = document.createElement('div');
         taskCard.classList.add('card');
         taskCard.setAttribute('data-id', ID);
+        taskCard.id = ID;
         // Display Title
         const taskTitleContainer = document.createElement('div');
         taskTitleContainer.classList.add('taskTitleContainer');
@@ -78,11 +79,11 @@ function displayProjectTasks(project) {
         
         // Style based on priority
         if (priority === 'High') {
-            taskCard.classList.toggle('highPriorty');
+            taskCard.classList.toggle('highPriority');
         } else if (priority === 'Medium') {
-            taskCard.classList.toggle('mediumPriorty');
+            taskCard.classList.toggle('mediumPriority');
         } else {
-            taskCard.classList.toggle('lowPriorty');
+            taskCard.classList.toggle('lowPriority');
         }
 
         // Display Task Project text

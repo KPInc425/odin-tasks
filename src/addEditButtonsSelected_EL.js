@@ -11,17 +11,17 @@ import { getProjectList } from "./projectArray.js";
     // let openDateInputArray = [];
     let elementToEditArray = [];
     let elementToEditsParentArray = [];
-    let chosenPriority;
+    let chosenPriority = "Low";
 
 
 // Will clear parent element > set element being edited's new value to userInputBox value > append to parent element
 function appendEditedElement(e) {
     // console.log(e.target);
-    console.log(openInputElementArray.length)
+    // console.log(openInputElementArray.length)
     if (openInputElementArray.length > 0) {
         let i;
         for (i = 0; i < openInputElementArray.length; i++) {
-            console.log(openInputElementArray[i]);
+            // console.log(openInputElementArray[i]);
             if (openInputElementArray[i].className == 'userDateInput') {
 
                 elementToEditArray[i].textContent = new Date(openInputElementArray[i].value).toLocaleString();
@@ -36,9 +36,10 @@ function appendEditedElement(e) {
                 elementToEditArray[i].textContent = openInputElementArray[i].value;
                 if (openInputElementArray[i].className == 'userProjectInput') {
                     elementToEditArray[i].textContent = "This is part of " + openInputElementArray[i].value;
+                    // changeTaskProject();
+                    // continue;
                 }
             }
-                
             elementToEditsParentArray[i].innerHTML = "";
             elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
         }
@@ -110,10 +111,13 @@ function addEditButtonSelectedEL(taskCard) {
                     radioLowPriority.type = "radio";
                     radioLowPriority.value = "Low";
                     radioLowPriority.name = "priority";
+                    radioLowPriority.checked = "checked";
+
                     const radioMediumPriority = document.createElement('input');
                     radioMediumPriority.type = "radio";
                     radioMediumPriority.value = "Medium";
                     radioMediumPriority.name = "priority";
+
                     const radioHighPriority = document.createElement('input');
                     radioHighPriority.type = "radio";
                     radioHighPriority.value = "High";
@@ -128,9 +132,29 @@ function addEditButtonSelectedEL(taskCard) {
                     radioArray.forEach((radioBtn) => {
                         radioBtn.addEventListener('click', () => {
                             console.log("clicked radio");
+                            console.log(taskCard);
                             console.log(radioBtn.value);
                             chosenPriority = radioBtn.value;
                             console.log(chosenPriority);
+                            taskCard.classList.remove('lowPriority');
+                            if (chosenPriority == 'High') {
+                                taskCard.classList.remove('lowPriority');
+                                taskCard.classList.remove('mediumPriority');
+                                // taskCard.classList.remove('highPriority');
+                                taskCard.classList.add('highPriority');
+                            } else if (chosenPriority == 'Medium') {
+                                // taskCard.style.backgroundColor = "rgba(180, 182, 50, 0.719);;"
+                                taskCard.classList.remove('lowPriority');
+                                // taskCard.classList.remove('mediumPriority');
+                                taskCard.classList.remove('highPriority');
+                                taskCard.classList.add('mediumPriority');
+                            } else if (chosenPriority == 'Low') {
+                                // taskCard.style.backgroundColor = "rgba(58, 207, 233, 0.637);"
+                                // taskCard.classList.remove('lowPriority');
+                                taskCard.classList.remove('mediumPriority');
+                                taskCard.classList.remove('highPriority');
+                                taskCard.classList.add('lowPriority');
+                            }
                         })
                     })
 

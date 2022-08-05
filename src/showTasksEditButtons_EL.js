@@ -1,7 +1,7 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 import { appendEditedElement } from "./addEditButtonsSelected_EL.js";
 import createTaskFromTaskCardData from "./createTaskFromTaskCardData";
-import { editTask } from "./projectArray";
+import { editTask, changeTaskProject } from "./projectArray";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
@@ -9,8 +9,7 @@ function showTasksEditButtonEL() {
     const cardArray = Array.from(cardNodeArray);
     let previousID;
     let previousCard;
-    // let currentCard;
-    // console.log(cardArray);
+    let previousProject;
 
     const removeEditButtons = (event) => {
 
@@ -36,9 +35,6 @@ function showTasksEditButtonEL() {
             // Allow for click on any area of card to activate
             e.stopImmediatePropagation();
              let cardID = card.getAttribute('data-id');
-            //  console.log(e.target);
-            //  console.log(cardID);
-            //  console.log(previousID);
              if (!(previousID == undefined)) {
                 if (!(cardID == previousID)) {           
                     removeEditButtons(e);
@@ -46,14 +42,20 @@ function showTasksEditButtonEL() {
 
                     let editedTask = createTaskFromTaskCardData(previousCard);
                     // console.log(editedTask);
-                    previousCard = undefined;
-                    editTask(editedTask);
+                    
+                    if (!(editedTask.taskProject == previousProject)) {
+                        console.log("Changed Project");
+                        changeTaskProject(previousProject, editedTask);
+                        console.log(previousCard);
+                        previousCard.classList.add('hidden');
+                        // Reset to prevent reallocation
+                        previousCard = undefined;
+                    } else {
+                        editTask(editedTask);
+                        previousCard = undefined;
+                    }
                 }
              }
-      
-
-
-            // let cardID = divCardID.getAttribute('data-id');
 
             // If edit buttons aren't displayed > Display Edit Buttons
             const buttons = card.querySelectorAll('.taskGridButtons');
@@ -62,9 +64,7 @@ function showTasksEditButtonEL() {
                 displayEditTaskButtons(card);
                 previousID = cardID;
                 previousCard = card;
-                // console.log(`PreviousCard`);
-                // console.log(previousCard);
-                // console.log(`PreviousCard`);
+                previousProject = card.querySelector('.taskProject').innerHTML.substr(16);
             }
 
         }, {once: false});
@@ -76,13 +76,20 @@ function showTasksEditButtonEL() {
         appendEditedElement(e);
         // Check to prevent error
         if (!(previousCard == undefined)) {
-            console.log(previousCard);
             let editedTask = createTaskFromTaskCardData(previousCard);
-            // console.log(editedTask);
-            // Reset to prevent reallocation
-            previousCard = undefined;
-            // Edit masterArray with edited task
-            editTask(editedTask);
+            console.log(editedTask.taskProject);
+            if (!(editedTask.taskProject == previousProject)) {
+                console.log("Changed Project");
+                changeTaskProject(previousProject, editedTask);
+                console.log(previousCard);
+                previousCard.classList.add('hidden');
+                // Reset to prevent reallocation
+                previousCard = undefined;
+            } else {
+                editTask(editedTask);
+                // Reset to prevent reallocation
+                previousCard = undefined;   
+            }
         }
     })
 

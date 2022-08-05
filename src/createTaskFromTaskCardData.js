@@ -14,13 +14,13 @@ const createTaskFromTaskCardData = (taskCard) => {
         // console.log(taskDueDate);
         let taskPriority = taskCard.querySelector('.taskPriority').textContent.replace(" Priority", "");
         // Extract only the project title from the element textContent remove fluff
-        console.log(taskCard.querySelector('.taskProject').textContent);
+        // console.log(taskCard.querySelector('.taskProject').textContent);
         let taskProject = taskCard.querySelector('.taskProject').textContent.substring(16);
         // console.log(taskProject);
         // console.log(`TaskTitle: ${taskTitle} TaskDescr: ${taskDescription} TaskStart: ${taskStartDate} TaskDue: ${taskDueDate}`);
         // console.log(taskID);
         let editedTask = createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject, taskStartDate, taskID);
-        console.log(editedTask);
+        // console.log(editedTask);
     
     //     editTask(editedTask.taskProject);
         return editedTask;
