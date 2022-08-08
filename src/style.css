@@ -226,3 +226,11 @@ footer {
 .highPriority {
     background-color: rgba(216, 17, 17, 0.548);
 }
+
+.newTaskButton {
+    position: absolute;
+    bottom: 5%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}

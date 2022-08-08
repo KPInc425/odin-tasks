@@ -9,6 +9,7 @@ import simpleNewTaskEventListener from './newSimpleTask_EL.js';
 import allProjectsEventListener from './allProjects_EL.js';
 import showTasksEditButtonEL from './showTasksEditButtons_EL.js';
 import * as allProjectData from './projectArray.js';
+import displayNewTaskButton from './displayNewTaskButton.js';
 
 import './reset.css';
 import './style.css';
@@ -58,6 +59,7 @@ import './style.css';
     // Display Default Tasks for default project
     displayProjectTitle(localProjectArray[0].projectTitle);
     displayProjectTasks(localProjectArray[0].projectTaskArray); 
+    displayNewTaskButton();
 
     // Listen for button push and add to default project
     simpleNewTaskEventListener();
@@ -67,8 +69,6 @@ import './style.css';
     mainMenuEventListener();
     // Add EventListeners to show edit buttons when clicked
     showTasksEditButtonEL();
-
-    
 
     // window.addEventListener('click', (e) => {
     //     console.log(e.target);

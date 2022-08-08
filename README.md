@@ -7,7 +7,7 @@ Build to do app.
 
 #Todo
 
-
+-Add Labels (or colors) to radio buttons for priority
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
 -Slice up start/duedate displayed string to be more readable and local
@@ -35,3 +35,5 @@ Build to do app.
 
 
 -Feature: Allow a "favorites" section where you can pin tasks from different projects
+-Feature: Display ALL tasks from ALL projects
+-Feature: Change Priority Colors
