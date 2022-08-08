@@ -1,4 +1,5 @@
-import { addEditButtonSelectedEL } from "./addEditButtonsSelected_EL";
+import { addEditButtonSelectedEL } from "./addEditButtonsSelected_EL.js";
+import el_DeleteButton from "./el_DeleteButton.js";
 
 function displayEditTaskButtons(taskCard) {
     // console.log("Initiate Edit Task...");
@@ -46,6 +47,13 @@ function displayEditTaskButtons(taskCard) {
         btnEditTaskProject.classList.add('taskGridButtons');
         btnEditTaskProject.classList.add('editTaskProject');
         btnEditTaskProject.setAttribute('title', 'Edit Task Project');
+
+        const btnDeleteTask = document.createElement('button');
+        btnDeleteTask.innerText = "Delete";
+        btnDeleteTask.classList.add('taskGridData');
+        btnDeleteTask.classList.add('deleteTask');
+        btnDeleteTask.setAttribute('title', 'Delete Task');
+
     
         taskCard.appendChild(btnEditTaskTitle);
         taskCard.appendChild(btnEditTaskDescription);
@@ -53,9 +61,11 @@ function displayEditTaskButtons(taskCard) {
         taskCard.appendChild(btnEditTaskDueDate);
         taskCard.appendChild(btnEditTaskPriority);
         taskCard.appendChild(btnEditTaskProject);
+        taskCard.appendChild(btnDeleteTask);
 
         // Add Button Event Listeners
         addEditButtonSelectedEL(taskCard);
+        el_DeleteButton(taskCard);
         
     } else {
         console.log("Edits buttons exist for this card");

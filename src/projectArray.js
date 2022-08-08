@@ -39,16 +39,17 @@ const getDefaultProject = () => {
     return allProjectsArray[0];
 }
 
+// DON'T FORGET THIS RETURNS AN OBJECT
 const getProjectFromTitle = (projectTitle) => {
     // search through projectArray for selected title
     // console.log(projectTitle);
     let projectIndex = 0;
-    for (const project of allProjectsArray) {
+    for (const projectData of allProjectsArray) {
         // console.log(project);
         // console.log(project.projectTitle);
-        if (projectTitle == project.projectTitle) {
+        if (projectTitle == projectData.projectTitle) {
             console.log("Found Project!");
-            return { project, projectIndex };
+            return { projectData, projectIndex };
         }
         projectIndex++;
     }
@@ -56,9 +57,10 @@ const getProjectFromTitle = (projectTitle) => {
 
 const editTask = (editedTask) => {
     console.log(editedTask);
-    let projectData = getProjectFromTitle(editedTask.taskProject);
-    let project = projectData.project;
-    let projectIndex = projectData.projectIndex
+    // DON'T FORGET THIS RETURNS AN OBJECT
+    let projectObj = getProjectFromTitle(editedTask.taskProject);
+    let project = projectObj.projectData;
+    let projectIndex = projectObj.projectIndex
     console.log(project);
     let i = 0;
     project.projectTaskArray.forEach((task) => {
@@ -82,30 +84,47 @@ const getProjectList = () => {
 const changeTaskProject = (previousProjectTitle, editedTask) => {
     let newProjectTitle = editedTask.taskProject
     // Retrieve Previous project Data
+    // DON'T FORGET THIS RETURNS AN OBJECT
     let previousProjectData = getProjectFromTitle(previousProjectTitle);
     // Retrieve newly chosen project data
+    // DON'T FORGET THIS RETURNS AN OBJECT
     let newProjectData = getProjectFromTitle(newProjectTitle);
     
     console.log(previousProjectData);
     console.log(newProjectData);
 
-    for (let i = 0; i < previousProjectData.project.projectTaskArray.length; i++) {
-        let task = previousProjectData.project.projectTaskArray[i];
+
+    // deleteTask(editedTask, previousProjectTitle);
+
+    for (let i = 0; i < previousProjectData.projectData.projectTaskArray.length; i++) {
+        let task = previousProjectData.projectData.projectTaskArray[i];
         console.log(task);
         // split array at edited task
         if (task.taskID === editedTask.taskID) {
-            previousProjectData.project.projectTaskArray.splice(i, 1);
+            previousProjectData.projectData.projectTaskArray.splice(i, 1);
         }
 
         // pop task from array
         // concat arrays 
     }
-
-    newProjectData.project.projectTaskArray.push(editedTask);
-    
-
-
+    newProjectData.projectData.projectTaskArray.push(editedTask);
 }
+
+const deleteTask = (deletedTask) => {
+    console.log(deletedTask);
+    // DON'T FORGET THIS RETURNS AN OBJECT
+    let project = getProjectFromTitle(deletedTask.taskProject);
+    console.log(project);
+    console.log(project.projectData.projectTaskArray);
+    let i = 0;
+    project.projectData.projectTaskArray.forEach((task) => {
+        if (task.taskID === deletedTask.taskID) {
+            project.projectData.projectTaskArray.splice(i, 1);
+        }
+        i++;
+    })
+}
+
 
 export {
     loadProjectData,
@@ -115,9 +134,11 @@ export {
     replaceProjectData,
     getDefaultProjectTasks,
     getDefaultProject,
+    // DON'T FORGET THIS RETURNS AN OBJECT
     getProjectFromTitle,
     editTask,
     getProjectList,
     changeTaskProject,
+    deleteTask,
 }; 
   

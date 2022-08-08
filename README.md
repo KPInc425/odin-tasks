@@ -7,6 +7,7 @@ Build to do app.
 
 #Todo
 
+
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
 -Slice up start/duedate displayed string to be more readable and local
@@ -20,6 +21,8 @@ Build to do app.
 --Only show the name and maybe duedate
 --When clicked show full task
 
+-make simple new task input put the new task into currently displayed project (currently only goes to default project);
+
 -Add new task button
 --Brings up more full featured UI to add task
 --set all attributes
@@ -27,5 +30,8 @@ Build to do app.
 
 !!!--New Idea Recodes--!!!
 -Remove edit buttons for due/start Date and add datetime input when displaying tasks
+
+-Re-display current project card when taskProject is changed
+
 
 -Feature: Allow a "favorites" section where you can pin tasks from different projects

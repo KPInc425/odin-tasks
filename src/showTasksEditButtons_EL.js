@@ -16,9 +16,14 @@ function showTasksEditButtonEL() {
         event.preventDefault();
         let cards = document.querySelectorAll('.card');
         let buttons = document.querySelectorAll(".taskGridButtons");
+        let btnDelete = document.querySelector('.deleteTask');
+        console.log(btnDelete);
+        if (btnDelete != null) {
+            btnDelete.remove();
+        }
+
         // Removed Edit Buttons
-        let i;
-        for (i = 0; i < buttons.length; i++) {
+        for (let i = 0; i < buttons.length; i++) {
             let shownButton = buttons[i];
             shownButton.remove()
         }

@@ -68,6 +68,8 @@ import './style.css';
     // Add EventListeners to show edit buttons when clicked
     showTasksEditButtonEL();
 
+    
+
     // window.addEventListener('click', (e) => {
     //     console.log(e.target);
     // })

@@ -21,7 +21,7 @@ function showSelectedProjectTasksEL (projectArray) {
             let projectTitle = card.querySelector('.projectTitle').innerHTML;
             console.log(projectTitle);
             // Get project with title from Master project array
-            let selectedProject = getProjectFromTitle(projectTitle).project;
+            let selectedProject = getProjectFromTitle(projectTitle).projectData;
 
             // Display project cards from selected project
             displayProjectTitle(selectedProject.projectTitle)
