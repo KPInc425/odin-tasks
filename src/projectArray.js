@@ -48,7 +48,7 @@ const getProjectFromTitle = (projectTitle) => {
         // console.log(project);
         // console.log(project.projectTitle);
         if (projectTitle == projectData.projectTitle) {
-            console.log("Found Project!");
+            // console.log("Found Project!");
             return { projectData, projectIndex };
         }
         projectIndex++;
@@ -56,18 +56,18 @@ const getProjectFromTitle = (projectTitle) => {
 }
 
 const editTask = (editedTask) => {
-    console.log(editedTask);
+    // console.log(editedTask);
     // DON'T FORGET THIS RETURNS AN OBJECT
     let projectObj = getProjectFromTitle(editedTask.taskProject);
     let project = projectObj.projectData;
     let projectIndex = projectObj.projectIndex
-    console.log(project);
+    // console.log(project);
     let i = 0;
     project.projectTaskArray.forEach((task) => {
         if (task.taskID === editedTask.taskID) {
             // console.log(task);
             allProjectsArray[projectIndex].projectTaskArray[i] = editedTask;
-            console.log(allProjectsArray[projectIndex].projectTaskArray);
+            // console.log(allProjectsArray[projectIndex].projectTaskArray);
         }
         i++;
     })

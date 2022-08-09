@@ -183,6 +183,8 @@ function addEditButtonSelectedEL(taskCard) {
 
                         userInputProjectSelection.appendChild(temp);
                     }
+
+                    
                 
                     // Clear parents html to add new input element
                     elementToEditsParent.innerHTML = "";

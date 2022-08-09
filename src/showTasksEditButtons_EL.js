@@ -80,13 +80,19 @@ function showTasksEditButtonEL() {
     window.addEventListener('click', (e) => {
         // FIX THIS LOGIC TO PREVENT FIRING WHEN CLICK ON NEWTASKCARD
         // e.stopImmediatePropagation();
-        // console.log(e.target.querySelector('input'));
-        removeEditButtons(e);
-        appendEditedElement(e);
+        console.log(e.target.type); // .querySelector('.newTaskCard input')
+        // Don't remove edit buttons or append data if datetime-local element clicked
+        // (This seems to work, but also seems a lil dirty(needed for NewTask Date selection to work))
+        if (!(e.target.type === 'datetime-local')) {
+            // console.log("it works?");
+            removeEditButtons(e);
+            appendEditedElement(e);
+        }
+        
         // Check to prevent error
         if (!(previousCard == undefined)) {
             let editedTask = createTaskFromTaskCardData(previousCard);
-            console.log(editedTask.taskProject);
+            // console.log(editedTask.taskProject);
             if (!(editedTask.taskProject == previousProject)) {
                 console.log("Changed Project");
                 changeTaskProject(previousProject, editedTask);
