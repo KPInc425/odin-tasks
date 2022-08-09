@@ -15,11 +15,11 @@ function showSelectedProjectTasksEL (projectArray) {
         card.addEventListener('click', (e) => {
             e.stopPropagation();
 
-            console.log("Clicked the Project Card!");
-            console.log(card);
+            // console.log("Clicked the Project Card!");
+            // console.log(card);
             // Get project title from selected card
             let projectTitle = card.querySelector('.projectTitle').innerHTML;
-            console.log(projectTitle);
+            // console.log(projectTitle);
             // Get project with title from Master project array
             let selectedProject = getProjectFromTitle(projectTitle).projectData;
 

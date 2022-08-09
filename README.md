@@ -8,8 +8,8 @@ Build to do app.
 #Todo
 
 
--Fix window.addEventListener in showTasksEditButtons_EL.js to prevent firing when clicking on newTaskCard. (This is preventing the use of some inputs when making a new task)
--add new Project logic from displayNewTaskCard to addEditButtonsSelected_EL
+
+-add new Project logic from displayNewTaskCard to addEditButtonsSelected_EL (add holder div under project dropdown like with the newTask logic)
 -styles cards to change text color based on priority
 -Change priority radio inputs to 3 buttons with labels for priority
 -Add Labels (or colors) to radio buttons for priority
@@ -45,3 +45,4 @@ Build to do app.
 -Feature: Allow a "favorites" section where you can pin tasks from different projects
 -Feature: Display ALL tasks from ALL projects
 -Feature: Change Priority Colors
+-Feature: Add task to newly created project from edit task project dropdown menu similar to creating new project when making a new task.

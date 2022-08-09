@@ -1,3 +1,4 @@
+import createFullNewTask from "./createFullNewTask";
 import GenerateUniqueID from "./generateUniqueID";
 import { getProjectList } from "./projectArray";
 
@@ -29,6 +30,7 @@ const displayNewTaskCard = () => {
         const userInputTitle = document.createElement('input');
         userInputTitle.type = 'text';
         userInputTitle.classList.add('userTextInput');
+        userInputTitle.classList.add('taskTitle');
         userInputTitle.placeholder = 'Enter Task Title';
 
         newTaskCard.appendChild(userInputTitle);
@@ -38,6 +40,7 @@ const displayNewTaskCard = () => {
         const userInputDescription = document.createElement('input');
         userInputDescription.type = 'text';
         userInputDescription.classList.add('userTextInput');
+        userInputDescription.classList.add('taskDescription');
         userInputDescription.placeholder = 'Enter Task Description';
 
         newTaskCard.appendChild(userInputDescription);
@@ -61,6 +64,7 @@ const displayNewTaskCard = () => {
 
         const newStartDateInput = document.createElement('input');
         newStartDateInput.classList.add('newStartDateInput');
+        newStartDateInput.classList.add('taskStartDate');
         newStartDateInput.type = 'datetime-local';
         newStartDateInput.value = isoDate;
 
@@ -79,6 +83,7 @@ const displayNewTaskCard = () => {
         let newDueDate = new Date(tomorrow - txOffset).toISOString().slice(0,16);
         const newDueDateInput = document.createElement('input');
         newDueDateInput.classList.add('newDueDateInput');
+        newDueDateInput.classList.add('taskDueDate');
         newDueDateInput.type = 'datetime-local';
         newDueDateInput.value = newDueDate;
 
@@ -89,6 +94,7 @@ const displayNewTaskCard = () => {
         // create Priority Buttons container
         const btnInputForm = document.createElement('form');
         btnInputForm.classList.add('inputPriorityForm');
+        btnInputForm.classList.add('taskPriority');
         // create btn Buttons for Priority Choices
         const btnLowPriority = document.createElement('button');
         // btnLowPriority.type = "btn";
@@ -121,6 +127,7 @@ const displayNewTaskCard = () => {
                 // console.log(newTaskCard);
                 // console.log(btn.value);
                 let chosenPriority = btn.value;
+                btnInputForm.setAttribute('data-priority', chosenPriority);
                 // console.log(chosenPriority);
                 newTaskCard.classList.remove('lowPriority');
                 if (chosenPriority == 'High') {
@@ -149,6 +156,7 @@ const displayNewTaskCard = () => {
         // Display Project dropdown with choices and new project choice
         let userInputProjectSelection = document.createElement('select');
         userInputProjectSelection.classList.add('userProjectInput');
+        userInputProjectSelection.classList.add('taskProject');
         // userInputProjectSelection.placeholder = elementToEdit.textContent.substr(16);
 
         let currentProjectList = getProjectList();
@@ -178,19 +186,30 @@ const displayNewTaskCard = () => {
 
         newTaskCard.appendChild(newProjectInputContainer);
 
+        const newProjectInput = document.createElement('input');
+        newProjectInput.type = 'text';
+        newProjectInput.classList.add('userProjectInput');
+        newProjectInput.classList.add('taskProject');
+        newProjectInput.placeholder = 'Enter New Project Name';
+
         // eventlistener to check if New Project+ is selected from dropdown
         userInputProjectSelection.addEventListener('change', (e) => {
             console.log('changed!');
             console.log(e.target.value);
             if (e.target.value == 'New Project+') {
                 console.log('Create New Project');
-                // create Input element for new project title
-                const newProjectInput = document.createElement('input');
-                newProjectInput.type = 'text';
-                newProjectInput.classList.add('newProjectInput');
-                newProjectInput.placeholder = 'Enter New Project Name';
+                // Switch classes to new element
+                userInputProjectSelection.classList.remove('userProjectInput')
+                userInputProjectSelection.classList.remove('taskProject')
 
                 newProjectInputContainer.appendChild(newProjectInput);
+            } else {
+                newProjectInput.remove();
+                // Switch classes back to Select element
+                if (userInputProjectSelection.className != 'userProjectInput') {
+                    userInputProjectSelection.classList.add('userProjectInput');
+                    userInputProjectSelection.classList.add('taskProject');
+                }
             }
         })
 
@@ -221,9 +240,10 @@ const displayNewTaskCard = () => {
             newTaskCard.remove();
         })
 
-        newTaskCard.addEventListener('click', (e) => {
-            // console.log(e.target);
-        });
+        btnSaveNewTask.addEventListener('click', () => {
+            let newTask = createFullNewTask(newTaskCard);
+            console.log(newTask);
+        })
     })
 }
 
