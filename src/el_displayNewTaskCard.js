@@ -1,3 +1,4 @@
+import { container } from "webpack";
 import GenerateUniqueID from "./generateUniqueID";
 import { getProjectList } from "./projectArray";
 
@@ -154,7 +155,7 @@ const displayNewTaskCard = () => {
         let currentProjectList = getProjectList();
         let temp;
 
-
+        // add options using main project array
         for (let i = 0; i < currentProjectList.length; i++) {
             temp = document.createElement('option');
             temp.value = currentProjectList[i];
@@ -163,7 +164,7 @@ const displayNewTaskCard = () => {
 
             userInputProjectSelection.appendChild(temp);
         }
-
+        // Add New Project option
         const newProjectChoice = document.createElement('option');
         newProjectChoice.value = 'New Project+';
         newProjectChoice.className = 'projectChoice';
@@ -171,15 +172,48 @@ const displayNewTaskCard = () => {
         userInputProjectSelection.appendChild(newProjectChoice);
 
         newTaskCard.appendChild(userInputProjectSelection);
+
+        // append container for new project to keep order on newTaskCard
+        const newProjectInputContainer = document.createElement('div');
+        newProjectInputContainer.classList.add('projectInputContainer');
+
+        newTaskCard.appendChild(newProjectInputContainer);
+
+        // eventlistener to check if New Project+ is selected from dropdown
         userInputProjectSelection.addEventListener('change', (e) => {
             console.log('changed!');
             console.log(e.target.value);
             if (e.target.value == 'New Project+') {
                 console.log('Create New Project');
                 // create Input element for new project title
+                const newProjectInput = document.createElement('input');
+                newProjectInput.type = 'text';
+                newProjectInput.classList.add('newProjectInput');
+                newProjectInput.placeholder = 'Enter New Project Name';
+
+                newProjectInputContainer.appendChild(newProjectInput);
             }
         })
 
+        // Create Save/Cancel buttons container
+        const containerNewTaskBtns = document.createElement('div');
+        containerNewTaskBtns.classList.add('newTasksBtnsContainer');
+
+        
+        // Create Save/Cancel buttons
+        const btnSaveNewTask = document.createElement('button');
+        btnSaveNewTask.classList.add('btnSaveNewTask');
+        btnSaveNewTask.textContent = 'Save Task';
+
+        containerNewTaskBtns.appendChild(btnSaveNewTask);
+
+        const btnCancelNewTask = document.createElement('button');
+        btnCancelNewTask.classList.add('btnCancelNewTask');
+        btnCancelNewTask.textContent = 'Cancel';
+
+        containerNewTaskBtns.appendChild(btnCancelNewTask);
+
+        newTaskCard.appendChild(containerNewTaskBtns);
 
         mainContainer.appendChild(newTaskCard);
     })

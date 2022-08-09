@@ -238,14 +238,14 @@ footer {
 
 .newTaskCard {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 10;
     text-align: center;
 }
 
-.newTaskCard > input, .newTaskCard > select {
+.newTaskCard input, .newTaskCard > select {
     text-align: center;
     margin-top: 10px;
 }
