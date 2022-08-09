@@ -1,4 +1,3 @@
-import { container } from "webpack";
 import GenerateUniqueID from "./generateUniqueID";
 import { getProjectList } from "./projectArray";
 
@@ -216,6 +215,11 @@ const displayNewTaskCard = () => {
         newTaskCard.appendChild(containerNewTaskBtns);
 
         mainContainer.appendChild(newTaskCard);
+
+        btnCancelNewTask.addEventListener('click', () => {
+            // newTaskCard.classList.add('hidden');
+            newTaskCard.remove();
+        })
     })
 }
 

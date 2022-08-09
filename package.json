@@ -28,6 +28,7 @@
     "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "util": "^0.12.4"
   }
 }

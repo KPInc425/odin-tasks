@@ -18,6 +18,7 @@ Build to do app.
 -stop input box from hiding when trying to highlight text
 -make new task element sticky on Bottom 
 -prevent startDate being later than dueDate
+-break down newTaskModule into smalle modules
 
 -add dropdown feature to the tasks when they are displayed.
 --Only show the name and maybe duedate
