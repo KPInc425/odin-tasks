@@ -8,9 +8,9 @@ const createFullNewTask = (taskCard) => {
         let taskTitle = taskCard.querySelector('.taskTitle').textContent;
         let taskDescription = taskCard.querySelector('.taskDescription').textContent;
         // console.log(taskCard);
-        let taskStartDate = new Date(taskCard.querySelector('.taskStartDate').value);
+        let taskStartDate = new Date(taskCard.querySelector('.taskStartDate').value).toISOString();
         // console.log(taskStartDate);
-        let taskDueDate = new Date(taskCard.querySelector('.taskDueDate').value);
+        let taskDueDate = new Date(taskCard.querySelector('.taskDueDate').value).toISOString();
         // console.log(taskDueDate);
         let taskPriority = taskCard.querySelector('.taskPriority').getAttribute('data-priority');
         // Extract only the project title from the element textContent remove fluff
@@ -26,11 +26,11 @@ const createFullNewTask = (taskCard) => {
         console.log(taskProject);
         // console.log(`TaskTitle: ${taskTitle} TaskDescr: ${taskDescription} TaskStart: ${taskStartDate} TaskDue: ${taskDueDate}`);
         // console.log(taskID);
-        let editedTask = createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject, taskStartDate, taskID);
+        let newTask = createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject, taskStartDate, taskID);
         // console.log(editedTask);
     
     //     editTask(editedTask.taskProject);
-        return editedTask;
+        return newTask;
     }
 }
 

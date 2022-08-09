@@ -60,8 +60,8 @@ import el_displayNewTaskCard from './el_displayNewTaskCard.js';
     // Display Default Tasks for default project
     displayProjectTitle(localProjectArray[0].projectTitle);
     displayProjectTasks(localProjectArray[0].projectTaskArray); 
-    displayNewTaskButton();
-    el_displayNewTaskCard();
+    // displayNewTaskButton();
+    // el_displayNewTaskCard();
 
     // Listen for button push and add to default project
     simpleNewTaskEventListener();

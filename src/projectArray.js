@@ -18,10 +18,17 @@ const addNewProjectToArray = (projectName) => {
 }
 
 const addNewTask = (projectIndex, newTask) => {
+    console.log(newTask);
     if (!(newTask == undefined)) {
-        allProjectsArray[projectIndex].addTaskToProject(createTask(newTask))
+        allProjectsArray[projectIndex].addTaskToProject(newTask)
+    } else {
+        allProjectsArray[projectIndex].addTaskToProject(createTask())
     }
-    allProjectsArray[projectIndex].addTaskToProject(createTask())
+
+}
+
+const getProjectTasks = (projectIndex) =>{
+    return allProjectsArray[projectIndex].projectTaskArray;
 }
 
 const projectArray = () => {
@@ -140,5 +147,6 @@ export {
     getProjectList,
     changeTaskProject,
     deleteTask,
+    getProjectTasks,
 }; 
   

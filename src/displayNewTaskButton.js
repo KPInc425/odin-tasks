@@ -1,4 +1,6 @@
-const el_displayNewTaskButton = () => {
+import el_displayNewTaskCard from './el_displayNewTaskCard.js';
+
+const displayNewTaskButton = () => {
     // console.log('Displaying New Task Button!');
 
     const mainContainer = document.querySelector('main');
@@ -8,6 +10,8 @@ const el_displayNewTaskButton = () => {
     btnNewTask.setAttribute('title', 'New Task');
 
     mainContainer.appendChild(btnNewTask);
+
+    el_displayNewTaskCard();
 }
 
-export default el_displayNewTaskButton;
+export default displayNewTaskButton;

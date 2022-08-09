@@ -7,12 +7,8 @@ Build to do app.
 
 #Todo
 
-
-
--add new Project logic from displayNewTaskCard to addEditButtonsSelected_EL (add holder div under project dropdown like with the newTask logic)
+-Add NewTaskButton to each module that repopulates the html
 -styles cards to change text color based on priority
--Change priority radio inputs to 3 buttons with labels for priority
--Add Labels (or colors) to radio buttons for priority
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
 -Slice up start/duedate displayed string to be more readable and local

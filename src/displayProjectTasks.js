@@ -1,4 +1,6 @@
-function displayProjectTasks(project) {
+import displayNewTaskButton from "./displayNewTaskButton";
+
+function displayProjectTasks(projectTasks) {
 
     // Get main content container ref
     const displayContainer = document.querySelector('main');
@@ -119,10 +121,11 @@ function displayProjectTasks(project) {
     };
     
     // Iterate through each task and display card
-    project.forEach(task => {
+    projectTasks.forEach(task => {
         // console.log(task);
         displayTaskCard(task.taskTitle, task.taskDescription, task.taskDueDate, task.taskCreateDate, task.taskPriority, task.taskID, task.taskProject);
     });
+    displayNewTaskButton();
 };
 
 export default displayProjectTasks;
