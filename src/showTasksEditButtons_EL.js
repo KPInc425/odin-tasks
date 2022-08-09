@@ -78,6 +78,9 @@ function showTasksEditButtonEL() {
 
     // Toggles Show class when clicking anywhere ELSE on window
     window.addEventListener('click', (e) => {
+        // FIX THIS LOGIC TO PREVENT FIRING WHEN CLICK ON NEWTASKCARD
+        // e.stopImmediatePropagation();
+        // console.log(e.target.querySelector('input'));
         removeEditButtons(e);
         appendEditedElement(e);
         // Check to prevent error

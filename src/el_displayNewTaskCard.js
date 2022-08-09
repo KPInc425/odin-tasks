@@ -220,6 +220,10 @@ const displayNewTaskCard = () => {
             // newTaskCard.classList.add('hidden');
             newTaskCard.remove();
         })
+
+        newTaskCard.addEventListener('click', (e) => {
+            // console.log(e.target);
+        });
     })
 }
 

@@ -7,6 +7,8 @@ Build to do app.
 
 #Todo
 
+
+-Fix window.addEventListener in showTasksEditButtons_EL.js to prevent firing when clicking on newTaskCard. (This is preventing the use of some inputs when making a new task)
 -add new Project logic from displayNewTaskCard to addEditButtonsSelected_EL
 -styles cards to change text color based on priority
 -Change priority radio inputs to 3 buttons with labels for priority
