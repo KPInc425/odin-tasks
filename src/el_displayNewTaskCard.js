@@ -6,7 +6,7 @@ const displayNewTaskCard = () => {
     const mainContainer = document.querySelector('main');
 
     btnNewTask.addEventListener('click', () => {
-        console.log('click');
+        // console.log('click');
         // Generate new Task ID
         let taskID = GenerateUniqueID();
         // let userInputElements = [];
@@ -57,7 +57,7 @@ const displayNewTaskCard = () => {
         const todaysDate = new Date();
         let isoDate = new Date(todaysDate - txOffset).toISOString().slice(0,16);
 
-        console.log(isoDate);
+        // console.log(isoDate);
 
         const newStartDateInput = document.createElement('input');
         newStartDateInput.classList.add('newStartDateInput');
@@ -84,9 +84,9 @@ const displayNewTaskCard = () => {
 
         newTaskCard.appendChild(newDueDateInput);
 
-        // Display priority radio inputs
-        console.log('Display Radio Buttons');
-        // create Radio Buttons container
+        // Display priority inputs
+
+        // create Priority Buttons container
         const btnInputForm = document.createElement('form');
         btnInputForm.classList.add('inputPriorityForm');
         // create btn Buttons for Priority Choices
@@ -117,11 +117,11 @@ const displayNewTaskCard = () => {
 
         btnArray.forEach((btn) => {
             btn.addEventListener('click', () => {
-                console.log("clicked btn");
-                console.log(newTaskCard);
-                console.log(btn.value);
+                // console.log("clicked btn");
+                // console.log(newTaskCard);
+                // console.log(btn.value);
                 let chosenPriority = btn.value;
-                console.log(chosenPriority);
+                // console.log(chosenPriority);
                 newTaskCard.classList.remove('lowPriority');
                 if (chosenPriority == 'High') {
                     newTaskCard.classList.remove('lowPriority');

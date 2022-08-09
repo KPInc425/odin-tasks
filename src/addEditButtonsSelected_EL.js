@@ -81,7 +81,7 @@ function addEditButtonSelectedEL(taskCard) {
                 elementToEditsParentArray.push(elementToEditsParent);
                 // Task edit due/start date logic
                 if ((classToEdit === 'taskDueDate') || (classToEdit === 'taskStartDate')) {
-                    console.log('Display Date Widget')
+                    // console.log('Display Date Widget')
                     userDateInput = document.createElement('input');
                     userDateInput.type = "datetime-local";
                     // Set timeZone offset
@@ -102,39 +102,39 @@ function addEditButtonSelectedEL(taskCard) {
                     openInputElementArray.push(userDateInput);
 
                 } else if ((classToEdit === 'taskPriority')) {
-                    console.log('Display Radio Buttons');
+                    // console.log('Display Radio Buttons');
                     // create Radio Buttons container
-                    const radioInputForm = document.createElement('form');
-                    radioInputForm.classList.add('inputPriorityForm');
-                    // create Radio Buttons for Priority Choices
-                    const radioLowPriority = document.createElement('input');
-                    radioLowPriority.type = "radio";
-                    radioLowPriority.value = "Low";
-                    radioLowPriority.name = "priority";
-                    radioLowPriority.checked = "checked";
+                    const btnInputForm = document.createElement('div');
+                    btnInputForm.classList.add('inputPriorityForm');
+                    // create btn Buttons for Priority Choices
+                    const btnLowPriority = document.createElement('button');
+                    btnLowPriority.textContent = "Low";
+                    btnLowPriority.value = "Low";
+                    btnLowPriority.name = "priority";
+                    // btnLowPriority.checked = "checked";
 
-                    const radioMediumPriority = document.createElement('input');
-                    radioMediumPriority.type = "radio";
-                    radioMediumPriority.value = "Medium";
-                    radioMediumPriority.name = "priority";
+                    const btnMediumPriority = document.createElement('button');
+                    btnMediumPriority.textContent = "Medium";
+                    btnMediumPriority.value = "Medium";
+                    btnMediumPriority.name = "priority";
 
-                    const radioHighPriority = document.createElement('input');
-                    radioHighPriority.type = "radio";
-                    radioHighPriority.value = "High";
-                    radioHighPriority.name = "priority";
+                    const btnHighPriority = document.createElement('button');
+                    btnHighPriority.textContent = "High";
+                    btnHighPriority.value = "High";
+                    btnHighPriority.name = "priority";
 
-                    radioInputForm.appendChild(radioLowPriority);
-                    radioInputForm.appendChild(radioMediumPriority);
-                    radioInputForm.appendChild(radioHighPriority);
+                    btnInputForm.appendChild(btnLowPriority);
+                    btnInputForm.appendChild(btnMediumPriority);
+                    btnInputForm.appendChild(btnHighPriority);
 
-                    let radioArray = [radioLowPriority,radioMediumPriority,radioHighPriority];
+                    let btnsArray = [btnLowPriority,btnMediumPriority,btnHighPriority];
 
-                    radioArray.forEach((radioBtn) => {
-                        radioBtn.addEventListener('click', () => {
-                            console.log("clicked radio");
+                    btnsArray.forEach((btn) => {
+                        btn.addEventListener('click', () => {
+                            console.log("clicked btn");
                             console.log(taskCard);
-                            console.log(radioBtn.value);
-                            chosenPriority = radioBtn.value;
+                            console.log(btn.value);
+                            chosenPriority = btn.value;
                             console.log(chosenPriority);
                             taskCard.classList.remove('lowPriority');
                             if (chosenPriority == 'High') {
@@ -160,12 +160,12 @@ function addEditButtonSelectedEL(taskCard) {
 
                     // Clear parents html to add new input element
                     elementToEditsParent.innerHTML = "";
-                    elementToEditsParent.appendChild(radioInputForm);
+                    elementToEditsParent.appendChild(btnInputForm);
 
-                    openInputElementArray.push(radioInputForm);
+                    openInputElementArray.push(btnInputForm);
 
                 } else if ((classToEdit === 'taskProject') ) { 
-                    console.log('Project Selection');
+                    // console.log('Project Selection');
                     //CLEAN UP THIS DUPLICATE CODE!!!!!!!!!!!!!!
                     let userInputProjectSelection = document.createElement('select');
                     userInputProjectSelection.classList.add('userProjectInput');

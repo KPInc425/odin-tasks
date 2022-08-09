@@ -78,9 +78,7 @@ function showTasksEditButtonEL() {
 
     // Toggles Show class when clicking anywhere ELSE on window
     window.addEventListener('click', (e) => {
-        // FIX THIS LOGIC TO PREVENT FIRING WHEN CLICK ON NEWTASKCARD
         // e.stopImmediatePropagation();
-        console.log(e.target.type); // .querySelector('.newTaskCard input')
         // Don't remove edit buttons or append data if datetime-local element clicked
         // (This seems to work, but also seems a lil dirty(needed for NewTask Date selection to work))
         if (!(e.target.type === 'datetime-local')) {
