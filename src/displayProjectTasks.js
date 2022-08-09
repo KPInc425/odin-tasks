@@ -1,4 +1,5 @@
 import displayNewTaskButton from "./displayNewTaskButton";
+import showTasksEditButtonEL from './showTasksEditButtons_EL';
 
 function displayProjectTasks(projectTasks) {
 
@@ -126,6 +127,7 @@ function displayProjectTasks(projectTasks) {
         displayTaskCard(task.taskTitle, task.taskDescription, task.taskDueDate, task.taskCreateDate, task.taskPriority, task.taskID, task.taskProject);
     });
     displayNewTaskButton();
+    showTasksEditButtonEL();
 };
 
 export default displayProjectTasks;
