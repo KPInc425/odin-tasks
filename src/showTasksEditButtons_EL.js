@@ -52,7 +52,8 @@ function showTasksEditButtonEL() {
                         console.log("Changed Project");
                         changeTaskProject(previousProject, editedTask);
                         console.log(previousCard);
-                        previousCard.classList.add('hidden');
+                        // previousCard.classList.add('hidden');
+                        previousCard.remove();
                         // Reset to prevent reallocation
                         previousCard = undefined;
                     } else {
@@ -87,7 +88,8 @@ function showTasksEditButtonEL() {
                 console.log("Changed Project");
                 changeTaskProject(previousProject, editedTask);
                 console.log(previousCard);
-                previousCard.classList.add('hidden');
+                // previousCard.classList.add('hidden');
+                previousCard.remove();
                 // Reset to prevent reallocation
                 previousCard = undefined;
             } else {

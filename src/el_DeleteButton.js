@@ -7,7 +7,7 @@ const el_DeleteButton = (taskCard) => {
     console.log(btnDelete);
     btnDelete.addEventListener('click', () => {
         console.log('click');
-        taskCard.classList.add('hidden');
+        taskCard.remove();
         let deletedTask = createTaskFromTaskCardData(taskCard);
         deleteTask(deletedTask);
     })

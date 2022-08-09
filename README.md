@@ -7,6 +7,7 @@ Build to do app.
 
 #Todo
 
+-add new Project logic from displayNewTaskCard to addEditButtonsSelected_EL
 -styles cards to change text color based on priority
 -Change priority radio inputs to 3 buttons with labels for priority
 -Add Labels (or colors) to radio buttons for priority
