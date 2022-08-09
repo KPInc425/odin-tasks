@@ -7,6 +7,8 @@ Build to do app.
 
 #Todo
 
+-styles cards to change text color based on priority
+-Change priority radio inputs to 3 buttons with labels for priority
 -Add Labels (or colors) to radio buttons for priority
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
@@ -28,8 +30,10 @@ Build to do app.
 --set all attributes
 
 
-!!!--New Idea Recodes--!!!
+!!!--New Idea/Recodes--!!!
 -Remove edit buttons for due/start Date and add datetime input when displaying tasks
+-check that "uniqueID" isn't already being used in ALL PROJECTS
+-Refactor project selection logic in AddEditButtonsSelected_EL and el_displayNewTaskCard
 
 -Re-display current project card when taskProject is changed
 

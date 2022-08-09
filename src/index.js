@@ -13,6 +13,7 @@ import displayNewTaskButton from './displayNewTaskButton.js';
 
 import './reset.css';
 import './style.css';
+import el_displayNewTaskCard from './el_displayNewTaskCard.js';
 
 
 // const app = (() => {
@@ -60,6 +61,7 @@ import './style.css';
     displayProjectTitle(localProjectArray[0].projectTitle);
     displayProjectTasks(localProjectArray[0].projectTaskArray); 
     displayNewTaskButton();
+    el_displayNewTaskCard();
 
     // Listen for button push and add to default project
     simpleNewTaskEventListener();

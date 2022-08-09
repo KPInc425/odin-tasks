@@ -17,7 +17,7 @@ function showTasksEditButtonEL() {
         let cards = document.querySelectorAll('.card');
         let buttons = document.querySelectorAll(".taskGridButtons");
         let btnDelete = document.querySelector('.deleteTask');
-        console.log(btnDelete);
+        // console.log(btnDelete);
         if (btnDelete != null) {
             btnDelete.remove();
         }

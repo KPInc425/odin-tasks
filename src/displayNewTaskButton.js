@@ -1,4 +1,4 @@
-const displayNewTaskButton = () => {
+const el_displayNewTaskButton = () => {
     console.log('Displaying New Task Button!');
 
     const mainContainer = document.querySelector('main');
@@ -10,4 +10,4 @@ const displayNewTaskButton = () => {
     mainContainer.appendChild(btnNewTask);
 }
 
-export default displayNewTaskButton;
+export default el_displayNewTaskButton;

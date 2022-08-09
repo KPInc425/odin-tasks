@@ -4,6 +4,7 @@ html {
 body {
     max-width: 80%;
     margin: auto;
+    position: relative;
 }
 
 header {
@@ -217,14 +218,14 @@ footer {
 
 /* Priority styling */
 .lowPriority {
-    background-color: rgba(58, 207, 233, 0.637);
+    background-color: rgba(58, 207, 233, 1);
 }
 .mediumPriority{
-    background-color: rgba(180, 182, 50, 0.719);
+    background-color: rgba(180, 182, 50, 1);
 }
 
 .highPriority {
-    background-color: rgba(216, 17, 17, 0.548);
+    background-color: rgb(134, 15, 15);
 }
 
 .newTaskButton {
@@ -234,3 +235,26 @@ footer {
     transform: translate(-50%, -50%);
     z-index: 10;
 }
+
+.newTaskCard {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+}
+
+.newTaskCard > input, .newTaskCard > select {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.newTaskCard > .inputPriorityForm {
+    margin-top: 10px;
+}
+
+.newStartDateLabel, .newDueDateLabel {
+    margin-top: 10px;
+}
+
