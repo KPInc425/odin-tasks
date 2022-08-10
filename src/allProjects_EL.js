@@ -1,7 +1,7 @@
 import displayProjectLibrary from "./displayProjectLibrary.js";
 import displayProjectTitle from "./displayProjectTitle.js";
 import showSelectedProjectTasksEL from "./showSelectedProject_EL";
-import { projectArray } from "./projectArray.js";
+import { getProjectsArray } from "./projectArray.js";
 
 
 function allProjectsEventListener() {
@@ -11,8 +11,8 @@ function allProjectsEventListener() {
     allProjectsButton.addEventListener('click', () => {
         mainContainer.innerHTML = "";
         displayProjectTitle("All Projects");
-        displayProjectLibrary(projectArray(), mainContainer);
-        showSelectedProjectTasksEL(projectArray());
+        displayProjectLibrary(getProjectsArray(), mainContainer);
+        showSelectedProjectTasksEL(getProjectsArray());
     })
 };
 

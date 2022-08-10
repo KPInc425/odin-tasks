@@ -3,6 +3,7 @@ import { appendEditedElement } from "./addEditButtonsSelected_EL.js";
 import createTaskFromTaskCardData from "./createTaskFromTaskCardData";
 import { editTask, changeTaskProject } from "./projectArray";
 import { displayHiddenTaskElements, hideHiddenTaskElements } from "./hiddenTaskElementFunctions.js";
+import { populateStorage } from "./localStorageFunctions";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');

@@ -1,24 +1,35 @@
 import createProject from "./createProject";
 import createTask from "./createTask";
+import { populateStorage } from "./localStorageFunctions";
 
 
 let allProjectsArray = [];
 
-const loadProjectData = () => {
+const loadProjectData = (savedData) => {
     // if no data exists
-        // Create Default project with sample task    
+    console.log(savedData);
+    if (savedData != undefined) {
+        console.log('Something Local Incoming');
+        savedData.forEach((project) => {
+            allProjectsArray.push(project);
+            console.log(project);
+        })
+    } else {
         allProjectsArray.push(createProject('Default Project'));
         allProjectsArray[0].addTaskToProject(createTask());
-    // else 
-        // Load already present data
+
+    }
 }
 
 const addNewProjectToArray = (projectName) => {
     allProjectsArray.push(createProject(projectName));
+    populateStorage(allProjectsArray);
 }
 
 const addNewTask = (projectIndex, newTask) => {
-    console.log(newTask);
+    // console.log(newTask);
+    // console.log(projectIndex);
+    // console.log(allProjectsArray[projectIndex]);
     if (!(newTask == undefined)) {
         allProjectsArray[projectIndex].addTaskToProject(newTask)
     } else {
@@ -31,12 +42,13 @@ const getProjectTasks = (projectIndex) =>{
     return allProjectsArray[projectIndex].projectTaskArray;
 }
 
-const projectArray = () => {
+const getProjectsArray = () => {
     return allProjectsArray;
 }   
 
 const replaceProjectData = (newProjectData, index) => {
     allProjectsArray[index] = newProjectData;
+    populateStorage(allProjectsArray);
 }
 
 const getDefaultProjectTasks = () => {
@@ -135,7 +147,7 @@ const deleteTask = (deletedTask) => {
 
 export {
     loadProjectData,
-    projectArray,
+    getProjectsArray,
     addNewProjectToArray,
     addNewTask,
     replaceProjectData,

@@ -3,12 +3,14 @@ import displayProjectTasks from './displayProjectTasks';
 import showTasksEditButtonEL from './showTasksEditButtons_EL';
 import { replaceProjectData, getDefaultProjectTasks, getDefaultProject } from './projectArray.js'; 
 import displayProjectTitle from './displayProjectTitle';
+import { populateStorage } from './localStorageFunctions';
 
 function simpleNewTaskEventListener() {
 
     // let localProjectArray = projectArray();
 
     let defaultProject = getDefaultProject();
+    console.log(defaultProject);
 
     // Get Refs to main container
     const displayContainer = document.querySelector('main');
@@ -31,7 +33,7 @@ function simpleNewTaskEventListener() {
         displayProjectTitle(defaultProject.projectTitle);
         displayProjectTasks(getDefaultProjectTasks());
 
-        showTasksEditButtonEL();
+        // showTasksEditButtonEL();
 
         
     });

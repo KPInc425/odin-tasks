@@ -7,14 +7,14 @@ Build to do app.
 
 #Todo
 
--Add NewTaskButton to each module that repopulates the html
+-WHEN DATA IS LOADED FROM LOCAL STORAGE ATTACHED FUNCTIONS CEASE TO WORK
+-Refactor logic for localStorageFunctions > stringify taskArray of project > stringify project
+--When importing from localStorage parce projects > createProjects with parced array > parce project task arrays > createTasksArray with parced array > add tasks to appropriate project 
 -styles cards to change text color based on priority
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
--Slice up start/duedate displayed string to be more readable and local
--Make removeEditButtons into a function from the window addeventlisteners that removes buttons for more modularity.
--work on replacing data element with old data when clicked away from input window or when click on another element.
--stop input box from hiding when trying to highlight text
+
+
 -make new task element sticky on Bottom 
 -prevent startDate being later than dueDate
 -break down newTaskModule into smalle modules
@@ -42,3 +42,6 @@ Build to do app.
 -Feature: Display ALL tasks from ALL projects
 -Feature: Change Priority Colors
 -Feature: Add task to newly created project from edit task project dropdown menu similar to creating new project when making a new task.
+
+Possible Bugs
+-stop input box from hiding when trying to highlight text

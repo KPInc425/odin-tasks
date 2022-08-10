@@ -14,66 +14,48 @@ import displayNewTaskButton from './displayNewTaskButton.js';
 import './reset.css';
 import './style.css';
 import el_displayNewTaskCard from './el_displayNewTaskCard.js';
+import { checkLocalStorage, importMainProjectsArray, populateStorage } from './localStorageFunctions.js';
 
+if (checkLocalStorage()) {
+    if (localStorage.length > 0) {
+        console.log("Something in Local");
+        
+        // Initialize Project Arrays
+        allProjectData.loadProjectData(importMainProjectsArray());
+    } else {
+        console.log("nothing in localStorage");
+        // Initialize Project Arrays
+        allProjectData.loadProjectData();
+    }
+};
 
-// const app = (() => {
+let localProjectArray = allProjectData.getProjectsArray();
+console.log(localProjectArray);
+let completedProjectArray = [];
 
-    // Initialize Project Arrays
-    allProjectData.loadProjectData();
-    // Testing
-    allProjectData.addNewProjectToArray('Another New Project');
-    allProjectData.addNewProjectToArray('Test Project');
-    
-    // localProjectArray.push(createProject('Simple Project'));
-    // localProjectArray.push(createProject('Test Project'));
-    // Testing
-    let localProjectArray = allProjectData.projectArray();
-    let completedProjectArray = [];
-    
-    
-    // Create and Add default task to default project, If statement
-    // goes here to check for saved data
-    // if no data
-    // projectArray.push(createProject('Default Project'));
-    // projectArray[0].addTaskToProject(createTask());
-    // else 
-    // load data
+// get header container Ref
+const headerContainer = document.querySelector('header');
 
+// Display simple task creator elements
+headerContainer.appendChild(displayCreateSimpleTask());
 
+// Display Main Menu
+displayTaskMainMenu(headerContainer);
 
-    // console.log(projectArray);
+// Display All Projects
+// displayProjectLibrary(projectArray, mainContainer);
 
-    // get main container Ref's
-    const headerContainer = document.querySelector('header');
-    const mainContainer = document.querySelector('main');
-    const footerContainer = document.querySelector('footer');
+// Display Default Tasks for default project
+displayProjectTitle(localProjectArray[0].projectTitle);
+displayProjectTasks(localProjectArray[0].projectTaskArray); 
+// displayNewTaskButton();
+// el_displayNewTaskCard();
 
-    // Display simple task creator elements
-    headerContainer.appendChild(displayCreateSimpleTask());
-    
-    // Display Main Menu
-    displayTaskMainMenu(headerContainer);
-
-    // Display All Projects
-    // displayProjectLibrary(projectArray, mainContainer);
-
-    // Display Default Tasks for default project
-    displayProjectTitle(localProjectArray[0].projectTitle);
-    displayProjectTasks(localProjectArray[0].projectTaskArray); 
-    // displayNewTaskButton();
-    // el_displayNewTaskCard();
-
-    // Listen for button push and add to default project
-    simpleNewTaskEventListener();
-    // simpleNewTaskEventListener(localProjectArray[0]);
-    allProjectsEventListener(localProjectArray);
-    //Dropdown Menu event listener
-    mainMenuEventListener();
-    // Add EventListeners to show edit buttons when clicked
-    showTasksEditButtonEL();
-
-    // window.addEventListener('click', (e) => {
-    //     console.log(e.target);
-    // })
-    // let newTask = createTask();
-// })();
+// Listen for button push and add to default project
+simpleNewTaskEventListener();
+// simpleNewTaskEventListener(localProjectArray[0]);
+allProjectsEventListener(localProjectArray);
+//Dropdown Menu event listener
+mainMenuEventListener();
+// Add EventListeners to show edit buttons when clicked
+showTasksEditButtonEL();
