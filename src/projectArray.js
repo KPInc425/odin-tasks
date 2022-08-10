@@ -23,7 +23,7 @@ const loadProjectData = (savedData) => {
 
 const addNewProjectToArray = (projectName) => {
     allProjectsArray.push(createProject(projectName));
-    populateStorage(allProjectsArray);
+    // populateStorage(allProjectsArray);
 }
 
 const addNewTask = (projectIndex, newTask) => {
@@ -48,7 +48,8 @@ const getProjectsArray = () => {
 
 const replaceProjectData = (newProjectData, index) => {
     allProjectsArray[index] = newProjectData;
-    populateStorage(allProjectsArray);
+    // populateStorage(allProjectsArray);
+    
 }
 
 const getDefaultProjectTasks = () => {
@@ -143,7 +144,9 @@ const deleteTask = (deletedTask) => {
         i++;
     })
 }
-
+ const saveProjectsToLocal = () => {
+    populateStorage(allProjectsArray);
+ };
 
 export {
     loadProjectData,
@@ -160,5 +163,6 @@ export {
     changeTaskProject,
     deleteTask,
     getProjectTasks,
+    saveProjectsToLocal
 }; 
   
