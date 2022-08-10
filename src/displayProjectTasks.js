@@ -41,12 +41,14 @@ function displayProjectTasks(projectTasks) {
         // Display Due Date Label
         const taskDueDateLabel = document.createElement('h2');
         taskDueDateLabel.classList.add('taskGridData');
+        taskDueDateLabel.classList.add('hidden');
         taskDueDateLabel.textContent = 'Due Date';
 
         // Display Due Date
         const taskDueDateContainer = document.createElement('div');
         taskDueDateContainer.classList.add('taskGridData');
         taskDueDateContainer.classList.add('taskDueDateContainer');
+        taskDueDateContainer.classList.add('hidden');
         const taskDueDate = document.createElement('p');
         taskDueDate.classList.add('taskDueDate');
         taskDueDate.textContent = `${new Date(dueDate).toLocaleString()}`;  
@@ -56,11 +58,13 @@ function displayProjectTasks(projectTasks) {
         // Display Start Date Label
         const taskCreateDateLabel = document.createElement('h2');
         taskCreateDateLabel.classList.add('taskGridData');
+        taskCreateDateLabel.classList.add('hidden');
         taskCreateDateLabel.textContent = 'Start Date';
 
         // Display Start Date
         const taskCreateDateContainer = document.createElement('div');
         taskCreateDateContainer.classList.add('taskGridData');
+        taskCreateDateContainer.classList.add('hidden');
         taskCreateDateContainer.classList.add('taskStartDateContainer');
 
         const taskCreateDate = document.createElement('p');
@@ -74,6 +78,7 @@ function displayProjectTasks(projectTasks) {
         const taskPriortyContainer = document.createElement('div');
         taskPriortyContainer.classList.add('taskPriorityContainer');
         taskPriortyContainer.classList.add('taskGridData');
+        taskPriortyContainer.classList.add('hidden');
         const taskPriority = document.createElement('p');           //Maybe replace this is color coded img
         taskPriority.classList.add('taskPriority');
         taskPriority.textContent = `${priority} Priority`;
@@ -93,6 +98,7 @@ function displayProjectTasks(projectTasks) {
         const taskProjectContainer = document.createElement('div');
         taskProjectContainer.classList.add('taskProjectContainer')
         taskProjectContainer.classList.add('taskGridData');
+        taskProjectContainer.classList.add('hidden');
         const taskProject = document.createElement('p');
         taskProject.classList.add('taskProject');
         taskProject.textContent = `Task is part of ${project}`;

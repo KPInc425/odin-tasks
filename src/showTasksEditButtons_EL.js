@@ -2,6 +2,7 @@ import displayEditTaskButtons from "./displayEditTaskButtons";
 import { appendEditedElement } from "./addEditButtonsSelected_EL.js";
 import createTaskFromTaskCardData from "./createTaskFromTaskCardData";
 import { editTask, changeTaskProject } from "./projectArray";
+import { displayHiddenTaskElements, hideHiddenTaskElements } from "./hiddenTaskElementFunctions.js";
 
 function showTasksEditButtonEL() {
     const mainContainer = document.querySelector('main');
@@ -41,7 +42,8 @@ function showTasksEditButtonEL() {
             e.stopImmediatePropagation();
              let cardID = card.getAttribute('data-id');
              if (!(previousID == undefined)) {
-                if (!(cardID == previousID)) {           
+                if (!(cardID == previousID)) { 
+                    hideHiddenTaskElements(previousCard);          
                     removeEditButtons(e);
                     appendEditedElement(e);
 
@@ -67,6 +69,7 @@ function showTasksEditButtonEL() {
             const buttons = card.querySelectorAll('.taskGridButtons');
             // Show the Edit Buttons if none are showing
             if (buttons.length < 1) {
+                displayHiddenTaskElements(card);
                 displayEditTaskButtons(card);
                 previousID = cardID;
                 previousCard = card;
@@ -83,6 +86,7 @@ function showTasksEditButtonEL() {
         // (This seems to work, but also seems a lil dirty(needed for NewTask Date selection to work))
         if (!(e.target.type === 'datetime-local')) {
             // console.log("it works?");
+            hideHiddenTaskElements(previousCard);
             removeEditButtons(e);
             appendEditedElement(e);
         }

@@ -173,11 +173,13 @@ footer {
 }
 
 .show {
+    visibility: visible;
     display: block;
 }
 
 .hidden {
     visibility: collapse;
+    display: none;
 }
 
 .hide {
