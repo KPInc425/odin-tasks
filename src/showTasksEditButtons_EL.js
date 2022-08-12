@@ -96,7 +96,7 @@ function showTasksEditButtonEL() {
         // Check to prevent error
         if (!(previousCard == undefined)) {
             let editedTask = createTaskFromTaskCardData(previousCard);
-            // console.log(editedTask.taskProject);
+            console.log(editedTask.taskProject);
             if (!(editedTask.taskProject == previousProject)) {
                 console.log("Changed Project");
                 changeTaskProject(previousProject, editedTask);

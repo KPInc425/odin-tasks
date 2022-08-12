@@ -1,6 +1,6 @@
 import GenerateUniqueID from './generateUniqueID';
 
-function createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject, newStartDate, oldTaskID) {
+function createTask(taskTitle, taskDescription, taskProject, taskDueDate, taskPriority, newStartDate, oldTaskID) {
     const dateNow = new Date()
     let taskID;
     let taskCreateDate = new Date(); //new Date(dateNow.getTime());

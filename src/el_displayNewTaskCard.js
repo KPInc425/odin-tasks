@@ -19,7 +19,7 @@ const displayNewTaskCard = () => {
 
         if (isNewTaskOpen == false) {
             isNewTaskOpen = true;
-            // Create new cardContainer Element
+        // Create new cardContainer Element
         const newTaskCard = document.createElement('div');
         newTaskCard.classList.add('card');
         newTaskCard.classList.add('newTaskCard');

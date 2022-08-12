@@ -6,6 +6,7 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
         const projectCard = document.createElement('div');
         projectCard.classList.add('projectCard');
         projectCard.classList.add('projectGridData');
+        projectCard.classList.add(`${priority.toLowerCase()}Priority`);
         const projectTitle = document.createElement('h2');
         projectTitle.classList.add('projectTitle');
         projectTitle.textContent = `${title}`;

@@ -74,8 +74,8 @@ const importMainProjectsArray = () => {
         // increment through projectTaskArray 
         project.projectTaskArray.forEach((task) => {
             // recreate each task to add back functionality
-            let newTask = createTask(task.taskTitle, task.taskDescription, task.taskDueDate,
-                                     task.taskPriority, task.taskProject, task.taskCreateDate,
+            let newTask = createTask(task.taskTitle, task.taskDescription, task.taskProject, 
+                                     task.taskDueDate, task.taskPriority, task.taskCreateDate,
                                      task.taskID);
             // Add recreated task to project
             newProject.addTaskToProject(newTask);

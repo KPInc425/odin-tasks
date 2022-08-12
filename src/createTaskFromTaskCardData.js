@@ -20,7 +20,7 @@ const createTaskFromTaskCardData = (taskCard) => {
         // console.log(taskProject);
         // console.log(`TaskTitle: ${taskTitle} TaskDescr: ${taskDescription} TaskStart: ${taskStartDate} TaskDue: ${taskDueDate}`);
         // console.log(taskID);
-        let editedTask = createTask(taskTitle, taskDescription, taskDueDate, taskPriority, taskProject, taskStartDate, taskID);
+        let editedTask = createTask(taskTitle, taskDescription, taskProject, taskDueDate, taskPriority, taskStartDate, taskID);
         // console.log(editedTask);
     
     //     editTask(editedTask.taskProject);
