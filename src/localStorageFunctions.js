@@ -1,6 +1,5 @@
 import createProject from "./createProject";
 import createTask from "./createTask";
-import { getProjectFromTitle, replaceProjectData } from "./projectArray";
 
 function storageAvailable(type) {
     let storage;
@@ -45,7 +44,6 @@ const populateStorage = (projectsArray) => {
     
     console.log(projectsArray);
     for (const project of projectsArray) {
-        let taskIndex = 0
         console.log(project.projectTaskArray);
         localStorage.setItem(`localProjectsArray[${projectIndex}]`, JSON.stringify(project));
         projectIndex++

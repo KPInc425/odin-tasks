@@ -2,7 +2,7 @@ import createFullNewTask from "./createFullNewTask";
 import displayProjectTasks from "./displayProjectTasks";
 import displayProjectTitle from "./displayProjectTitle";
 import GenerateUniqueID from "./generateUniqueID";
-import { addNewProjectToArray, addNewTask, getProjectFromTitle, getProjectList, getProjectTasks } from "./projectArray";
+import { addNewProjectToArray, addNewTask, getProjectFromTitle, getProjectList, getProjectTasks, saveProjectsToLocal } from "./projectArray";
 
 const displayNewTaskCard = () => {
     const btnNewTask = document.querySelector('.newTaskButton');
@@ -252,17 +252,20 @@ const displayNewTaskCard = () => {
             let projectToAddTask;
             console.log(newTask);
             console.log(getProjectFromTitle(newTask.taskProject));
+            // Check if project already exists
             if (getProjectFromTitle(newTask.taskProject) != undefined) {
-
+                // add to existing project
                 projectToAddTask = getProjectFromTitle(newTask.taskProject);
                 addNewTask(projectToAddTask.projectIndex, newTask);
                 // console.log(projectToAddTask.projectData);
                 
 
             } else {
+                // create new project on mainArray
                 addNewProjectToArray(newTask.taskProject);
                 projectToAddTask = getProjectFromTitle(newTask.taskProject);
 
+                // add newTask to newly created project
                 addNewTask(projectToAddTask.projectIndex, newTask);
                 // console.log(projectToAddTask.projectData);
             }
@@ -270,6 +273,9 @@ const displayNewTaskCard = () => {
             isNewTaskOpen = false;
             displayProjectTitle(newTask.taskProject);
             displayProjectTasks(getProjectTasks(projectToAddTask.projectIndex));
+
+            saveProjectsToLocal();
+
 
         })
             

@@ -7,9 +7,6 @@ Build to do app.
 
 #Todo
 
--WHEN DATA IS LOADED FROM LOCAL STORAGE ATTACHED FUNCTIONS CEASE TO WORK
--Refactor logic for localStorageFunctions > stringify taskArray of project > stringify project
---When importing from localStorage parce projects > createProjects with parced array > parce project task arrays > createTasksArray with parced array > add tasks to appropriate project 
 -styles cards to change text color based on priority
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
