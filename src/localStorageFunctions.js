@@ -1,4 +1,6 @@
 import createProject from "./createProject";
+import createTask from "./createTask";
+import { getProjectFromTitle, replaceProjectData } from "./projectArray";
 
 function storageAvailable(type) {
     let storage;
@@ -46,45 +48,50 @@ const populateStorage = (projectsArray) => {
         let taskIndex = 0
         console.log(project.projectTaskArray);
         localStorage.setItem(`localProjectsArray[${projectIndex}]`, JSON.stringify(project));
-
-        // console.log(projectsArray[1]); //.projectTaskArray);
-        for (const task of project.projectTaskArray) {
-            // console.log(project.projectTaskArray);
-            console.log(task);
-            console.log("looping through tasks");
-            localStorage.setItem(`localTaskArrays[${projectIndex}][${taskIndex}]`, JSON.stringify(project.projectTaskArray));
-            taskIndex++;
-            // console.log(localStorage);
-        }
         projectIndex++
     }
-    // let projectIndex = 0;
-    // for (let project of projectsArray) {
-    //     console.log(project);
-    //     localStorage.setItem(`localProjectsArray[${index}]`, JSON.stringify(project));
-    //     index++;
-    // }
     console.log(localStorage);
 }
 
 const importMainProjectsArray = () => {
-    // let mainProjectsArray = [];
-    // for (let i = 0; i < localStorage.length; i++) {
-    //     let tmpArr = JSON.parse(localStorage.getItem(`localProjectsArray[${i}]`));
-    //     mainProjectsArray.push(tmpArr);
-    // }
 
-    // let index = 0;
-    // let tmpProjectArray = [];
-    // mainProjectsArray.forEach((project) => {
-    //     // tmpProjectArray[index] = createProject(project.projectTitle, project.projectDescription, project.projectPriority);
-    //     tmpProjectArray[index] = project;
-    //     console.log(tmpProjectArray[index]);
-    //     index++;
-    // })
-    // mainProjectsArray = tmpProjectArray
+    // tmp variables for project Arrays initialized
+    let mainProjectsArray = [];
+    let tmpProjectsArr = [];
+
+    // increment through each stored project
+    for (let i = 0; i < localStorage.length; i++) {
+        // parse data into temp variable
+        let tmpProject = JSON.parse(localStorage.getItem(`localProjectsArray[${i}]`));
+        console.log(tmpProject);
+        tmpProjectsArr.push(tmpProject);
+    }
+
+    // increment through newly created array with projectData
+    tmpProjectsArr.forEach((project) => {
+        console.log(project);
+        // recreate each project to add back functionality
+        let newProject = createProject(project.projectTitle, project.projectDescription, project.projectPriority);
+        
+        // increment through projectTaskArray 
+        project.projectTaskArray.forEach((task) => {
+            // recreate each task to add back functionality
+            let newTask = createTask(task.taskTitle, task.taskDescription, task.taskDueDate,
+                                     task.taskPriority, task.taskProject, task.taskCreateDate,
+                                     task.taskID);
+            // Add recreated task to project
+            newProject.addTaskToProject(newTask);
+        });
+
+        // Append to main array
+        mainProjectsArray.push(newProject);
+
+    })
+
     console.log("Load Local Storage")
-    // return mainProjectsArray;
+    console.log(mainProjectsArray);
+    // pass main array back for loading data
+    return mainProjectsArray;
 }
 
 export {
