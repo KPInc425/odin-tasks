@@ -16,7 +16,7 @@ const loadProjectData = (savedData) => {
         })
     } else {
         allProjectsArray.push(createProject('Default Project'));
-        allProjectsArray[0].addTaskToProject(createTask());
+        allProjectsArray[0].addTaskToProject(createTask('Default Task', 'Default Description'));
 
     }
 }

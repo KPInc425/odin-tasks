@@ -27,8 +27,9 @@ function displayTaskMainMenu(displayContainer) {
     const menuItem3 = document.createElement('a');
     menuItem3.setAttribute('href', "#")
     menuItem3.classList.add('menuItem');
-    menuItem3.id = "menuItem3";
-    menuItem3.innerText = "MenuItem3";
+    menuItem3.classList.add('danger');
+    menuItem3.id = "deleteAllTasks";
+    menuItem3.innerText = "DELETE ALL TASKS";
 
     dropItemsContainer.appendChild(menuItem1);
     dropItemsContainer.appendChild(menuItem2);

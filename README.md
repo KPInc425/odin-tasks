@@ -22,8 +22,6 @@ Build to do app.
 
 -make simple new task input put the new task into currently displayed project (currently only goes to default project);
 
--Prevent duplicate Project Names being used
-
 !!!--New Idea/Recodes--!!!
 -Remove edit buttons for due/start Date and add datetime input when displaying tasks
 -check that "uniqueID" isn't already being used in ALL PROJECTS

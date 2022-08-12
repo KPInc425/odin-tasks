@@ -1,7 +1,7 @@
 import displayEditTaskButtons from "./displayEditTaskButtons";
 import { appendEditedElement } from "./addEditButtonsSelected_EL.js";
 import createTaskFromTaskCardData from "./createTaskFromTaskCardData";
-import { editTask, changeTaskProject } from "./projectArray";
+import { editTask, changeTaskProject, saveProjectsToLocal } from "./projectArray";
 import { displayHiddenTaskElements, hideHiddenTaskElements } from "./hiddenTaskElementFunctions.js";
 import { populateStorage } from "./localStorageFunctions";
 
@@ -64,6 +64,7 @@ function showTasksEditButtonEL() {
                         previousCard = undefined;
                     }
                 }
+                saveProjectsToLocal();
              }
 
             // If edit buttons aren't displayed > Display Edit Buttons
@@ -109,7 +110,9 @@ function showTasksEditButtonEL() {
                 // Reset to prevent reallocation
                 previousCard = undefined;   
             }
+            saveProjectsToLocal();
         }
+        
     })
 
 }

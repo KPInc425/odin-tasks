@@ -1,3 +1,5 @@
+import displayNewTaskButton from "./displayNewTaskButton";
+
 function displayProjectLibrary(projectLibrary, displayContainer) {
     
     function createProjectCard(title, description, priority, ID) {
@@ -35,6 +37,8 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
         createProjectCard(project.projectTitle, project.projectDescription, project.projectPriority, project.projectID);
 
     });
+
+    displayNewTaskButton();
 
 
 };
