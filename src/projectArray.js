@@ -7,12 +7,12 @@ let allProjectsArray = [];
 
 const loadProjectData = (savedData) => {
     // if no data exists
-    console.log(savedData);
+    // console.log(savedData);
     if (savedData != undefined) {
         console.log('Something Local Incoming');
         savedData.forEach((project) => {
             allProjectsArray.push(project);
-            console.log(project);
+            // console.log(project);
         })
     } else {
         allProjectsArray.push(createProject('Default Project'));
@@ -118,7 +118,7 @@ const changeTaskProject = (previousProjectTitle, editedTask) => {
 
     for (let i = 0; i < previousProjectData.projectData.projectTaskArray.length; i++) {
         let task = previousProjectData.projectData.projectTaskArray[i];
-        console.log(task);
+        // console.log(task);
         // split array at edited task
         if (task.taskID === editedTask.taskID) {
             previousProjectData.projectData.projectTaskArray.splice(i, 1);
@@ -131,11 +131,11 @@ const changeTaskProject = (previousProjectTitle, editedTask) => {
 }
 
 const deleteTask = (deletedTask) => {
-    console.log(deletedTask);
+    // console.log(deletedTask);
     // DON'T FORGET THIS RETURNS AN OBJECT
     let project = getProjectFromTitle(deletedTask.taskProject);
-    console.log(project);
-    console.log(project.projectData.projectTaskArray);
+    // console.log(project);
+    // console.log(project.projectData.projectTaskArray);
     let i = 0;
     project.projectData.projectTaskArray.forEach((task) => {
         if (task.taskID === deletedTask.taskID) {

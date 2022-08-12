@@ -31,7 +31,7 @@ if (checkLocalStorage()) {
 };
 
 let localProjectArray = allProjectData.getProjectsArray();
-console.log(localProjectArray);
+// console.log(localProjectArray);
 let completedProjectArray = [];
 
 // get header container Ref

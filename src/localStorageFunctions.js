@@ -44,11 +44,11 @@ const populateStorage = (projectsArray) => {
     
     console.log(projectsArray);
     for (const project of projectsArray) {
-        console.log(project.projectTaskArray);
+        // console.log(project.projectTaskArray);
         localStorage.setItem(`localProjectsArray[${projectIndex}]`, JSON.stringify(project));
         projectIndex++
     }
-    console.log(localStorage);
+    // console.log(localStorage);
 }
 
 const importMainProjectsArray = () => {
@@ -61,13 +61,13 @@ const importMainProjectsArray = () => {
     for (let i = 0; i < localStorage.length; i++) {
         // parse data into temp variable
         let tmpProject = JSON.parse(localStorage.getItem(`localProjectsArray[${i}]`));
-        console.log(tmpProject);
+        // console.log(tmpProject);
         tmpProjectsArr.push(tmpProject);
     }
 
     // increment through newly created array with projectData
     tmpProjectsArr.forEach((project) => {
-        console.log(project);
+        // console.log(project);
         // recreate each project to add back functionality
         let newProject = createProject(project.projectTitle, project.projectDescription, project.projectPriority);
         
@@ -86,8 +86,8 @@ const importMainProjectsArray = () => {
 
     })
 
-    console.log("Load Local Storage")
-    console.log(mainProjectsArray);
+    // console.log("Load Local Storage")
+    // console.log(mainProjectsArray);
     // pass main array back for loading data
     return mainProjectsArray;
 }
