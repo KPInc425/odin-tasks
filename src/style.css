@@ -58,7 +58,7 @@ footer {
     padding: 20px;
     box-shadow: 3px 3px 3px grey;
 }
-.projectCard {
+.projectCard, .newProjectCard {
     border: 1px solid blue;
     background-color: rgb(255, 252, 220);
     /* text-align: center; */
@@ -238,7 +238,7 @@ footer {
     z-index: 10;
 }
 
-.newTaskCard {
+.newTaskCard, .newProjectCard {
     position: absolute;
     top: 55%;
     left: 50%;

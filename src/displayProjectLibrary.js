@@ -17,7 +17,7 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
 
         const projectPriority = document.createElement('p'); //Maybe replace this is color coded img
         projectPriority.classList.add('projectGridData');
-        projectPriority.innerText = `${priority}`;
+        projectPriority.innerText = `${priority} Priority`;
 
         // Create Element for Hidden Project ID
         const projectID = document.createElement('div');

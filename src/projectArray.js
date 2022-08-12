@@ -21,8 +21,8 @@ const loadProjectData = (savedData) => {
     }
 }
 
-const addNewProjectToArray = (projectName) => {
-    allProjectsArray.push(createProject(projectName));
+const addNewProjectToArray = (project) => {
+    allProjectsArray.push(project);
     // populateStorage(allProjectsArray);
 }
 

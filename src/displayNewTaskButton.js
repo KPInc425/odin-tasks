@@ -1,7 +1,7 @@
 import el_displayNewTaskCard from './el_displayNewTaskCard.js';
 
 const displayNewTaskButton = () => {
-    console.log('Displaying New Task Button!');
+    // console.log('Displaying New Task Button!');
 
     const mainContainer = document.querySelector('main');
     const btnNewTask = document.createElement('button');

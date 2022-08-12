@@ -7,6 +7,8 @@ Build to do app.
 
 #Todo
 
+-Implement module to create new Project > add eventListener to menuItem2 for trigger
+-seperate el_displayNewTaskCard into 2 modules, 1 for EL and the other for displaying the new Form
 -styles cards to change text color based on priority
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
@@ -29,7 +31,7 @@ Build to do app.
 
 -Re-display current project card when taskProject is changed
 
-
+-Feature: Save data somewhere other than localStorage
 -Feature: Allow a "favorites" section where you can pin tasks from different projects
 -Feature: Display ALL tasks from ALL projects
 -Feature: Change Priority Colors

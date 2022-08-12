@@ -21,15 +21,15 @@ function displayTaskMainMenu(displayContainer) {
     const menuItem2 = document.createElement('a');
     menuItem2.setAttribute('href', "#")
     menuItem2.classList.add('menuItem');
-    menuItem2.id = "menuItem2";
-    menuItem2.innerText = "MenuItem2";
+    menuItem2.id = "createNewProject";
+    menuItem2.innerText = "Create New Project";
 
     const menuItem3 = document.createElement('a');
     menuItem3.setAttribute('href', "#")
     menuItem3.classList.add('menuItem');
     menuItem3.classList.add('danger');
     menuItem3.id = "deleteAllTasks";
-    menuItem3.innerText = "DELETE ALL TASKS";
+    menuItem3.innerText = "DELETE ALL DATA";
 
     dropItemsContainer.appendChild(menuItem1);
     dropItemsContainer.appendChild(menuItem2);

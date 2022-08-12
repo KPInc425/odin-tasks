@@ -16,6 +16,7 @@ import './style.css';
 import el_displayNewTaskCard from './el_displayNewTaskCard.js';
 import { checkLocalStorage, importMainProjectsArray, populateStorage } from './localStorageFunctions.js';
 import deleteAllTasks from './el_deleteAllTasks.js';
+import el_createProject from './el_createProject.js';
 
 if (checkLocalStorage()) {
     if (localStorage.length > 0) {
@@ -59,6 +60,7 @@ allProjectsEventListener(localProjectArray);
 //Dropdown Menu event listener
 mainMenuEventListener();
 deleteAllTasks();
+el_createProject();
 
 // Add EventListeners to show edit buttons when clicked
 showTasksEditButtonEL();

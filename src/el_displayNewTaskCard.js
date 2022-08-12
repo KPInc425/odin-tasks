@@ -1,4 +1,5 @@
 import createFullNewTask from "./createFullNewTask";
+import createProject from "./createProject";
 import displayProjectTasks from "./displayProjectTasks";
 import displayProjectTitle from "./displayProjectTitle";
 import GenerateUniqueID from "./generateUniqueID";
@@ -262,7 +263,8 @@ const displayNewTaskCard = () => {
 
             } else {
                 // create new project on mainArray
-                addNewProjectToArray(newTask.taskProject);
+                let projectToAdd = createProject(newTask.taskProject);
+                addNewProjectToArray(projectToAdd);
                 projectToAddTask = getProjectFromTitle(newTask.taskProject);
 
                 // add newTask to newly created project
