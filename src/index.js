@@ -56,7 +56,7 @@ displayProjectTasks(localProjectArray[0].projectTaskArray);
 // Listen for button push and add to default project
 simpleNewTaskEventListener();
 // simpleNewTaskEventListener(localProjectArray[0]);
-allProjectsEventListener(localProjectArray);
+allProjectsEventListener();
 //Dropdown Menu event listener
 mainMenuEventListener();
 deleteAllTasks();

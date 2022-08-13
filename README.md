@@ -27,11 +27,13 @@ Build to do app.
 
 !!!--New Idea/Recodes--!!!
 -Remove edit buttons for due/start Date and add datetime input when displaying tasks
+-set default duedate for project?
 -check that "uniqueID" isn't already being used in ALL PROJECTS
 -Refactor project selection logic in AddEditButtonsSelected_EL and el_displayNewTaskCard
 
 -Re-display current project card when taskProject is changed
 
+-Feature: Ability to "complete" tasks > adds to CompletedTaskArray for each project (Maybe a Total Task Done array as well)
 -Feature: Save data somewhere other than localStorage
 -Feature: Allow a "favorites" section where you can pin tasks from different projects
 -Feature: Display ALL tasks from ALL projects

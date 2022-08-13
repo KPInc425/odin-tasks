@@ -1,7 +1,7 @@
 import displayEditProjectButtons from "./displayEditProjectButtons";
 
 
-function showProjectsEditButtonEventListeners () {
+function showProjectsEditButton_EL () {
     // const mainContainer = document.querySelector('main');
     const cardNodeArray = document.querySelectorAll(".projectCard");
     const cardArray = Array.from(cardNodeArray);
@@ -35,4 +35,4 @@ function showProjectsEditButtonEventListeners () {
     })
 }
 
-export default showProjectsEditButtonEventListeners;
+export default showProjectsEditButton_EL;
