@@ -17,7 +17,7 @@ Build to do app.
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
 -Refactor pressEnter event listener to reduce reduncancy and for cleaner code
 
-
+-Connect project label container to priority colors
 -make new task element sticky on Bottom 
 -prevent startDate being later than dueDate
 -break down newTaskModule into smalle modules

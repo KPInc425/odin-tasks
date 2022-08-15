@@ -1,5 +1,7 @@
+import createProjectFromProjectCardData from "./createProjectFromProjectCardData";
 import displayEditProjectButtons from "./displayEditProjectButtons";
 import { appendEditedProjectElement } from "./el_addSelectedProjectElement";
+import { editProject, saveProjectsToLocal } from "./projectArray";
 
 function showProjectsEditButton_EL() {
     console.log('el for project edit buttons');
@@ -8,6 +10,7 @@ function showProjectsEditButton_EL() {
     const cardArray = Array.from(cardNodeArray);
     let previousID;
     let previousCard;
+    let previousProjectTitle;
 
     const removeProjectEditButtons = (e) => {
         e.preventDefault();
@@ -46,21 +49,26 @@ function showProjectsEditButton_EL() {
                     removeProjectEditButtons(e);
                     appendEditedProjectElement(e);
 
-                    // These need to be built still
-                    // let editedProject = createProjectFromProjectCardData(previousCard);
-                    // console.log(editedTask);
-
+                    
+                    let editedProject = createProjectFromProjectCardData(previousCard);
+                    console.log(editedProject);
+                    editProject(editedProject, previousProjectTitle);
                     // editProject(editedProject);
                     previousCard = undefined;
+                    previousProjectTitle = undefined;
                     }
-                // saveProjectsToLocal();
+                saveProjectsToLocal();
             }
+
+            // Check if buttons exist > show if not
             const buttons = card.querySelectorAll('.projectGridButtons');
             if (buttons.length < 1) {
                 // Display Edit Buttons
                 displayEditProjectButtons(card);
                 previousID = cardID;
                 previousCard = card;
+                previousProjectTitle = card.querySelector('.projectTitle').textContent;
+                console.log(previousProjectTitle);
             }   
 
 
@@ -69,6 +77,21 @@ function showProjectsEditButton_EL() {
                 console.log('window click');
                 removeProjectEditButtons(e);
                 appendEditedProjectElement(e);
+
+
+
+                if (!(previousCard == undefined)) {
+
+                    let editedProject = createProjectFromProjectCardData(previousCard);
+                    console.log(editedProject);
+                    editProject(editedProject, previousProjectTitle);
+
+                    previousCard = undefined;
+                    previousProjectTitle = undefined;
+
+                saveProjectsToLocal();
+                }
+                
             })
         }, {once: false});
     });

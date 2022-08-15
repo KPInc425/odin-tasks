@@ -2,7 +2,7 @@ import displayNewTaskButton from "./displayNewTaskButton";
 
 function displayProjectLibrary(projectLibrary, displayContainer) {
     
-    function createProjectCard(title, description, priority, ID) {
+    function createProjectCard(title, description, priority, ID, createDate) {
         const projectCard = document.createElement('div');
         projectCard.classList.add('projectCard');
         projectCard.classList.add('projectGridData');
@@ -43,10 +43,14 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
         const projectID = document.createElement('div');
         projectID.setAttribute('data-id', ID)
 
+        const projectCreateDate = document.createElement('div');
+        projectCreateDate.setAttribute('data-createDate', createDate);
+
         projectCard.appendChild(projectTitleContainer);
         projectCard.appendChild(projectDescriptionContainer);
         projectCard.appendChild(projectPriorityContainer);
         projectCard.appendChild(projectID);
+        projectCard.appendChild(projectCreateDate);
 
         displayContainer.appendChild(projectCard);
         
@@ -54,7 +58,7 @@ function displayProjectLibrary(projectLibrary, displayContainer) {
     
     projectLibrary.forEach(project => {
         // console.log(project);
-        createProjectCard(project.projectTitle, project.projectDescription, project.projectPriority, project.projectID);
+        createProjectCard(project.projectTitle, project.projectDescription, project.projectPriority, project.projectID, project.createDate);
 
     });
 

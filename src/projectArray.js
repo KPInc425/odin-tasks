@@ -62,7 +62,7 @@ const getDefaultProject = () => {
 // DON'T FORGET THIS RETURNS AN OBJECT
 const getProjectFromTitle = (projectTitle) => {
     // search through projectArray for selected title
-    // console.log(projectTitle);
+    console.log(projectTitle);
     let projectIndex = 0;
     for (const projectData of allProjectsArray) {
         // console.log(project);
@@ -92,6 +92,22 @@ const editTask = (editedTask) => {
         i++;
     })
 }
+const editProject = (editedProject, previousProjectTitle) => {
+    console.log(editedProject);
+    console.log(previousProjectTitle);
+    // DON'T FORGET THIS RETURNS AN OBJECT
+    let projectObj = getProjectFromTitle(previousProjectTitle);
+    console.log(projectObj);
+    let projectIndex = projectObj.projectIndex
+    // console.log(project);
+    
+    allProjectsArray[projectIndex].projectTitle = editedProject.projectTitle;
+    allProjectsArray[projectIndex].projectDescription = editedProject.projectDescription;
+    allProjectsArray[projectIndex].projectPriority = editedProject.projectPriority;
+    console.log(allProjectsArray);
+}
+
+
 
 const getProjectList = () => {
     let projectList = [];
@@ -159,6 +175,7 @@ export {
     // DON'T FORGET THIS RETURNS AN OBJECT
     getProjectFromTitle,
     editTask,
+    editProject,
     getProjectList,
     changeTaskProject,
     deleteTask,
