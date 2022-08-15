@@ -27,9 +27,6 @@ const addNewProjectToArray = (project) => {
 }
 
 const addNewTask = (projectIndex, newTask) => {
-    // console.log(newTask);
-    // console.log(projectIndex);
-    // console.log(allProjectsArray[projectIndex]);
     if (!(newTask == undefined)) {
         allProjectsArray[projectIndex].addTaskToProject(newTask)
     } else {

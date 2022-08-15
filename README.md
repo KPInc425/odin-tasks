@@ -7,8 +7,6 @@ Build to do app.
 
 #Todo
 
--Add ability to edit projects from project card
---Add button to enter project when edit buttons are revealed
 -Add confirmation when deleting anything
 -Add Delete button to projectcard
 
@@ -27,6 +25,10 @@ Build to do app.
 --When clicked show full task
 
 -make simple new task input put the new task into currently displayed project (currently only goes to default project);
+
+???BUGS???
+-New task button positioning when lots of tasks
+
 
 !!!--New Idea/Recodes--!!!
 -Remove edit buttons for due/start Date and add datetime input when displaying tasks

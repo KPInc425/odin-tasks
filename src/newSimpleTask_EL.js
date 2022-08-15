@@ -9,7 +9,7 @@ function simpleNewTaskEventListener() {
 
     // let localProjectArray = projectArray();
 
-    // let defaultProject = getDefaultProject();
+    let defaultProject = getDefaultProject();
     // console.log(defaultProject);
 
     // Get Refs to main container
@@ -24,7 +24,24 @@ function simpleNewTaskEventListener() {
         console.log(projectTitle);
         let newTask = createTask(inputNewTask.value, 'New Description', projectTitle); 
         let projectToEdit = getProjectFromTitle(projectTitle)
-        addNewTask(projectToEdit.projectIndex, newTask);
+        if (projectTitle == 'All Projects') {
+            newTask.projectTitle = defaultProject.projectTitle;
+            addNewTask(0, newTask);
+            displayContainer.innerHTML = "";
+            inputNewTask.value = "";
+            displayProjectTitle(defaultProject.projectTitle);
+            displayProjectTasks(defaultProject.projectTaskArray);
+            saveProjectsToLocal();
+
+        } else {
+            addNewTask(projectToEdit.projectIndex, newTask);
+            displayContainer.innerHTML = "";
+            inputNewTask.value = "";
+            displayProjectTitle(projectTitle);
+            displayProjectTasks(projectToEdit.projectData.projectTaskArray);
+            saveProjectsToLocal();
+        }
+
         // Add Task to default project
         // getDefaultProject().addTaskToProject(newTask);
         
@@ -33,13 +50,13 @@ function simpleNewTaskEventListener() {
         // replaceProjectData(defaultProject, 0);
 
         // console.log(projectArray)
-        displayContainer.innerHTML = "";
-        inputNewTask.value = "";
+        // displayContainer.innerHTML = "";
+        // inputNewTask.value = "";
         // displayProjectTasks(defaultProject.projectTaskArray);
-        displayProjectTitle(projectTitle);
-        displayProjectTasks(projectToEdit.projectData.projectTaskArray);
+        // displayProjectTitle(projectTitle);
+        // displayProjectTasks(projectToEdit.projectData.projectTaskArray);
 
-        saveProjectsToLocal();
+        // saveProjectsToLocal();
 
         // showTasksEditButtonEL();
 
