@@ -1,7 +1,7 @@
 import { el_addSelectedProjectElement } from "./el_addSelectedProjectElement";
 
 function displayEditProjectButtons(projectCard) {
-    // console.log("Initiate Edit Project...");
+    console.log("Initiate Edit Project...");
     // console.log(projectCard);
 
     const btnCheckArray = projectCard.querySelectorAll('.projectGridButtons');
@@ -36,9 +36,9 @@ function displayEditProjectButtons(projectCard) {
         projectCard.appendChild(btnEditProjectPriority);   
         
     
-        // Get Card Unique ID
-        const cardID = projectCard.querySelector('[data-id]').getAttribute('data-id');
-        console.log(cardID);
+        // // Get Card Unique ID
+        // const cardID = projectCard.querySelector('[data-id]').getAttribute('data-id');
+        // console.log(cardID);
     
     }
 

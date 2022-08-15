@@ -2,9 +2,8 @@ import displayProjectTasks from "./displayProjectTasks.js";
 import displayProjectTitle from "./displayProjectTitle.js";
 import showTasksEditButtonEL from "./showTasksEditButtons_EL.js";
 import { getProjectFromTitle } from "./projectArray.js";
-import displayEditProjectButtons from "./displayEditProjectButtons.js";
 
-function showSelectedProjectTasksEL (projectArray) {
+function showSelectedProjectTasksEL () {
 
     // Get nodelist of all Project Cards
     const cardNodeArray = document.querySelectorAll('.projectCard');
@@ -13,13 +12,14 @@ function showSelectedProjectTasksEL (projectArray) {
 
     // Add Eventlisteners to each card to display selected project
     cardArray.forEach((card) => {
-        card.addEventListener('click', (e) => {
-            e.stopPropagation();
+        // card.addEventListener('click', (e) => {
 
-            displayEditProjectButtons(card);
+
+            // displayEditProjectButtons(card);
             // console.log('click');
 
             card.addEventListener('dblclick', (e) => {
+            e.stopPropagation();
             // console.log("Clicked the Project Card!");
             // console.log(card);
             // Get project title from selected card
@@ -36,23 +36,6 @@ function showSelectedProjectTasksEL (projectArray) {
             // Event listeners for edit buttons
             showTasksEditButtonEL();
             })
-
-            window.addEventListener('click', (event) => {
-                // console.log(event.target);
-                if (!event.target.matches('.projectCard')) {
-                    console.log("NOT CARD!");
-                    let buttons = card.querySelectorAll(".projectGridButtons");
-                    // console.log(buttons);
-                    let i;
-                    for (i = 0; i < buttons.length; i++) {
-                        let shownButton = buttons[i];
-                        console.log(shownButton);
-                        shownButton.remove()
-                    }
-                    card.classList.remove('cardGrid');
-                };                
-            }, {once: true})
-        })
     })
 }
 

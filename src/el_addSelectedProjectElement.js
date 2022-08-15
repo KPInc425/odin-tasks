@@ -7,12 +7,29 @@ let userInputBox;
 let chosenPriority = "Low";
 let openInputElementArray = [];
 
+function appendEditedProjectElement() {
+    if (openInputElementArray.length > 0) {
+        for (let i = 0; i < openInputElementArray.length; i++) {
+            if (openInputElementArray[i].className == 'inputPriorityForm') {
+                elementToEditArray[i].textContent = chosenPriority + " Priority";
+            } else if (openInputElementArray[i].value.length < 3) {
+                elementToEditArray[i].textContent = openInputElementArray[i].placeholder;
+            } else {
+                elementToEditArray[i].textContent = openInputElementArray[i].value;
+            }
+            elementToEditsParentArray[i].innerHTML = "";
+            elementToEditsParentArray[i].appendChild(elementToEditArray[i]);
+        }
+    }
+    // Clean up 
+    openInputElementArray = [];
+    elementToEditArray = [];
+    elementToEditsParentArray = [];
+}
+
 
 
 const el_addSelectedProjectElement = (projectCard) => {
-     // Get Card Unique ID
-     const cardID = projectCard.id;
-
      // Get Button Array 
     let btnEditArray = projectCard.querySelectorAll('.projectGridButtons');
 
@@ -115,7 +132,7 @@ const el_addSelectedProjectElement = (projectCard) => {
                         event.preventDefault();
                         // console.log(event.key);
                         if (event.key === "Enter") {
-                            appendEditedElement(event);
+                            appendEditedProjectElement(event);
                         }
                         
                     })
@@ -126,8 +143,11 @@ const el_addSelectedProjectElement = (projectCard) => {
             }     
         })
     })
+
+    window.addEventListener('click', appendEditedProjectElement);
 }
 
 export {
     el_addSelectedProjectElement,
+    appendEditedProjectElement,
 }

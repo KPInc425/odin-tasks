@@ -9,6 +9,9 @@ Build to do app.
 
 -Add ability to edit projects from project card
 --Add button to enter project when edit buttons are revealed
+-Add confirmation when deleting anything
+-Add Delete button to projectcard
+
 -seperate el_displayNewTaskCard into 2 modules, 1 for EL and the other for displaying the new Form
 -styles cards to change text color based on priority
 -Refacter AddEditButtonsSelected_EL into smaller modules for each function
@@ -27,6 +30,7 @@ Build to do app.
 
 !!!--New Idea/Recodes--!!!
 -Remove edit buttons for due/start Date and add datetime input when displaying tasks
+-Only append data for single element when enter is pressed
 -set default duedate for project?
 -check that "uniqueID" isn't already being used in ALL PROJECTS
 -Refactor project selection logic in AddEditButtonsSelected_EL and el_displayNewTaskCard

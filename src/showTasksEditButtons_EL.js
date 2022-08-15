@@ -31,7 +31,7 @@ function showTasksEditButtonEL() {
         }
         // Remove Grid Styling
         cards.forEach((card) => {
-            card.classList.remove('cardGrid')
+            card.classList.remove('cardGrid');
         }); 
         previousID = undefined;          
     }
@@ -41,8 +41,8 @@ function showTasksEditButtonEL() {
 
             // Allow for click on any area of card to activate
             e.stopImmediatePropagation();
-             let cardID = card.getAttribute('data-id');
-             if (!(previousID == undefined)) {
+            let cardID = card.getAttribute('data-id');
+            if (!(previousID == undefined)) {
                 if (!(cardID == previousID)) { 
                     hideHiddenTaskElements(previousCard);          
                     removeEditButtons(e);
@@ -65,7 +65,7 @@ function showTasksEditButtonEL() {
                     }
                 }
                 saveProjectsToLocal();
-             }
+            }
 
             // If edit buttons aren't displayed > Display Edit Buttons
             const buttons = card.querySelectorAll('.taskGridButtons');
