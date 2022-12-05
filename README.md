@@ -7,6 +7,8 @@ Build to do app.
 
 #Todo
 
+-Hook up to proper backend db
+
 -Add confirmation when deleting anything
 -Add Delete button to projectcard
 

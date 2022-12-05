@@ -28,7 +28,7 @@ function storageAvailable(type) {
 
 
 const checkLocalStorage = () => {
-    if (storageAvailable('localStorage')) {
+    if (storageAvailable('sessionStorage')) {
         console.log('Local Storage is Available');
         return true;
     } else {
@@ -39,16 +39,16 @@ const checkLocalStorage = () => {
 
 const populateStorage = (projectsArray) => {
     // BLUNT FORCE METHOD SHOULD LIKELY BE CLEANED UP FOR MORE SPECIFICITY
-    localStorage.clear();
+    sessionStorage.clear();
     let projectIndex = 0;
     
     console.log(projectsArray);
     for (const project of projectsArray) {
         // console.log(project.projectTaskArray);
-        localStorage.setItem(`localProjectsArray[${projectIndex}]`, JSON.stringify(project));
+        sessionStorage.setItem(`localProjectsArray[${projectIndex}]`, JSON.stringify(project));
         projectIndex++
     }
-    // console.log(localStorage);
+    // console.log(sessionStorage);
 }
 
 const importMainProjectsArray = () => {
@@ -58,9 +58,9 @@ const importMainProjectsArray = () => {
     let tmpProjectsArr = [];
 
     // increment through each stored project
-    for (let i = 0; i < localStorage.length; i++) {
+    for (let i = 0; i < sessionStorage.length; i++) {
         // parse data into temp variable
-        let tmpProject = JSON.parse(localStorage.getItem(`localProjectsArray[${i}]`));
+        let tmpProject = JSON.parse(sessionStorage.getItem(`localProjectsArray[${i}]`));
         // console.log(tmpProject);
         tmpProjectsArr.push(tmpProject);
     }

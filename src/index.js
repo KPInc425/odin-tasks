@@ -19,7 +19,7 @@ import deleteAllTasks from './el_deleteAllTasks.js';
 import el_createProject from './el_createProject.js';
 
 if (checkLocalStorage()) {
-    if (localStorage.length > 0) {
+    if (sessionStorage.length > 0) {
         console.log("Something in Local");
         
         // Initialize Project Arrays
